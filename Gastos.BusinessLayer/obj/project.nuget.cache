@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HYeJKjxL8zU4WYcWuA1oAsvNiSPrY2n/i42bHw3iMthKq+1cMjnvl4M50i9SX6ZChkUwjZ9E8Ll3qNaGczS10g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\Gastos\\Gastos.BusinessLayer\\Gastos.BusinessLayer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vmartinez\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
