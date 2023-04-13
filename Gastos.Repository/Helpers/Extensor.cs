@@ -19,6 +19,7 @@ namespace Gastos.Repositories.Helpers
             services.AddScoped<IDestinoRepository, DestinoRepository>();
             services.AddScoped<ICategoriaRepository, CategoryRepository>();
             services.AddScoped<ISubcategoriaRepository, SubcategoriaRepository>();
+            services.AddScoped<IDetalleDeApartadoRepository, DetalleDeApartadoRepository>();
         }
     }
 }

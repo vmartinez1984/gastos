@@ -27,5 +27,23 @@ namespace Gastos.Api.Controllers
 
             return Created($"Subcategorias/{id}", new { Id = id });
         }
+        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put([FromBody] SubcategoriaDtoIn subcategoria, int id)
+        {
+            await _unitOfWork.Subcategoria.ActualizarAsync(subcategoria, id);
+
+            return Accepted($"Subcategorias/{id}", new { Id = id });
+        }
+
+        [HttpGet("{subcategoriaId}/Apartados")]
+        public async Task<IActionResult> ObtenerApartadosPorSubcategoriaId(int subcategoriaId)
+        {
+            List<ApartadoDto> lista;
+
+            lista = await _unitOfWork.Apartado.ObtenerApartadosPorSubcategoriaId(subcategoriaId);
+
+            return Ok(lista);
+        }
     }
 }

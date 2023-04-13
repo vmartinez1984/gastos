@@ -12,9 +12,11 @@ namespace Gastos.Repositories.Repository
         {
         }
 
-        public Task ActualizarAsync(ApartadoEntity entity)
+        public async Task ActualizarAsync(ApartadoEntity entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Apartado.Update(entity);
+
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<int> AgregarAsync(ApartadoEntity entity)
@@ -25,23 +27,65 @@ namespace Gastos.Repositories.Repository
             return entity.Id;
         }
 
-        public Task BorrarAsync(int id)
+        public async Task BorrarAsync(int id)
         {
-            throw new NotImplementedException();
+            ApartadoEntity entity;
+
+            entity = await _appDbContext.Apartado.Where(x => x.Id == id).FirstAsync();
+            entity.EstaActivo = false; 
+            _appDbContext.Apartado.Update(entity);
+
+            await _appDbContext.SaveChangesAsync();
         }
 
-        public Task<ApartadoEntity> ObtenerAsync(int id)
+        public async Task<List<ApartadoEntity>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId)
         {
-            throw new NotImplementedException();
+            List<ApartadoEntity> entities;
+
+            entities = await _appDbContext                
+                .Apartado
+                .Include(x=> x.TipoDeApartado)
+                .Where(x => x.SubcategoriaId == subcategoriaId && x.EstaActivo).ToListAsync();
+
+            return entities;
+        }
+
+        public async Task<ApartadoEntity> ObtenerAsync(int id)
+        {
+            return await _appDbContext
+                .Apartado
+                .Include(x => x.TipoDeApartado)
+                .Where(x=> x.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<ApartadoEntity>> ObtenerAsync()
+        {
+            List<ApartadoEntity> entities;
+
+            entities = await _appDbContext
+                .Apartado
+                .Include(x => x.TipoDeApartado)
+                .Where(x => x.EstaActivo).ToListAsync();
+
+            return entities;
         }
 
         public async Task<List<ApartadoEntity>> ObtenerPorPeriodoAsync(int periodoId)
         {
             List<ApartadoEntity> entities;
 
-            entities = await _appDbContext.Apartado.Where(x => x.PeriodoId == periodoId && x.EstaActivo).ToListAsync();
+            entities = await _appDbContext.Apartado.Include(x => x.TipoDeApartado).Where(x => x.PeriodoId == periodoId && x.EstaActivo).ToListAsync();
 
             return entities;
+        }
+
+        public async Task<decimal> ObtenerTotalPorSubcategoriaId(int subcategoriaId)
+        {
+            decimal total = 0;
+
+            total = await _appDbContext.Apartado.Include(x => x.TipoDeApartado).Where(x=> x.SubcategoriaId == subcategoriaId && x.EstaActivo).SumAsync(x => x.CantidadInicial);
+
+            return total;
         }
     }
 }

@@ -7,7 +7,7 @@ using Gastos.Core.Interfaces.IRepositories;
 
 namespace Gastos.BusinessLayer.Bl
 {
-    public class PeriodoBl :BaseBl, IPeriodoBl
+    public class PeriodoBl : BaseBl, IPeriodoBl
     {
         public PeriodoBl(IRepositorio repositorio, IMapper mapper) : base(repositorio, mapper)
         {
@@ -33,11 +33,6 @@ namespace Gastos.BusinessLayer.Bl
             throw new NotImplementedException();
         }
 
-        public async Task<PeriodoDto> ObtenerAsync(int id)
-        {
-            return _mapper.Map<PeriodoDto>(await _repositorio.Periodo.ObtenerAsync(id));
-        }
-        
         public async Task<List<PeriodoDto>> ObtenerAsync()
         {
             List<PeriodoEntity> entities;
@@ -47,6 +42,55 @@ namespace Gastos.BusinessLayer.Bl
             list = _mapper.Map<List<PeriodoDto>>(entities);
 
             return list;
+        }
+
+        public Task<PeriodoDto> ObtenerAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<PeriodoConDetallesDto> ObtenerPeriodoConDetalles(int periodId)
+        {
+            PeriodoConDetallesDto periodo;
+            PeriodoEntity periodoEntity;
+            List<GastoDto> listaDeGastos;
+
+            periodoEntity = await _repositorio.Periodo.ObtenerAsync(periodId);
+            listaDeGastos = _mapper.Map<List<GastoDto>>(await _repositorio.Gasto.ObtenerPorPeriodoIdAsync(periodId));
+            periodo = new PeriodoConDetallesDto
+            {
+                Id = periodId,
+                Nombre = periodoEntity.Nombre,
+                FechaFinal = periodoEntity.FechaFinal,
+                FechaInicial = periodoEntity.FechaInicial,
+                ListaDeEntradas = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Entrada").ToList(),
+                ListaDeGastos = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Gasto").ToList(),
+                ListaDeApartados = await ObtenerListaDeApartados(listaDeGastos)
+            };
+
+            return periodo;
+        }
+
+        private async Task<List<GastoApartadoDto>> ObtenerListaDeApartados(List<GastoDto> listaDeGastos)
+        {
+            List<GastoApartadoDto> listaDeApartados;
+
+            listaDeApartados = _mapper.Map<List<GastoApartadoDto>>(listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Apartado").ToList());
+            foreach (var item in listaDeApartados)
+            {
+                item.Total = await ObtenerTotalDeApartado(item.Subcategoria.Id);
+            }
+
+            return listaDeApartados;
+        }
+
+        private async Task<decimal> ObtenerTotalDeApartado(int subcategoriaId)
+        {
+            decimal total;
+
+            total = await _repositorio.Apartado.ObtenerTotalPorSubcategoriaId(subcategoriaId);
+
+            return total;
         }
     }
 }

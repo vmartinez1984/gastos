@@ -1,7 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <router-link to="/periodos" class="nav-link">Periodos</router-link>
-  <router-link to="/subcategorias" class="nav-link">Subcategorias</router-link>
+  <nav-bar-top/>  
 
   <div class="container-fluid">
     <router-view/>  
@@ -10,9 +8,11 @@
 </template>
 
 <script>
+import NavBarTop from '@/components/plantillas/NavBarTop.vue'
 
 export default {
-  name: 'App'
+  name: "App",
+  components:{NavBarTop}
 }
 </script>
 
@@ -20,9 +20,7 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  -moz-osx-font-smoothing: grayscale;  
+  color: #2c3e50;  
 }
 </style>

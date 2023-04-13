@@ -2,9 +2,14 @@
 
 namespace Gastos.Core.Dtos
 {
-    public class PeriodoCompletoDto: PeriodoDto
-    {
-        public List<GastoDto> ListaDeGastos;
+    public class PeriodoConDetallesDto: PeriodoDto
+    {       
+
+        public List<GastoDto> ListaDeGastos { get; set; }
+
+        public List<GastoDto > ListaDeEntradas { get; set; }
+
+        public List<GastoApartadoDto> ListaDeApartados { get; set; }
     }
 
     public class PeriodoDto: PeriodoDtoIn

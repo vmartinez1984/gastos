@@ -11,7 +11,8 @@ namespace Gastos.Repositories
             ITipoDeApartadoRepository tipoDeApartadoRepository,
             IDestinoRepository destinoRepository,
             ICategoriaRepository categoriaRepository,
-            ISubcategoriaRepository subcategoriaRepository
+            ISubcategoriaRepository subcategoriaRepository,
+            IDetalleDeApartadoRepository detalleDeApartadoRepository
         )
         {
             Periodo = periodoRepository;
@@ -21,6 +22,7 @@ namespace Gastos.Repositories
             Destino = destinoRepository;
             Categoria = categoriaRepository;
             Subcategoria = subcategoriaRepository;
+            DetalleDeApartado = detalleDeApartadoRepository;
         }
 
         public IPeriodoRepository Periodo { get;}
@@ -33,5 +35,7 @@ namespace Gastos.Repositories
         public IDestinoRepository Destino { get; }
         public ICategoriaRepository Categoria { get; }
         public ISubcategoriaRepository Subcategoria { get; }
+
+        public IDetalleDeApartadoRepository DetalleDeApartado { get; }
     }
 }

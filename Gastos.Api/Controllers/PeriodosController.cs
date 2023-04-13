@@ -22,29 +22,17 @@ namespace Gastos.Api.Controllers
 
             list = await _unitOfWork.Periodo.ObtenerAsync();
 
-            return Ok(list);
+            return Ok(list.OrderByDescending(x=> x.Id));
         }
 
         [HttpGet("{periodoId}/Gastos")]
         public async Task<IActionResult> ObtenerPorPeriodoIdAsync(int periodoId)
         {
-            PeriodoDto periodo;
+            PeriodoConDetallesDto periodo;
 
-            periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId);
-            var listaDeGastos = await _unitOfWork.Gasto.ObtenerPorPeriodoIdAsync(periodo.Id);
-            var periodoCompleto = new 
-            {
-                FechaFinal = periodo.FechaFinal,
-                FechaInicial = periodo.FechaInicial,
-                Id = periodo.Id,
-                Nombre = periodo.Nombre,
-                ListaDeGastos =listaDeGastos.Where(x=> x.Subcategoria.Categoria.Nombre == "Gasto").ToList(),
-                ListaDeApartados = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Apartado").ToList(),
-                ListaDeEntradas = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Entrada").ToList(),
-                ListaCompleta = listaDeGastos
-            };
+            periodo = await _unitOfWork.Periodo.ObtenerPeriodoConDetalles(periodoId);
 
-            return Ok(periodoCompleto);
+            return Ok(periodo);
         }
 
         // POST api/<PeriodosController>

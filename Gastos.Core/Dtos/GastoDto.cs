@@ -9,6 +9,11 @@ namespace Gastos.Core.Dtos
         public SubcategoriaDto Subcategoria { get; set; }
     }
 
+    public class GastoApartadoDto : GastoDto
+    {
+        public decimal Total { get; set; }
+    }
+
     public class GastoDtoIn: GastoBaseDto
     {
 

@@ -14,7 +14,9 @@ namespace Gastos.Repositories.Repository
 
         public async Task<List<TipoDeApartadoEntity>> ObtenerAsync()
         {
-            return await _appDbContext.TipoDeApartado.Where(x => x.EstaActivo).ToListAsync();
+            return await _appDbContext.TipoDeApartado.Where(x => x.EstaActivo)
+                .OrderBy(x=> x.Nombre)
+                .ToListAsync();
         }
     }
 }

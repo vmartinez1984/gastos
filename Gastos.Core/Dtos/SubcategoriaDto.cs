@@ -11,6 +11,8 @@ namespace Gastos.Core.Dtos
         public string Nombre { get; set; }
 
         public decimal Cantidad { get; set; }
+
+        public decimal Total { get; set; }
     }
 
     public class SubcategoriaDtoIn

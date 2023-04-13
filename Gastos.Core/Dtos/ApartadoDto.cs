@@ -2,9 +2,11 @@
 
 namespace Gastos.Core.Dtos
 {
-    public class ApartadoDto
+    public class ApartadoDto: ApartadoDtoIn
     {
         public int Id { get; set; }
+
+        public TipoDeApartadoDto TipoDeApartado { get; set; }
     }
     
     public class ApartadoDtoIn
@@ -33,6 +35,6 @@ namespace Gastos.Core.Dtos
         public DateTime FechaFinal { get; set; }
         public int PeriodoId { get; set; }
 
-        public int DestinoId { get; set; }
+        public int SubcategoriaId { get; set; }
     }
 }

@@ -12,9 +12,10 @@ namespace Gastos.Repositories.Repository
         {
         }
 
-        public Task ActualizarAsync(SubcategoriaEntity entity)
+        public async Task ActualizarAsync(SubcategoriaEntity entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Subcategoria.Update(entity);
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<int> AgregarAsync(SubcategoriaEntity entity)
@@ -34,7 +35,7 @@ namespace Gastos.Repositories.Repository
         {
             return _appDbContext.Subcategoria
                 .Include(x => x.Categoria)
-                .Where(x => x.EstaActivo)
+                .Where(x => x.EstaActivo).OrderBy(x=>x.Nombre)
                 .ToListAsync();
         }
 
@@ -47,6 +48,14 @@ namespace Gastos.Repositories.Repository
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
 
             return entity;
+        }
+
+        public Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId)
+        {
+            return _appDbContext.Subcategoria
+                .Include(x => x.Categoria)
+                .Where(x => x.CategoriaId == categoriaId && x.EstaActivo)
+                .ToListAsync();
         }
     }
 }

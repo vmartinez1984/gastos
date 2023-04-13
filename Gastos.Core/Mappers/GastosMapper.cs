@@ -5,14 +5,14 @@ using Gastos.Core.Entities;
 namespace Gastos.Core.Mappers
 {
 
-    public  class GastosMapper: Profile
+    public class GastosMapper : Profile
     {
         public GastosMapper()
         {
             CreateMap<PeriodoEntity, PeriodoDto>();
             CreateMap<PeriodoDtoIn, PeriodoEntity>();
 
-            CreateMap<ApartadoDtoIn,ApartadoEntity>();
+            CreateMap<ApartadoDtoIn, ApartadoEntity>();
 
             CreateMap<TipoDeApartadoEntity, TipoDeApartadoDto>();
 
@@ -25,6 +25,12 @@ namespace Gastos.Core.Mappers
             CreateMap<SubcategoriaDtoIn, SubcategoriaEntity>();
 
             CreateMap<CategoriaEntity, CategoriaDto>();
+
+            CreateMap<GastoDto, GastoApartadoDto>();
+
+            CreateMap<ApartadoEntity, ApartadoDto>();
+
+            CreateMap<DetalleDeApartadoDtoIn, DetalleDeApartadoEntity>();
         }
     }
 }

@@ -17,7 +17,10 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         ISubcategoriaBl Subcategoria { get; }
 
         ICategoriaBl Categoria { get; }
+        IDetalleDeApartadoBl DetalleDeApartado { get; }
     }
+
+    public interface IDetalleDeApartadoBl: IBaseBl<DetalleDeApartadoDtoIn,DetalleDeApartadoDto> { }
 
     public interface IBaseBl<T,U> where T: class
     {
@@ -32,14 +35,16 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task<List<GastoDto>> ObtenerPorPeriodoIdAsync(int periodoId);
     }
 
-    public interface IApartadoBl: IBaseBl<ApartadoDtoIn, ApartadoDto>
+    public interface IApartadoBl : IBaseBl<ApartadoDtoIn, ApartadoDto>
     {
-
+        Task<List<ApartadoDto>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId);
+        Task<List<ApartadoDto>> ObtenerAsync();
     }
 
     public interface IPeriodoBl : IBaseBl<PeriodoDtoIn, PeriodoDto> 
     {
         Task<List<PeriodoDto>> ObtenerAsync();
+        Task<PeriodoConDetallesDto> ObtenerPeriodoConDetalles(int periodId);
     }
 
     public interface ITipoDeApartadoBl
@@ -55,6 +60,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
     public interface ISubcategoriaBl: IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
     {
         Task<List<SubcategoriaDto>> ObtenerAsync();
+        Task<List<SubcategoriaDto>> ObtenerPorCategoriaIdAsync(int categoriaId);
     } 
     
     public interface IDestinoBl

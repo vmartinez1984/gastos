@@ -24,9 +24,25 @@ namespace Gastos.BusinessLayer.Bl
 
             apartadoEntity = _mapper.Map<ApartadoEntity>(item);
             apartadoEntity.Id = await _repositorio.Apartado.AgregarAsync(apartadoEntity);
-            await ActualizarGasto(item);
+            await AgregarDetalleDeApartadoAsync(apartadoEntity);
+            //await ActualizarGasto(item);
 
             return apartadoEntity.Id;
+        }
+
+        private async Task AgregarDetalleDeApartadoAsync(ApartadoEntity apartadoEntity)
+        {
+            DetalleDeApartadoEntity detalleDeApartadoEntity;
+
+            detalleDeApartadoEntity = new DetalleDeApartadoEntity
+            {
+                ApartadoId = apartadoEntity.Id,
+                Cantidad = apartadoEntity.CantidadInicial,
+                EstaActivo = true,
+                FechaDeRegistro = DateTime.Now
+            };
+
+            await _repositorio.DetalleDeApartado.AgregarAsync(detalleDeApartadoEntity);
         }
 
         private async Task ActualizarGasto(ApartadoDtoIn item)
@@ -43,7 +59,8 @@ namespace Gastos.BusinessLayer.Bl
                     EstaActivo = true,
                     Nombre = "Apartados",
                     PeriodoId = item.PeriodoId,
-                    SubcategoriaId = Apartados,                    
+                    SubcategoriaId = item.SubcategoriaId,
+                    IdemPotency = Guid.NewGuid()
                 };
 
                 gastoEntity.Id = await _repositorio.Gasto.AgregarAsync(gastoEntity);
@@ -67,6 +84,28 @@ namespace Gastos.BusinessLayer.Bl
         public Task<ApartadoDto> ObtenerAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<ApartadoDto>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId)
+        {
+            List<ApartadoDto> list;
+            List<ApartadoEntity> entities;
+
+            entities = await _repositorio.Apartado.ObtenerApartadosPorSubcategoriaId(subcategoriaId);
+            list = _mapper.Map<List<ApartadoDto>>(entities);
+
+            return list;
+        }
+
+        public async Task<List<ApartadoDto>> ObtenerAsync()
+        {
+            List<ApartadoDto> list;
+            List<ApartadoEntity> entities;
+
+            entities = await _repositorio.Apartado.ObtenerAsync();
+            list = _mapper.Map<List<ApartadoDto>>(entities);
+
+            return list;
         }
     }
 }

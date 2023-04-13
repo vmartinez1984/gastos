@@ -11,6 +11,7 @@
             </div>
         </div>
         <div class="card-body">
+            <!-- apartados -->
             <div class="row" v-for="subcategoria in apartados" :key="subcategoria.id">
                 <div class="col">{{ subcategoria.categoria.nombre }}</div>
                 <div class="col">{{ subcategoria.nombre }}</div>
@@ -29,12 +30,18 @@
                 </div>
             </div>
             <br />
+            <!-- gastos -->
             <div class="row" v-for="subcategoria in gastos" :key="subcategoria.id">
                 <div class="col">{{ subcategoria.categoria.nombre }}</div>
                 <div class="col">{{ subcategoria.nombre }}</div>
                 <div class="col">
-                    <div class="text-end">
-                        {{ formatPrice(subcategoria.cantidad) }}</div>
+                    <router-link
+                        :to="{ name: 'editarSubcategoria',  params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad } }">
+                        Editar
+                    </router-link>
+                </div>
+                <div class="col">
+                    <div class="text-end">{{ formatPrice(subcategoria.cantidad) }}</div>
                 </div>
             </div>
             <hr />
@@ -42,8 +49,7 @@
                 <div class="col"></div>
                 <div class="col">Total</div>
                 <div class="col">
-                    <div class="text-end">
-                        {{ formatPrice(total) }}</div>
+                    <div class="text-end">{{ formatPrice(total) }}</div>
                 </div>
             </div>
             <hr />
@@ -97,13 +103,13 @@ const obtenerSubcategoriasAsync = async () => {
     totalDeEntradas.value = 0
     subcategorias.value.forEach(item => {
         if (item.categoria.id == 2) {
-            gastos.value.push({ nombre: item.nombre, categoria: { nombre: item.categoria.nombre }, cantidad: item.cantidad })
+            gastos.value.push({id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id  }, cantidad: item.cantidad })
             total.value += item.cantidad
         } else if (item.categoria.id == 3) {
-            apartados.value.push({ nombre: item.nombre, categoria: { nombre: item.categoria.nombre }, cantidad: item.cantidad })
+            apartados.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad })
             totalDeApartados.value += item.cantidad
         } else if (item.categoria.id == 1) {
-            entradas.value.push({ nombre: item.nombre, categoria: { nombre: item.categoria.nombre }, cantidad: item.cantidad })
+            entradas.value.push({id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id  }, cantidad: item.cantidad })
             totalDeEntradas.value += item.cantidad
         }
     })

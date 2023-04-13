@@ -13,8 +13,9 @@
                     <div class="col-10">
                         <select class="form-select" v-model="subcategoria.categoriaId">
                             <option value="0">Seleccione</option>
-                            <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.id" >{{ categoria.nombre }}</option>
-                        </select>                        
+                            <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.id">{{
+                                categoria.nombre }}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -22,7 +23,7 @@
                         <label class="form-label">Nombre</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" v-model="subcategoria.nombre" class="form-control" placeholder="Vacaciones"/>
+                        <input type="text" v-model="subcategoria.nombre" class="form-control" placeholder="Vacaciones" />
                     </div>
                 </div>
                 <div class="row">
@@ -30,7 +31,8 @@
                         <label class="form-label">$</label>
                     </div>
                     <div class="col-10">
-                        <input type="number" step="0.01" v-model="subcategoria.cantidad" class="form-control" placeholder="300.00"/>
+                        <input type="number" step="0.01" v-model="subcategoria.cantidad" class="form-control"
+                            placeholder="300.00" />
                     </div>
                 </div>
                 <div class="row">
@@ -39,7 +41,7 @@
                         <button class="btn btn-primary">
                             Guardar
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </form>
         </div>
@@ -50,6 +52,7 @@ import { onMounted, ref } from 'vue'
 import servicioCategorias from '@/servicios/ServicioCategorias';
 import ServicioSubcategorias from '@/servicios/ServicioSubcategorias';
 import router from '@/router';
+import { useRoute } from 'vue-router'
 
 var subcategoria = ref({
     id: 0,
@@ -57,20 +60,34 @@ var subcategoria = ref({
     categoriaId: 0,
     cantidad: 0
 })
-var categorias= ref({})
+var categorias = ref({})
 
-const obtenerCategoriasAsync = async () =>{
+const obtenerCategoriasAsync = async () => {
     categorias.value = await servicioCategorias.obtenerAsync();
     console.log(categorias.value)
 }
 
-const guardarSubcategoriaAsync = async () =>{
+const guardarSubcategoriaAsync = async () => {
     //console.log(subcategoria.value)
-    ServicioSubcategorias.agregarAsync(subcategoria.value)
-    router.push({name: 'listaDeSubcategorias'})
+    if(subcategoria.value.id == 0){
+        await ServicioSubcategorias.agregarAsync(subcategoria.value)
+    }else{
+        await ServicioSubcategorias.actualizarAsync(subcategoria.value)
+    }
+    router.push({ name: 'listaDeSubcategorias' })
 }
 
-onMounted( ()=>{
-   obtenerCategoriasAsync();
+onMounted(() => {
+    //console.log(useRoute().query)
+    //console.log(useRoute().name)
+    obtenerCategoriasAsync();
+    switch (useRoute().name) {
+        case 'editarSubcategoria':
+            subcategoria.value.id = useRoute().params.id
+            subcategoria.value.categoriaId = useRoute().query.categoriaId
+            subcategoria.value.nombre = useRoute().query.nombre
+            subcategoria.value.cantidad = useRoute().query.cantidad
+        break
+    }
 })
 </script>

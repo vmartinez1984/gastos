@@ -17,6 +17,13 @@ namespace Gastos.Core.Interfaces.IRepositories
         IDestinoRepository Destino { get; }
 
         ICategoriaRepository Categoria { get; }
+
+        IDetalleDeApartadoRepository DetalleDeApartado { get; }
+    }
+
+    public interface IDetalleDeApartadoRepository : IBaseRepositorio<DetalleDeApartadoEntity>
+    {
+        Task<decimal> ObtenerTotalAsync(int apartadoId);
     }
 
     public interface IDestinoRepository
@@ -31,7 +38,10 @@ namespace Gastos.Core.Interfaces.IRepositories
 
     public interface IApartadoRepository : IBaseRepositorio<ApartadoEntity>
     {
+        Task<List<ApartadoEntity>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId);
+        Task<List<ApartadoEntity>> ObtenerAsync();
         Task<List<ApartadoEntity>> ObtenerPorPeriodoAsync(int periodoId);
+        Task<decimal> ObtenerTotalPorSubcategoriaId(int subcategoriaId);
     }
 
     public interface ICategoriaRepository
@@ -43,6 +53,7 @@ namespace Gastos.Core.Interfaces.IRepositories
     public interface ISubcategoriaRepository: IBaseRepositorio<SubcategoriaEntity>
     {
         Task<List<SubcategoriaEntity>> ObtenerAsync();
+        Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId);        
     }
 
     public interface IGastoRepository: IBaseRepositorio<GastoEntity> 

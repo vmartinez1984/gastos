@@ -31,4 +31,35 @@ export default {
 
         return response.data
     },
+
+    /**
+     * 
+     * @param {int} subcategoriaId 
+     * @returns apartado[]
+     */
+    async obtenerApartadosPorSubcategoriaIdAsync(subcategoriaId){
+        var response
+
+        response = await axios({
+            url: url + subcategoriaId + '/apartados',
+            method: 'GET'
+        })
+
+        return response.data
+    },
+
+    async actualizarAsync(subcategoria){
+        var response
+
+        response = await axios.put(
+            url+subcategoria.id,
+            {
+                "categoriaId": subcategoria.categoriaId,
+                "nombre": subcategoria.nombre,
+                "cantidad": subcategoria.cantidad
+            }
+        )
+
+        return response.data
+    }
 }

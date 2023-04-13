@@ -13,5 +13,21 @@ export default{
         })
 
         return response.data
+    },
+    
+    /**
+     * 
+     * @param {int} categoriaId 
+     * @returns subcategoria[]
+     */
+    async obtenerSubcategoriasPorCategoriasIdAsycn(categoriaId){
+        var response
+
+        response = await axios({
+            url: url + categoriaId + '/subcategorias',
+            method: 'GET'
+        })
+
+        return response.data        
     }
 }

@@ -13,13 +13,13 @@ namespace Gastos.Core.Entities
         [ForeignKey(nameof(TipoDeApartadoEntity))]
         public int TipoDeApartadoId { get; set; }
 
-        public int DestinoId { get; set; }
+        public int SubcategoriaId { get; set; }
 
         public virtual TipoDeApartadoEntity TipoDeApartado { get; set; }
 
         public string Nombre { get; set; }
 
-        public decimal Interes { get; set; }
+        public decimal Intereses { get; set; }
 
         public decimal CantidadInicial { get; set; }
         public decimal CantidadFinal { get; set; }

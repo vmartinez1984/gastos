@@ -16,5 +16,11 @@ namespace Gastos.Api.Controllers
         {
             return Ok(await _unitOfWork.Categoria.ObtenerAsync());
         }
+
+        [HttpGet("{categoriaId}/Subcategorias")]
+        public async Task<IActionResult> ObtenerSubcategoriasPorCategoriaId(int categoriaId)
+        {
+            return Ok(await _unitOfWork.Subcategoria.ObtenerPorCategoriaIdAsync(categoriaId));
+        }
     }
 }
