@@ -46,7 +46,7 @@ export default {
         })
 
         return response.data
-    },
+    },   
 
     async actualizarAsync(subcategoria){
         var response

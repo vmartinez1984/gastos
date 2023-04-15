@@ -7,6 +7,22 @@ namespace Gastos.Core.Dtos
         public int Id { get; set; }
 
         public TipoDeApartadoDto TipoDeApartado { get; set; }
+
+        public List<DetalleDeApartadoDto> ListaDeDetalles { get; set; }
+
+        public int DiasRestantes 
+        {
+            get
+            {
+                int dias;
+                DateTime fechaActual;
+
+                fechaActual = DateTime.Now;
+                dias = FechaFinal.DayOfYear - fechaActual.DayOfYear;
+
+                return dias;
+            }
+        }
     }
     
     public class ApartadoDtoIn

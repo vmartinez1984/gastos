@@ -5,35 +5,35 @@
             <h3 class="text-info">Incremento en la cuenta</h3>
         </div>
         <div class="card-body">
-            <router-link :to="{name :'formularioDeApartado', params:{'id': route.query.periodoId}}" class="btn btn-primary">Nuevo apartado</router-link>
+            <router-link :to="{name :'agregarApartado', params:{'id': route.query.periodoId}}" class="btn btn-primary">Nuevo apartado</router-link>
                         
             <div v-if="apartados.length > 0">
                 <hr class="text-info" />
                 <div class="row text-secondary">
-                    <div class="col-2">Apartado</div>
-                    <div class="col-2 text-end">Total</div>
-                    <div class="col-2">Nombre</div>
-                    <div class="col-6"></div>
+                    <div class="col-md-2">Apartado</div>
+                    <div class="col-md-2 text-end">Total</div>
+                    <div class="col-md-2">Nombre</div>
+                    <div class="col-md-6"></div>
                 </div>
-                <div class="row mt-1" v-for="(apartado, index) in apartados" :key="apartado.id">
-                    <div class="col-2">{{ apartado.nombre }}</div>
-                    <div class="col-2 text-end">{{ formato.formatearMoneda(apartado.cantidadInicial) }}</div>
-                    <div class="col-2">{{ apartado.tipoDeApartado.nombre }}</div>
-                    <div class="col-6">
+
+                <div class="row mt-2" v-for="(apartado, index) in apartados" :key="apartado.id">
+                    <div class="col-md-2 col-sm-4">{{ apartado.nombre }}</div>
+                    <div class="col-md-2 col-sm-4 text-end">{{ formato.formatearMoneda(apartado.cantidadInicial) }}</div>
+                    <div class="col-md-2 col-sm-4">{{ apartado.tipoDeApartado.nombre }}</div>
+                    <div class="col-md-6 col-sm-auto">
                         <form @submit.prevent="agregarDetalleAsync(index, apartado.id)">
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-md-5">
                                     <div class="row">
                                         <div class="col-4">
-                                            <label class="label-form">Cantidad</label>
+                                            <label class="label-form">$</label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="number" step="0.01" class="form-control" v-model="cantidad[index]"
-                                                placeholder="$" />
+                                            <input type="number" step="0.01" class="form-control" v-model="cantidad[index]"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-md-5">
                                     <div class="row">
                                         <div class="col-4">
                                             <label class="label-form">Nota</label>
@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-md-2">
                                     <div class="d-grid">
                                         <button class="btn btn-primary" type="submit">
                                             Agregar
@@ -75,7 +75,7 @@ import { useRoute } from 'vue-router'
 import servicioSubcategorias from '@/servicios/ServicioSubcategorias'
 import servicioApartados from '@/servicios/ServicioApartados'
 import formato from '@/ayudantes/Formato'
-//import router from '@/router';
+import router from '@/router';
 
 var route = useRoute()
 var apartados = ref([])
@@ -97,6 +97,9 @@ const agregarDetalleAsync = async (index, apartadoId) => {
         }
         //console.log(detalle.value)
         await servicioApartados.agregarDetalleAsync(detalle.value)
+        if(route.query.periodoId != undefined){
+            router.push({name: 'periodoDetalles',params:{ 'id': route.query.periodoId} })
+        }
     }catch(exeption){
         alert('Valio pepino :(')
         console.log(exeption)

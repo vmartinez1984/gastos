@@ -32,5 +32,6 @@ namespace Gastos.Core.Entities
 
         public bool EstaActivo { get; set; } = true;
 
+        //public virtual List<DetalleDeApartadoEntity> ListaDeDetalles { get; set; }
     }
 }

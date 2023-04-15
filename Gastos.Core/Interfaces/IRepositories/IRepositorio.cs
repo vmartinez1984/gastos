@@ -19,10 +19,18 @@ namespace Gastos.Core.Interfaces.IRepositories
         ICategoriaRepository Categoria { get; }
 
         IDetalleDeApartadoRepository DetalleDeApartado { get; }
+
+        ICompraRepository Compra { get; }
+    }
+
+    public interface ICompraRepository : IBaseRepositorio<CompraEntity>
+    {
+        Task<List<CompraEntity>> ObtenerPorTdcIdAsync(int tdcId);
     }
 
     public interface IDetalleDeApartadoRepository : IBaseRepositorio<DetalleDeApartadoEntity>
     {
+        Task<List<DetalleDeApartadoEntity>> ObtenerPorApartadoIdAsync(int apartadoId);
         Task<decimal> ObtenerTotalAsync(int apartadoId);
     }
 

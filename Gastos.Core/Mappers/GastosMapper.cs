@@ -31,6 +31,10 @@ namespace Gastos.Core.Mappers
             CreateMap<ApartadoEntity, ApartadoDto>();
 
             CreateMap<DetalleDeApartadoDtoIn, DetalleDeApartadoEntity>();
+            CreateMap<DetalleDeApartadoEntity, DetalleDeApartadoDto>();
+
+            CreateMap<CompraEntity, CompraDto>();
+            CreateMap<CompraDtoIn, CompraEntity>();
         }
     }
 }

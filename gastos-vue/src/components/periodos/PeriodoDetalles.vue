@@ -4,59 +4,32 @@
             <h3 class="text-primary">Detalles del periodo {{ periodo.nombre }}</h3>
         </div>
         <div class="card-body">
-            <h4 class="text-info">Entradas</h4>
-            <hr class="text-info" />
-            <div class="row mt-1" v-for="subcategoria in entradas" :key="subcategoria.id">
-                <div class="col">
-                    <div class="text-start">
-                        {{ subcategoria.nombre }}
-                    </div>
-                </div>
-                <div class="col">
-                    <div v-if="subcategoria.gasto.cantidad == 0">
-                        <div class="text-end">
-                            <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
-                                class="btn btn-warning text-white">
-                                {{ formatPrice(subcategoria.cantidad) }}
-                            </router-link>
-                        </div>
-                    </div>
-                    <div v-else>
-                        <div class="text-end">
-                            <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
-                                class="btn btn-primary">
-                                {{ formatPrice(subcategoria.cantidad) }}
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-end">
-                        {{ formatPrice(subcategoria.cantidad) }}
+            <div v-if="estaCargando">
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
                     </div>
                 </div>
             </div>
-
-            <h4 class="text-info">Apartados</h4>
+            <div>
+            <h4 class="text-info">Entradas</h4>
             <hr class="text-info" />
-            <div class="row mt-1 text-secondary" v-for="subcategoria in apartados" :key="subcategoria.id">
-                <div class="col-md-8">
+            <div class="row mt-1" v-for="subcategoria in entradas" :key="subcategoria.id">
+                <div class="col-md-6">
                     <div class="text-start">
                         {{ subcategoria.nombre }}
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <div class="text-end">
                         {{ formatPrice(subcategoria.cantidad) }}
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <div v-if="subcategoria.gasto.cantidad == 0">
                         <div class="d-grid">
                             <router-link
-                                :to="{ name: 'incrementoDeApartados', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
+                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
                                 class="btn btn-warning text-white text-end">
                                 {{ formatPrice(subcategoria.gasto.cantidad) }}
                             </router-link>
@@ -65,60 +38,127 @@
                     <div v-else>
                         <div class="d-grid">
                             <router-link
-                                :to="{ name: 'incrementoDeApartados', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
+                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
                                 class="btn btn-primary text-end">
                                 {{ formatPrice(subcategoria.gasto.cantidad) }}
                             </router-link>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="d-grid">
-                        <router-link
-                            :to="{ name: 'listaDeApartados', query: { 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
-                            class="btn btn-info text-white text-end">
-                            {{ formatPrice(subcategoria.gasto.total) }}
-                        </router-link>
-                    </div>
-                </div>
-                
+            </div>
+            <hr class="text-primary" />
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeEntradas) }}</div>
             </div>
 
+            <h4 class="text-info">Apartados</h4>
+            <hr class="text-info" />
+            <div>
+                <div class="row mt-1 text-secondary" v-for="subcategoria in apartados" :key="subcategoria.id">
+                    <div class="col-md-6">
+                        <div class="text-start">
+                            {{ subcategoria.nombre }}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-end">
+                            {{ formatPrice(subcategoria.cantidad) }}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div v-if="subcategoria.gasto.cantidad == 0">
+                            <div class="d-grid">
+                                <router-link
+                                    :to="{ name: 'incrementoDeApartados', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
+                                    class="btn btn-warning text-white text-end">
+                                    {{ formatPrice(subcategoria.gasto.cantidad) }}
+                                </router-link>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="d-grid">
+                                <router-link
+                                    :to="{ name: 'incrementoDeApartados', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
+                                    class="btn btn-primary text-end">
+                                    {{ formatPrice(subcategoria.gasto.cantidad) }}
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="d-grid">
+                            <router-link
+                                :to="{ name: 'listaDeApartados', query: { 'subcategoriaId': subcategoria.id, 'subcategoriaNombre': subcategoria.nombre } }"
+                                class="btn btn-info text-white text-end">
+                                {{ formatPrice(subcategoria.gasto.total) }}
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <hr class="text-primary" />                
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeApartados.presupuesto) }}</div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeApartados.cantidad) }}</div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row text-info">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-2 text-end">Resta</div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeEntradas - totalDeApartados.cantidad)}}</div>
+                </div>
+            </div>
 
             <h4 class="text-info">Gastos</h4>
             <hr class="text-info" />
-            <div class="row mt-1" v-for="subcategoria in gastos" :key="subcategoria.id">
-                <div class="col">
-                    <div class="text-start">
-                        {{ subcategoria.nombre }}
-                    </div>
-                </div>
-                <div class="col">
-                    <div v-if="subcategoria.gasto.cantidad == 0">
-                        <div class="text-end">
-                            <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
-                                class="btn btn-warning text-white">
-                                {{ formatPrice(subcategoria.gasto.cantidad) }}
-                            </router-link>
+            <div>
+                <div class="row mt-1" v-for="subcategoria in gastos" :key="subcategoria.id">
+                    <div class="col-md-6">
+                        <div class="text-start">
+                            {{ subcategoria.nombre }}
                         </div>
                     </div>
-                    <div v-else>
+                    <div class="col-md-2">
                         <div class="text-end">
-                            <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
-                                class="btn btn-primary">
-                                {{ formatPrice(subcategoria.gasto.cantidad) }}
-                            </router-link>
+                            {{ formatPrice(subcategoria.cantidad) }}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div v-if="subcategoria.gasto.cantidad == 0">
+                            <div class="d-grid">
+                                <router-link
+                                    :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                    class="btn btn-warning text-white text-end">
+                                    {{ formatPrice(subcategoria.gasto.cantidad) }}
+                                </router-link>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="d-grid">
+                                <router-link
+                                    :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                    class="btn btn-primary text-end">
+                                    {{ formatPrice(subcategoria.gasto.cantidad) }}
+                                </router-link>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="text-end">
-                        {{ formatPrice(subcategoria.cantidad) }}
-                    </div>
+                <hr class="text-info" />
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeGastos.presupuesto) }}</div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeGastos.cantidad) }}</div>
+                </div>
+                <div class="row text-info">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-2 text-end">Resta</div>
+                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeEntradas - totalDeApartados.cantidad - totalDeGastos.cantidad) }}</div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </template>
@@ -127,12 +167,23 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import servicioPeriodo from '@/servicios/ServicioPeriodo'
 import servicioSubcategorias from '@/servicios/ServicioSubcategorias'
+import formato from '@/ayudantes/Formato'
 
 var periodo = ref({})
 var route = useRoute()
 var entradas = ref([])
 var apartados = ref([])
 var gastos = ref([])
+var totalDeEntradas = ref()
+var totalDeApartados = ref({
+    presupuesto: 0,
+    cantidad: 0
+})
+var totalDeGastos = ref({
+    presupuesto: 0,
+    cantidad: 0
+})
+var estaCargando = ref(true)
 
 
 const obtenerPeriodoAsync = async () => {
@@ -145,13 +196,15 @@ const obtenerSubcategoriasAsync = async () => {
 
     data = await servicioSubcategorias.obtenerTodoAsync()
     //console.log(data)
+    //Entradas
+    totalDeEntradas.value = 0
     data.forEach(subcategoria => {
         var gasto
 
         gasto = periodo.value.listaDeEntradas.find(element => element.subcategoria.id == subcategoria.id)
         if (gasto == undefined) {
             gasto = {
-                cantidad: 0
+                cantidad: 0, total: 0
             }
         }
         //console.log("gasto->", gasto)       
@@ -166,8 +219,10 @@ const obtenerSubcategoriasAsync = async () => {
                 },
                 gasto: gasto
             })
+            totalDeEntradas.value += gasto.cantidad
         }
     })
+    //Presupuesto
     data.forEach(subcategoria => {
         var gasto
 
@@ -189,8 +244,11 @@ const obtenerSubcategoriasAsync = async () => {
                 },
                 gasto: { cantidad: gasto.cantidad, total: subcategoria.total }
             })
+            totalDeApartados.value.cantidad += gasto.cantidad
+            totalDeApartados.value.presupuesto += subcategoria.cantidad
         }
     })
+    //gastos
     data.forEach(subcategoria => {
         var gasto
 
@@ -212,6 +270,8 @@ const obtenerSubcategoriasAsync = async () => {
                 },
                 gasto: gasto
             })
+            totalDeGastos.value.cantidad += gasto.cantidad
+            totalDeGastos.value.presupuesto += subcategoria.cantidad
         }
     })
 }
@@ -222,7 +282,9 @@ const formatPrice = (value) => {
 }
 
 onMounted(async () => {
+    estaCargando.value = true
     await obtenerPeriodoAsync()
     await obtenerSubcategoriasAsync()
+    estaCargando.value = false
 })
 </script>

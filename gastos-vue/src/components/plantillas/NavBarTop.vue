@@ -17,6 +17,11 @@
                     <li class="nav-item">                        
                         <router-link to="/apartados" class="nav-link">Apartados</router-link>
                     </li>                   
+                    <li class="nav-item">                        
+                        <router-link to="/compras" class="nav-link">
+                            Compras
+                        </router-link>
+                    </li>                   
                 </ul>
             </div>
         </div>

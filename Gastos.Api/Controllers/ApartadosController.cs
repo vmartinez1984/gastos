@@ -32,6 +32,24 @@ namespace Gastos.Api.Controllers
             return Ok(apartados);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            ApartadoDto apartado;
+
+            apartado = await _unitOfWork.Apartado.ObtenerAsync(id);
+
+            return Ok(apartado);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> put(int id, [FromBody] ApartadoDtoIn apartado)
+        {
+            await _unitOfWork.Apartado.ActualizarAsync(apartado, id);
+
+            return Accepted(new { IsSuccess = true });
+        }
+
         [HttpPost("Detalles")]
         public async Task<IActionResult> AgregarIncrementoAsync([FromBody] DetalleDeApartadoDtoIn detalleDeApartado)
         {

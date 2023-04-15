@@ -11,7 +11,7 @@
                     </select>
                 </div>
                 <div class="col-4">
-                    <router-link :to="{ name: 'formularioDeApartado' }" class="btn btn-info text-white">
+                    <router-link :to="{ name: 'agregarApartado' }" class="btn btn-info text-white">
                         Agregar nuevo
                     </router-link>
                 </div>
@@ -20,16 +20,26 @@
         <div class="card-body">
             <div class="row mt-1" v-for="apartado in apartados" :key="apartado.id">
                 <div class="col">{{ apartado.nombre }}</div>
-                <div class="col">{{ formato.formatearMoneda(apartado.cantidadInicial) }}</div>
                 <div class="col">{{ apartado.tipoDeApartado.nombre }}</div>
+                <div class="col text-end">{{ formato.formatearMoneda(apartado.cantidadInicial) }}</div>
+                <div class="col text-end">{{ formato.formatearMoneda(apartado.cantidadFinal) }}</div>
                 <div class="col">{{ apartado.fechaInicial.toString().substring(0, 10) }}</div>
-                <div class="col">
+                <div class="col">{{ apartado.fechaFinal.toString().substring(0, 10) }}</div>
+                <div class="col">{{ apartado.diasRestantes }}</div>
+                <!-- <div class="col">
                     <router-link :to="{ name: 'editarApartado', params: { 'id': apartado.id }, query:{'subcategoriaId': apartado.subcategoriaId} }"
                         class="btn btn-info text-white">
                         Detalles
                     </router-link>
+                </div> -->
+                <div class="col">
+                    <router-link :to="{ name: 'editarApartado', params: { 'id': apartado.id }, query:{'subcategoriaId': apartado.subcategoriaId} }"
+                        class="btn btn-warning text-white">
+                        Editar
+                    </router-link>
                 </div>
             </div>
+
             <hr class="text-danger" />
             <div class="row">
                 <div class="col"></div>
@@ -65,7 +75,7 @@ const obtenerApartadosPorSubcategoriaIdAsync = async () => {
     apartados.value.forEach(apartado => {
         total.value += apartado.cantidadInicial
     })
-    //console.log(apartados.value)
+    console.log(apartados.value)
 }
 
 const obtenerSubcategoriasAsync = async () => {
@@ -73,7 +83,7 @@ const obtenerSubcategoriasAsync = async () => {
 }
 
 onMounted(() => {
-    console.log(useRoute().name)
+    //console.log(useRoute().name)
     subcategoriaId.value = useRoute().query.subcategoriaId == undefined ? 0 : useRoute().query.subcategoriaId
     apartadoNombre.value = useRoute().query.subcategoriaNombre
     obtenerApartadosPorSubcategoriaIdAsync()

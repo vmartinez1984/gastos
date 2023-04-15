@@ -15,8 +15,8 @@ namespace Gastos.Repository.Contexts
 
         public DbSet<ApartadoEntity> Apartado { get; set; }
         public DbSet<CategoriaEntity> Categoria { get; set; }
+        public DbSet<CompraEntity> Compra { get; set; }
         public DbSet<DestinoEntity> Destino { get; set; }
-
         public DbSet<DetalleDeApartadoEntity> DetalleDeApartado { get; set; }
         public DbSet<GastoEntity> Gasto { get; set; }
         public DbSet<PeriodoEntity> Periodo { get; set; }

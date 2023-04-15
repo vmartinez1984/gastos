@@ -13,9 +13,21 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public Task ActualizarAsync(ApartadoDtoIn item, int id)
+        public async Task ActualizarAsync(ApartadoDtoIn item, int id)
         {
-            throw new NotImplementedException();
+            ApartadoEntity entity;
+
+            entity = await _repositorio.Apartado.ObtenerAsync(id);
+            entity.FechaInicial = item.FechaInicial;
+            entity.FechaFinal = item.FechaFinal;
+            entity.CantidadInicial = item.CantidadInicial;
+            entity.CantidadFinal = item.CantidadFinal;
+            entity.Intereses = item.Intereses;
+            entity.SubcategoriaId = item.SubcategoriaId;
+            entity.TipoDeApartadoId = item.TipoDeApartadoId;
+            entity.Nombre = item.Nombre;
+
+            await _repositorio.Apartado.ActualizarAsync(entity);
         }
 
         public async Task<int> AgregarAsync(ApartadoDtoIn item)
@@ -24,7 +36,7 @@ namespace Gastos.BusinessLayer.Bl
 
             apartadoEntity = _mapper.Map<ApartadoEntity>(item);
             apartadoEntity.Id = await _repositorio.Apartado.AgregarAsync(apartadoEntity);
-            await AgregarDetalleDeApartadoAsync(apartadoEntity);
+            //await AgregarDetalleDeApartadoAsync(apartadoEntity);
             //await ActualizarGasto(item);
 
             return apartadoEntity.Id;
@@ -76,14 +88,32 @@ namespace Gastos.BusinessLayer.Bl
             }
         }
 
-        public Task BorrarAsync(int id)
+        public async Task BorrarAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repositorio.Apartado.BorrarAsync(id);
         }
 
-        public Task<ApartadoDto> ObtenerAsync(int id)
+        public async Task<ApartadoDto> ObtenerAsync(int id)
         {
-            throw new NotImplementedException();
+            ApartadoEntity entity;
+            ApartadoDto item;
+
+            entity = await _repositorio.Apartado.ObtenerAsync(id);
+            item = _mapper.Map<ApartadoDto>(entity);
+            item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(id);
+
+            return item;
+        }
+
+        private async Task<List<DetalleDeApartadoDto>> ObtenerListaDeDetallesAsync(int id)
+        {
+            List<DetalleDeApartadoEntity> entities;
+            List<DetalleDeApartadoDto> list;
+
+            entities = await _repositorio.DetalleDeApartado.ObtenerPorApartadoIdAsync(id);
+            list = _mapper.Map<List<DetalleDeApartadoDto>>(entities);
+
+            return list;
         }
 
         public async Task<List<ApartadoDto>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId)

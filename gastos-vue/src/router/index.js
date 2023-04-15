@@ -9,6 +9,8 @@ import FormularioDeGasto from '@/components/gastos/FormularioDeGasto'
 import FormularioDeApartado  from '@/components/apartados/FormularioDeApartado'
 import ListaDeApartados from '@/components/apartados/ListaDeApartados'
 import IncrementoDeApartados from '@/components/apartados/IncrementoDeApartados'
+import ListaDeCompras from '@/components/compras/ListaDeCompras'
+import FormularioDeCompra from '@/components/compras/FormularioDeCompra'
 
 const routes = [
     {
@@ -37,6 +39,11 @@ const routes = [
         component: FormularioDePeriodo
     },
     {
+        path:'/periodo/borrar/:id',
+        name: 'borrarPeriodo',
+        component: FormularioDePeriodo
+    },
+    {
         path:'/subcategorias',
         name: 'listaDeSubcategorias',
         component: ListaDeSubcategorias
@@ -58,7 +65,7 @@ const routes = [
     },
     {
         path:'/apartados/agregar',
-        name: 'formularioDeApartado',
+        name: 'agregarApartado',
         component: FormularioDeApartado
     },
     {
@@ -76,6 +83,16 @@ const routes = [
         name: 'listaDeApartados',
         component: ListaDeApartados
     },
+    {
+        path:'/compras',
+        name: 'listaDeCompras',
+        component: ListaDeCompras
+    },
+    {
+        path:'/compras/agregar',
+        name: 'agregarCompra',
+        component: FormularioDeCompra
+    }
 ]
 
 const router = createRouter({

@@ -17,12 +17,20 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         ISubcategoriaBl Subcategoria { get; }
 
         ICategoriaBl Categoria { get; }
+
         IDetalleDeApartadoBl DetalleDeApartado { get; }
+
+        ICompraBl Compra { get; }
     }
 
-    public interface IDetalleDeApartadoBl: IBaseBl<DetalleDeApartadoDtoIn,DetalleDeApartadoDto> { }
+    public interface ICompraBl : IBaseBl<CompraDtoIn, CompraDto>
+    {        
+        Task<List<CompraDto>> ObtenerPorTdcIdAsync(int tdcId);
+    }
 
-    public interface IBaseBl<T,U> where T: class
+    public interface IDetalleDeApartadoBl : IBaseBl<DetalleDeApartadoDtoIn, DetalleDeApartadoDto> { }
+
+    public interface IBaseBl<T, U> where T : class
     {
         Task<int> AgregarAsync(T item);
         Task BorrarAsync(int id);
@@ -30,7 +38,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task ActualizarAsync(T item, int id);
     }
 
-    public interface IGastoBl: IBaseBl<GastoDtoIn, GastoDto>
+    public interface IGastoBl : IBaseBl<GastoDtoIn, GastoDto>
     {
         Task<List<GastoDto>> ObtenerPorPeriodoIdAsync(int periodoId);
     }
@@ -41,10 +49,13 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task<List<ApartadoDto>> ObtenerAsync();
     }
 
-    public interface IPeriodoBl : IBaseBl<PeriodoDtoIn, PeriodoDto> 
+    public interface IPeriodoBl
     {
+        Task ActualizarAsync(PeriodoDtoIn item, int id);
+        Task<int> AgregarAsync(PeriodoDtoIn item);
+        Task BorrarAsync(int id);
         Task<List<PeriodoDto>> ObtenerAsync();
-        Task<PeriodoConDetallesDto> ObtenerPeriodoConDetalles(int periodId);
+        Task<PeriodoConDetallesDto> ObtenerAsync(int periodId);        
     }
 
     public interface ITipoDeApartadoBl
@@ -55,14 +66,14 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
     public interface ICategoriaBl
     {
         Task<List<CategoriaDto>> ObtenerAsync();
-    } 
-    
-    public interface ISubcategoriaBl: IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
+    }
+
+    public interface ISubcategoriaBl : IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
     {
         Task<List<SubcategoriaDto>> ObtenerAsync();
         Task<List<SubcategoriaDto>> ObtenerPorCategoriaIdAsync(int categoriaId);
-    } 
-    
+    }
+
     public interface IDestinoBl
     {
         Task<List<DestinoDto>> ObtenerAsync();

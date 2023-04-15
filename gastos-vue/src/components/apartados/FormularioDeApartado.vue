@@ -1,61 +1,10 @@
 <template>
     <div class="card">
-        <div class="card-header">
-            <h3>Agregar apartado</h3>
+        <div class="card-header">            
+            <h4 class="text-primary">{{ titulo }}</h4>
         </div>
         <div class="card-body">
-            <div v-if="apartados.length > 0">
-                <h3 class="text-info">Agregue el incremento en la cuenta</h3>
-                <hr class="text-info" />
-                <div class="row text-secondary">
-                    <div class="col-2">Apartado</div>
-                    <div class="col-2">Total</div>
-                    <div class="col-2">Nombre</div>
-                    <div class="col-6"></div>
-                </div>
-                <div class="row" v-for="(apartado, index) in apartados" :key="apartado.id">
-                    <div class="col-2">{{ apartado.nombre }}</div>
-                    <div class="col-2">{{ apartado.cantidadInicial }}</div>
-                    <div class="col-2">{{ apartado.tipoDeApartado.nombre }}</div>
-                    <div class="col-6">
-                        <form @submit.prevent="agregarDetalleAsync(index, apartado.id)">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label class="label-form">Cantidad</label>
-                                        </div>
-                                        <div class="col-8">
-                                            <input type="number" step="0.01" class="form-control" v-model="cantidad[index]"
-                                                placeholder="$" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label class="label-form">Nota</label>
-                                        </div>
-                                        <div class="col-8">
-                                            <input type="text" maxlength="255" class="form-control" v-model="nota[index]" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="d-grid">
-                                        <button class="btn btn-primary" type="submit">
-                                            Agregar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr />
             <div>
-                <h4 class="text-primary">Agregar nuevo apartado</h4>
                 <form @submit.prevent="guardarAsync">
                     <div class="row mt-1">
                         <div class="col-2">
@@ -149,23 +98,34 @@
                     </div>
                 </form>
             </div>
+
+            <br/>
+            <h4 class="text-info">Lista de detalles</h4>
+            <div v-for="detalle in apartado.listaDeDetalles" :key="detalle.id">
+                <div class="row">
+                    <div class="col text-end">{{ Formato.formatearMoneda(detalle.cantidad) }}</div>
+                    <div class="col">{{ Formato.formatearFecha(detalle.fechaDeRegistro) }}</div>
+                    <div class="col">{{ detalle.nota }}</div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
-import servicioSubcategorias from '@/servicios/ServicioSubcategorias'
 import servicioCategorias from '@/servicios/ServicioCategorias';
 import servicioApartados from '@/servicios/ServicioApartados'
 import servicioTipoDeApartados from '@/servicios/ServicioTipoDeApartados';
 import router from '@/router';
+import Formato from '@/ayudantes/Formato';
 
 var route = useRoute()
 var subcategorias = ref([])
 var tipoDeApartados = ref([])
 var subcategoria = ref({})
 var apartado = ref({
+    id : 0,
     tipoDeApartadoId: 0,
     nombre: '',
     intereses: 0,
@@ -176,30 +136,16 @@ var apartado = ref({
     periodoId: undefined,
     subcategoriaId: 0,
 })
-var apartados = ref([])
-var cantidad = ref([])
-var nota = ref([])
-var detalle = ref({})
-
-const agregarDetalleAsync = async (index, apartadoId) => {
-    //console.log(cantidad.value)
-    //console.log(nota.value)
-    detalle.value = {
-        'apartadoId': apartadoId,
-        'cantidad': cantidad.value[index],
-        'nota': nota.value[index],
-        'periodoId': route.query.periodoId,
-        'subcategoriaId': route.query.subcategoriaId
-    }
-
-    console.log(detalle.value)
-    await servicioApartados.agregarDetalleAsync(detalle.value)
-}
+var titulo = ref()
 
 const guardarAsync = async () => {
     //console.log(apartado.value)
     try {
-        await servicioApartados.agregarAsync(apartado.value)
+        if(apartado.value.id == 0){
+            await servicioApartados.agregarAsync(apartado.value)
+        }else{
+            await servicioApartados.actualizarAsycn(apartado.value)
+        }
         router.push({ path: '/apartados' })
     } catch (exeption) {
         console.log(exeption)
@@ -230,17 +176,29 @@ const obtenerTipoDeApartadosAsync = async () => {
     tipoDeApartados.value = await servicioTipoDeApartados.obtenerTodoAsync()
 }
 
-const obtenerApartadosAsync = async () => {
-    apartados.value = await servicioSubcategorias.obtenerApartadosPorSubcategoriaIdAsync(route.query.subcategoriaId)
+const obtenerApartadoAsync = async () => {
+    apartado.value = await servicioApartados.obtenerAsync(route.params.id)
+    apartado.value.fechaInicial = Formato.formatearFecha(apartado.value.fechaInicial)
+    apartado.value.fechaFinal = Formato.formatearFecha(apartado.value.fechaFinal)
+    console.log(apartado.value)
 }
 
 onMounted(async () => {
-    //console.log(route.query)
+    //console.log(route.name)
     await obtenerSubcategoriasAsync()
     await obtenerTipoDeApartadosAsync()
-    apartado.value.periodoId = route.query.periodoId
-    apartado.value.subcategoriaId = route.query.subcategoriaId
     apartado.value.idemPotency = uuidv4()
-    await obtenerApartadosAsync()
+    switch(route.name){
+        case 'editarApartado':
+            await obtenerApartadoAsync()
+            apartado.value.periodoId = route.query.periodoId
+            apartado.value.subcategoriaId = route.query.subcategoriaId
+            titulo.value = "Editar apartado"
+        break;
+            
+        case 'agregarApartado':
+            titulo.value = "Agregar nuevo apartado"
+        break;
+    }
 })
 </script>

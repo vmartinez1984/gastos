@@ -13,9 +13,16 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public Task ActualizarAsync(PeriodoDtoIn item, int id)
+        public async Task ActualizarAsync(PeriodoDtoIn item, int id)
         {
-            throw new NotImplementedException();
+            PeriodoEntity entity;
+
+            entity = await _repositorio.Periodo.ObtenerAsync(id);
+            entity.Nombre = item.Nombre;
+            entity.FechaInicial = item.FechaInicial;    
+            entity.FechaFinal = item.FechaFinal;
+
+            await _repositorio.Periodo.ActualizarAsync(entity);
         }
 
         public async Task<int> AgregarAsync(PeriodoDtoIn item)
@@ -28,9 +35,9 @@ namespace Gastos.BusinessLayer.Bl
             return entity.Id;
         }
 
-        public Task BorrarAsync(int id)
+        public async Task BorrarAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repositorio.Periodo.BorrarAsync(id);
         }
 
         public async Task<List<PeriodoDto>> ObtenerAsync()
@@ -44,12 +51,7 @@ namespace Gastos.BusinessLayer.Bl
             return list;
         }
 
-        public Task<PeriodoDto> ObtenerAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<PeriodoConDetallesDto> ObtenerPeriodoConDetalles(int periodId)
+        public async Task<PeriodoConDetallesDto> ObtenerAsync(int periodId)
         {
             PeriodoConDetallesDto periodo;
             PeriodoEntity periodoEntity;
@@ -64,13 +66,13 @@ namespace Gastos.BusinessLayer.Bl
                 FechaFinal = periodoEntity.FechaFinal,
                 FechaInicial = periodoEntity.FechaInicial,
                 ListaDeEntradas = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Entrada").ToList(),
-                ListaDeGastos = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Gasto").ToList(),
+                ListaDeGastos = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Gastos").ToList(),
                 ListaDeApartados = await ObtenerListaDeApartados(listaDeGastos)
             };
 
             return periodo;
         }
-
+             
         private async Task<List<GastoApartadoDto>> ObtenerListaDeApartados(List<GastoDto> listaDeGastos)
         {
             List<GastoApartadoDto> listaDeApartados;

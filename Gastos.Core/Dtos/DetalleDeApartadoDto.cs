@@ -22,6 +22,9 @@ namespace Gastos.Core.Dtos
 
     public class DetalleDeApartadoDto: DetalleDeApartadoDtoIn
     {
+        [DataType(DataType.Date)]
+        public DateTime FechaDeRegistro { get; set; }
+
         public int Id { get; set; }
     }
 }

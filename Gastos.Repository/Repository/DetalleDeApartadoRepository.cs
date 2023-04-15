@@ -35,6 +35,11 @@ namespace Gastos.Repositories.Repository
             throw new NotImplementedException();
         }
 
+        public async Task<List<DetalleDeApartadoEntity>> ObtenerPorApartadoIdAsync(int apartadoId)
+        {
+            return await _appDbContext.DetalleDeApartado.Where(x=> x.ApartadoId == apartadoId && x.EstaActivo).ToListAsync();
+        }
+
         public async Task<decimal> ObtenerTotalAsync(int apartadoId)
         {
             decimal total;

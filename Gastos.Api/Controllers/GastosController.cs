@@ -26,5 +26,27 @@ namespace Gastos.Api.Controllers
         {
             return Ok(await _unitOfWork.Gasto.ObtenerAsync(id));
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put([FromBody] GastoDtoIn gasto, int id)
+        {
+            if (await _unitOfWork.Gasto.ObtenerAsync(id) == null)
+                return NotFound(new { Message = "Elemento no encontrado" });
+
+            await _unitOfWork.Gasto.ActualizarAsync(gasto, id); 
+
+            return Accepted();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if(await _unitOfWork.Gasto.ObtenerAsync(id) == null)
+                return NotFound(new { Message = "Elemento no encontrado" });
+
+            await _unitOfWork.Gasto.BorrarAsync(id);
+
+            return Accepted();
+        }
     }
 }

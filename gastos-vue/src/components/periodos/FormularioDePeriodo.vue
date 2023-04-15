@@ -1,44 +1,53 @@
 <template>
     <div class="card">
         <div class="card-header">
-            <h3 class="text-primary">Agregar nuevo</h3>
+            <h3 :class="titulo.clase">{{ titulo.texto }}</h3>
         </div>
 
         <div class="card-body">
-            <form @submit.prevent="guardarAsync">                
+            <form @submit.prevent="guardarAsync">
                 <div class="row">
                     <div class="col-2">
                         <label class="form-label">Nombre</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" v-model="periodo.nombre" class="form-control" placeholder="Enero 10"/>
+                        <input type="text" v-model="periodo.nombre" class="form-control" placeholder="Enero 10" />
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-2">
                         <label class="form-label">Fecha inicial</label>
                     </div>
                     <div class="col-10">
-                        <input type="date" v-model="periodo.fechaInicial" class="form-control" placeholder="300.00"/>
+                        <input type="date" v-model="periodo.fechaInicial" class="form-control" />
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mt-2">
                     <div class="col-2">
                         <label class="form-label">Fecha final</label>
                     </div>
                     <div class="col-10">
-                        <input type="date"  v-model="periodo.fechaFinal" class="form-control" placeholder="300.00"/>
+                        <input type="date" v-model="periodo.fechaFinal" class="form-control" />
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mt-2">
                     <div class="col-2">
-                        <router-link :to="{name: 'listaDePeriodos'}">Regresar</router-link>
+                        <router-link :to="{ name: 'listaDePeriodos' }">Regresar</router-link>
                     </div>
                     <div class="col-10">
-                        <button class="btn btn-primary">
-                            Guardar
-                        </button>
-                    </div>                    
+                        <div v-if="borrar">
+                            <button class="btn text-white" :class="titulo.claseDelBoton">
+                                Borrar
+                            </button>
+                        </div>
+                        <div v-else>
+                            <button class="btn text-white" :class="titulo.claseDelBoton">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -48,6 +57,8 @@
 import { onMounted, ref } from 'vue'
 import servicioPeriodo from '@/servicios/ServicioPeriodo';
 import router from '@/router';
+import { useRoute } from 'vue-router'
+import Formato from '@/ayudantes/Formato';
 
 var periodo = ref({
     id: 0,
@@ -55,34 +66,58 @@ var periodo = ref({
     fechaInicial: '',
     fechaFinal: ''
 })
+var titulo = ref({
+    texto: '',
+    clase: '',
+    claseDelBoton: ''
+})
+var borrar = ref(false)
+var estaCargando = ref()
 
-const guardarAsync = async () =>{
-    //console.log(periodo.value)    
-    servicioPeriodo.agregarAsync(periodo.value)
-    router.push({name: 'listaDePeriodos'})
+const guardarAsync = async () => {
+    try{
+        //console.log(periodo.value)    
+        estaCargando.value = true
+        servicioPeriodo.agregarAsync(periodo.value)
+        router.push({ name: 'listaDePeriodos' })
+    }catch(error){
+        console.log(error)
+    }finally{
+        estaCargando.value = false
+    }
 }
 
-const obtenerFecha = () =>{
-    var fechaActual
-    var fechaConFormato
-    var mes
-    var dia
-
-    fechaActual = new Date();
-    mes = fechaActual.getMonth() + 1
-    if(mes < 10)
-        mes = '0'+ mes
-    dia = fechaActual.getDate()
-    if(dia < 10)
-        dia = '0' + dia
-    //console.log(dia)
-    fechaConFormato = fechaActual.getFullYear() + "-" + mes + '-' + dia
-
-    return fechaConFormato
+const obtenerPerido = async () => {
+    periodo.value = await servicioPeriodo.obtener(useRoute().params.id)
+    periodo.value.fechaInicial = Formato.formatearFecha(periodo.value.fechaInicial)
+    periodo.value.fechaFinal = Formato.formatearFecha(periodo.value.fechaFinal)
 }
 
-onMounted(()=>{
-    periodo.value.fechaInicial = obtenerFecha()
-    periodo.value.fechaFinal = obtenerFecha()    
+onMounted(async () => {
+    console.log(useRoute().name)
+    switch (useRoute().name) {
+        case 'agregarPeriodo':
+            titulo.value.texto = "Agregar periodo"
+            titulo.value.clase = 'text-info'
+            titulo.value.claseDelBoton = 'btn-info'
+            periodo.value.fechaInicial = Formato.formatearFecha()
+            periodo.value.fechaFinal = Formato.formatearFecha()
+            break
+
+        case 'editarPeriodo':
+            titulo.value.texto = 'Editar periodo'
+            titulo.value.clase = 'text-warning'
+            titulo.value.claseDelBoton = 'btn-warning'
+            obtenerPerido()
+            break
+
+        case 'borrarPeriodo':
+            titulo.value.texto = 'Borrar periodo'
+            titulo.value.clase = 'text-danger'
+            titulo.value.claseDelBoton = 'btn-danger'
+            obtenerPerido()
+            borrar.value = true
+            break
+    }
 })
 </script>

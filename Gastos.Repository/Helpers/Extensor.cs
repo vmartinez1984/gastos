@@ -20,6 +20,7 @@ namespace Gastos.Repositories.Helpers
             services.AddScoped<ICategoriaRepository, CategoryRepository>();
             services.AddScoped<ISubcategoriaRepository, SubcategoriaRepository>();
             services.AddScoped<IDetalleDeApartadoRepository, DetalleDeApartadoRepository>();
+            services.AddScoped<ICompraRepository, CompraRepository>();
         }
     }
 }

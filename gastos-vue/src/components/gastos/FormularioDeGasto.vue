@@ -18,15 +18,16 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-1">
                     <div class="col-2">
                         <label class="form-label">Nombre</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" v-model="gasto.nombre" class="form-control" placeholder="Vacaciones" />
+                        <input type="text" v-model="gasto.nombre" class="form-control" />
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mt-1">
                     <div class="col-2">
                         <label class="form-label">Presupuesto</label>
                     </div>
@@ -34,17 +35,21 @@
                         <input type="number" step="0.01" v-model="gasto.presupuesto" class="form-control" disabled />
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mt-1">
                     <div class="col-2">
                         <label class="form-label">$</label>
                     </div>
                     <div class="col-10">
-                        <input type="number" step="0.01" v-model="gasto.cantidad" class="form-control"
-                            placeholder="300.00" />
+                        <input type="number" step="0.01" v-model="gasto.cantidad" class="form-control" />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-2"></div>
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <router-link :to="{ name: 'periodoDetalles', params: { 'id': route.query.periodoId } }">
+                            Regresar
+                        </router-link>
+                    </div>
                     <div class="col-10">
                         <button class="btn btn-primary">
                             Guardar
@@ -72,10 +77,16 @@ var gasto = ref({
     subcategoriaId: 0
 })
 
-const guardarAsync = async () => {    
-    //console.log(gasto.value)
-    await servicioGastos.agregarAsync(gasto.value)
-    router.push({name: 'periodoDetalles',params:{ 'id': route.query.periodoId} })
+const guardarAsync = async () => {
+    try {
+
+        //console.log(gasto.value)
+        await servicioGastos.agregarAsync(gasto.value)
+        router.push({ name: 'periodoDetalles', params: { 'id': route.query.periodoId } })
+    } catch (exeption) {
+        alert('Valio pepino')
+        console.log(exeption)
+    }
 }
 
 const uuidv4 = () => {

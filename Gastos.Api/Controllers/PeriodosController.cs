@@ -30,7 +30,7 @@ namespace Gastos.Api.Controllers
         {
             PeriodoConDetallesDto periodo;
 
-            periodo = await _unitOfWork.Periodo.ObtenerPeriodoConDetalles(periodoId);
+            periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId);
 
             return Ok(periodo);
         }
