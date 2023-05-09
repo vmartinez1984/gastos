@@ -70,6 +70,17 @@ export default {
 
         return response.data
     },
+    
+    async borrarAsync(apartadoId) {
+        var response
+
+        response = await axios({
+            url: url + apartadoId,
+            method: 'DELETE'
+        })
+
+        return response.data
+    },
 
     /**
      * 
@@ -91,6 +102,6 @@ export default {
             }
         )
 
-        return response.data
+        return response.data.id
     }
 }

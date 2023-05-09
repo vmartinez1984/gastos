@@ -1,20 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
 {
-    public class PeriodoConDetallesDto: PeriodoDto
-    {       
+    public class PeriodoConDetallesDto : PeriodoDto
+    {
 
         public List<GastoDto> ListaDeGastos { get; set; }
 
-        public List<GastoDto > ListaDeEntradas { get; set; }
+        public List<GastoDto> ListaDeEntradas { get; set; }
 
         public List<GastoApartadoDto> ListaDeApartados { get; set; }
     }
 
-    public class PeriodoDto: PeriodoDtoIn
+    public class PeriodoDto : PeriodoDtoIn
     {
-        public int Id { get; set; }
+        public int Id { get; set; }        
     }
 
     public class PeriodoDtoIn
@@ -30,5 +32,7 @@ namespace Gastos.Core.Dtos
         [Required]
         [DataType(DataType.Date)]
         public DateTime FechaFinal { get; set; }
+
+        public Guid Guid { get; set; }
     }
 }

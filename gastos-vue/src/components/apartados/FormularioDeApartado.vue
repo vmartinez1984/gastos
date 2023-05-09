@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-header">            
+        <div class="card-header">
             <h4 class="text-primary">{{ titulo }}</h4>
         </div>
         <div class="card-body">
@@ -11,7 +11,7 @@
                             <label class="form-label">Subcategoria</label>
                         </div>
                         <div class="col-10">
-                            <select class="form-select" v-model="apartado.subcategoriaId">
+                            <select class="form-select" v-model="apartado.subcategoriaId" :disabled="dehabilitarFormulario">
                                 <option value="0">Seleccione</option>
                                 <option v-for="subcategoria in subcategorias" :key="subcategoria.id"
                                     :value="subcategoria.id">
@@ -25,7 +25,8 @@
                             <label class="form-label">Tipo de apartado</label>
                         </div>
                         <div class="col-10">
-                            <select class="form-select" v-model="apartado.tipoDeApartadoId">
+                            <select class="form-select" v-model="apartado.tipoDeApartadoId"
+                                :disabled="dehabilitarFormulario">
                                 <option value="0">Seleccione</option>
                                 <option v-for="tipo in tipoDeApartados" :key="tipo.id" :value="tipo.id">
                                     {{ tipo.nombre }}
@@ -33,79 +34,134 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Nombre</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" v-model="apartado.nombre" class="form-control" placeholder="Vacaciones" />
+                            <input type="text" v-model="apartado.nombre" class="form-control" placeholder="Vacaciones"
+                                :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Interes</label>
                         </div>
                         <div class="col-10">
                             <input type="number" step="0.01" v-model="apartado.intereses" class="form-control"
-                                placeholder="1.00" />
+                                placeholder="1.00" :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Cantidad inicial</label>
                         </div>
                         <div class="col-10">
                             <input type="number" step="0.01" v-model="apartado.cantidadInicial" class="form-control"
-                                placeholder="300.00" />
+                                placeholder="300.00" :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Cantidad final</label>
                         </div>
                         <div class="col-10">
                             <input type="number" step="0.01" v-model="apartado.cantidadFinal" class="form-control"
-                                placeholder="301.00" />
+                                placeholder="301.00" :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Fecha inicial</label>
                         </div>
                         <div class="col-10">
-                            <input type="date" v-model="apartado.fechaInicial" class="form-control" />
+                            <input type="date" v-model="apartado.fechaInicial" class="form-control"
+                                :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-1">
                         <div class="col-2">
                             <label class="form-label">Fecha final</label>
                         </div>
                         <div class="col-10">
-                            <input type="date" v-model="apartado.fechaFinal" class="form-control" />
+                            <input type="date" v-model="apartado.fechaFinal" class="form-control"
+                                :disabled="dehabilitarFormulario" />
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-1">
                         <div class="col-2">
-                            <!-- <router-link :to="{ name: 'periodoDetalles', params: { 'id': route.query.periodoId } }">
-                            Regresar
-                        </router-link> -->
+                            <router-link :to="{ name: 'listaDeApartados' }">
+                                Regresar
+                            </router-link>
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-primary">
-                                Guardar
-                            </button>
+                            <div v-if="route.name == 'borrarApartado'">
+                                <button class="btn btn-danger text-white">
+                                    Borrar
+                                </button>
+                            </div>
+                            <div v-else>
+                                <button class="btn btn-primary">
+                                    Guardar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <br/>
-            <h4 class="text-info">Lista de detalles</h4>
-            <div v-for="detalle in apartado.listaDeDetalles" :key="detalle.id">
-                <div class="row">
-                    <div class="col text-end">{{ Formato.formatearMoneda(detalle.cantidad) }}</div>
-                    <div class="col">{{ Formato.formatearFecha(detalle.fechaDeRegistro) }}</div>
-                    <div class="col">{{ detalle.nota }}</div>
+
+            <br />
+            <div>
+                <div v-if="mostrarAgregarDetalles">
+                    <h5>Agregar o retirar del apartado</h5>
+                    <form @submit.prevent="agregarDetalleAsync()">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="label-form">$</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="number" step="0.01" class="form-control"
+                                            v-model="detalleApartado.cantidad" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="label-form">Nota</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" maxlength="255" class="form-control"
+                                            v-model="detalleApartado.nota" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br />
+                <h4 class="text-info">Lista de detalles</h4>
+                <div v-for="detalle in apartado.listaDeDetalles" :key="detalle.id">
+                    <div class="row">
+                        <div class="col text-end">{{ Formato.formatearMoneda(detalle.cantidad) }}</div>
+                        <div class="col">{{ Formato.formatearFecha(detalle.fechaDeRegistro) }}</div>
+                        <div class="col">{{ detalle.nota }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,7 +181,7 @@ var subcategorias = ref([])
 var tipoDeApartados = ref([])
 var subcategoria = ref({})
 var apartado = ref({
-    id : 0,
+    id: 0,
     tipoDeApartadoId: 0,
     nombre: '',
     intereses: 0,
@@ -137,13 +193,18 @@ var apartado = ref({
     subcategoriaId: 0,
 })
 var titulo = ref()
+var detalleApartado = ref({})
+var mostrarAgregarDetalles = ref(true)
+var dehabilitarFormulario = ref(false)
 
 const guardarAsync = async () => {
     //console.log(apartado.value)
     try {
-        if(apartado.value.id == 0){
+        if (route.name == 'borrarApartado') {
+            await servicioApartados.borrarAsync(apartado.value.id)
+        } else if (apartado.value.id == 0) {
             await servicioApartados.agregarAsync(apartado.value)
-        }else{
+        } else {
             await servicioApartados.actualizarAsycn(apartado.value)
         }
         router.push({ path: '/apartados' })
@@ -183,22 +244,49 @@ const obtenerApartadoAsync = async () => {
     console.log(apartado.value)
 }
 
+const agregarDetalleAsync = async () => {
+    var id
+
+    detalleApartado.value.nombre = apartado.value.nombre
+    detalleApartado.value.apartadoId = route.params.id
+    detalleApartado.value.subcategoriaId = route.query.subcategoriaId
+    //console.log(detalleApartado.value)
+    id = await servicioApartados.agregarDetalleAsync(detalleApartado.value)
+    apartado.value.listaDeDetalles.push({
+        apartadoId: route.params.id,
+        cantidad: detalleApartado.value.cantidad,
+        fechaDeRegistro: Formato.formatearFecha(),
+        id: id,
+        nota: detalleApartado.value.nota,
+        periodoId: 0,
+        subcategoriaId: route.query.subcategoriaId
+    })
+
+}
+
 onMounted(async () => {
     //console.log(route.name)
+    //console.log(route.params)
     await obtenerSubcategoriasAsync()
     await obtenerTipoDeApartadosAsync()
     apartado.value.idemPotency = uuidv4()
-    switch(route.name){
+    switch (route.name) {
         case 'editarApartado':
             await obtenerApartadoAsync()
             apartado.value.periodoId = route.query.periodoId
             apartado.value.subcategoriaId = route.query.subcategoriaId
             titulo.value = "Editar apartado"
-        break;
-            
+            break
+
         case 'agregarApartado':
             titulo.value = "Agregar nuevo apartado"
-        break;
+            break
+
+        case 'borrarApartado':
+            await obtenerApartadoAsync()
+            dehabilitarFormulario.value = true
+            mostrarAgregarDetalles.value = false
+            break
     }
 })
 </script>

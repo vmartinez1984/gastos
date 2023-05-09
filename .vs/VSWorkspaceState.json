@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Gastos.Api",
+    "\\Gastos.Api\\Controllers",
+    "\\Gastos.BusinessLayer",
+    "\\Gastos.BusinessLayer\\Bl",
+    "\\Gastos.Repository",
+    "\\Gastos.Repository\\Contexts"
+  ],
+  "SelectedNode": "\\Gastos.Api\\Controllers\\GastosController.cs",
+  "PreviewInSolutionExplorer": false
+}

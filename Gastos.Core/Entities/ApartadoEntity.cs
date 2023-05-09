@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gastos.Core.Entities
@@ -32,6 +33,6 @@ namespace Gastos.Core.Entities
 
         public bool EstaActivo { get; set; } = true;
 
-        //public virtual List<DetalleDeApartadoEntity> ListaDeDetalles { get; set; }
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

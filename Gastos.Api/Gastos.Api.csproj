@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gastos.BusinessLayer\Gastos.BusinessLayer.csproj" />
-    <ProjectReference Include="..\Gastos.Core\Gastos.Core.csproj" />
     <ProjectReference Include="..\Gastos.Repository\Gastos.Repositories.csproj" />
   </ItemGroup>
 

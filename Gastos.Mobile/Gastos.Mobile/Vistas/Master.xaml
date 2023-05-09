@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gastos.Mobile.Vistas.Master"
+             Title="Gastos 2.0">
+    <StackLayout>
+        <Button BackgroundColor="White" Text="Periodos" x:Name="BtnPeriodos" Clicked="BtnPeriodos_Clicked"/>
+        <Button BackgroundColor="White" Text="Subcategorias" x:Name="BtnSubcategorias" Clicked="BtnSubcategorias_Clicked"/>
+        <Button BackgroundColor="White" Text="Apartados" x:Name="BtnApartados" Clicked="BtnApartados_Clicked"/>        
+    </StackLayout>
+</ContentPage>

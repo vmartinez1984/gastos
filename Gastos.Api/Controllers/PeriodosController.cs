@@ -22,28 +22,50 @@ namespace Gastos.Api.Controllers
 
             list = await _unitOfWork.Periodo.ObtenerAsync();
 
-            return Ok(list.OrderByDescending(x=> x.Id));
+            return Ok(list.OrderByDescending(x => x.Id));
         }
 
         [HttpGet("{periodoId}/Gastos")]
-        public async Task<IActionResult> ObtenerPorPeriodoIdAsync(int periodoId)
+        public async Task<IActionResult> ObtenerPorPeriodoIdAsync(string periodoId)
         {
             PeriodoConDetallesDto periodo;
 
-            periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId);
+            periodo = await _unitOfWork.Periodo.ObtenerPeriodoConDetallesAsync(periodoId);
 
             return Ok(periodo);
+        }
+
+        [HttpPut("{periodoId}")]
+        public async Task<IActionResult> ActualizarAsync(string periodoId, [FromBody] PeriodoDtoIn item)
+        {
+            await _unitOfWork.Periodo.ActualizarAsync(item, periodoId);
+
+            return Accepted(new { Mensaje = "Datos Actualizados" });
         }
 
         // POST api/<PeriodosController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PeriodoDtoIn item)
         {
-            int id;
+            IdDto idDto;
 
-            id = await _unitOfWork.Periodo.AgregarAsync(item);
+            idDto = await _unitOfWork.Periodo.AgregarAsync(item);
 
-            return Created($"Periodos/{id}", new { Id = id });
-        }       
+            return Created($"Periodos/{idDto.Id}", idDto);
+        }
+
+        [HttpDelete("{periodoId}")]
+        public async Task<IActionResult> Delete(string periodoId)
+        {
+            PeriodoDto periodo;
+
+            periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId);
+            if (periodo == null)
+                return NotFound(new { Mensaje = "No se encontro periodo" });
+
+            await _unitOfWork.Periodo.BorrarAsync(periodoId);
+
+            return Accepted();
+        }
     }
 }

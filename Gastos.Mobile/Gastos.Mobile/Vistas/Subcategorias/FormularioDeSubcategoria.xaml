@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gastos.Mobile.Vistas.Subcategorias.FormularioDeSubcategoria" 
+             Title="Subcategoria">    
+    <ContentPage.Content>
+        <StackLayout>            
+            <StackLayout HeightRequest="200">                
+            <ListView x:Name="ListViewCategorias" ItemTapped="ListViewCategorias_ItemTapped" VerticalOptions="StartAndExpand" Header="Categorias" SeparatorColor="Aqua" RefreshControlColor="Azure">                
+                <ListView.ItemTemplate>                     
+                    <DataTemplate>                        
+                        <ViewCell>                            
+                            <StackLayout>
+                                <Label Text="{Binding Nombre}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+            <Label Text="Nombre"/>
+            <Entry x:Name="EntryNombre"/>
+            <Label Text="Cantidad"/>
+            <Entry x:Name="EntryCantidad" Keyboard="Numeric"/>
+            <Button x:Name="BtnGuardar" Text="Guardar" Clicked="BtnGuardar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

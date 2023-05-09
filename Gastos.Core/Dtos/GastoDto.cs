@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
 {
@@ -7,6 +8,8 @@ namespace Gastos.Core.Dtos
         public int Id { get; set; }
 
         public SubcategoriaDto Subcategoria { get; set; }
+        
+        public decimal Presupuesto { get; set; }
     }
 
     public class GastoApartadoDto : GastoDto
@@ -22,6 +25,23 @@ namespace Gastos.Core.Dtos
 
     }
     
+    public class GastoDtoUpdate
+    {       
+        [Required]
+        [StringLength(50)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [Range(0, 13000)]
+        public decimal Cantidad { get; set; }
+
+        [Required]
+        public int SubcategoriaId { get; set; }
+
+        [Required]
+        public int PeriodoId { get; set; }
+    }
+
     public class GastoBaseDto
     {
         [Required]
@@ -32,7 +52,6 @@ namespace Gastos.Core.Dtos
         [Range(0, 13000)]
         public decimal Cantidad { get; set; }
 
-        public decimal Presupuesto { get; set; }
 
         [Required]
         public int PeriodoId { get; set; }

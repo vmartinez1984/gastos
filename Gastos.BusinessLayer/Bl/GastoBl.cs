@@ -13,19 +13,27 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public Task ActualizarAsync(GastoDtoIn item, int id)
+        public async Task ActualizarAsync(GastoDtoIn item, int id)
         {
-            throw new NotImplementedException();
+            GastoEntity entity;
+
+            entity = await _repositorio.Gasto.ObtenerAsync(id);
+            entity.PeriodoId = item.PeriodoId;
+            entity.Nombre = item.Nombre;    
+            entity.SubcategoriaId = item.SubcategoriaId;
+            entity.Cantidad = item.Cantidad;
+
+            await _repositorio.Gasto.ActualizarAsync(entity);
         }
 
-        public async Task<int> AgregarAsync(GastoDtoIn item)
+        public async Task<IdDto> AgregarAsync(GastoDtoIn item)
         {
             GastoEntity entity;
 
             entity = _mapper.Map<GastoEntity>(item);
-            entity.Id = await _repositorio.Gasto.AgregarAsync(entity);            
+            entity.Id = await _repositorio.Gasto.AgregarAsync(entity);
 
-            return entity.Id;
+            return new IdDto { Id = entity.Id, Guid = entity.Guid };
         }        
 
         public Task BorrarAsync(int id)
@@ -38,9 +46,15 @@ namespace Gastos.BusinessLayer.Bl
             throw new NotImplementedException();
         }
 
-        public Task<GastoDto> ObtenerAsync(int id)
+        public async Task<GastoDto> ObtenerAsync(int id)
         {
-            throw new NotImplementedException();
+            GastoEntity entity;
+            GastoDto dto;
+
+            entity = await _repositorio.Gasto.ObtenerAsync(id);
+            dto = _mapper.Map<GastoDto>(entity);
+
+            return dto;
         }
 
         public async Task<List<GastoDto>> ObtenerPorPeriodoIdAsync(int periodoId)

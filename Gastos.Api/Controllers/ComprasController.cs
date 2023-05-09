@@ -26,11 +26,10 @@ namespace Gastos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CompraDtoIn compra)
         {
-            int id;
 
-            id = await _unitOfWork.Compra.AgregarAsync(compra);
+            var id = await _unitOfWork.Compra.AgregarAsync(compra);
 
-            return Created($"Compras/{id}", new { Id = id });
+            return Created($"Compras/{id}", id);
         }
 
         [HttpPut("{id}")]

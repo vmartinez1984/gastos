@@ -21,13 +21,13 @@ namespace Gastos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SubcategoriaDtoIn subcategoria)
         {
-            int id;
+            IdDto id;
 
             id = await _unitOfWork.Subcategoria.AgregarAsync(subcategoria);
 
-            return Created($"Subcategorias/{id}", new { Id = id });
+            return Created($"Subcategorias/{id}", id);
         }
-        
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put([FromBody] SubcategoriaDtoIn subcategoria, int id)
         {

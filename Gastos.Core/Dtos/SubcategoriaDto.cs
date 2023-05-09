@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
 {
@@ -13,6 +14,8 @@ namespace Gastos.Core.Dtos
         public decimal Cantidad { get; set; }
 
         public decimal Total { get; set; }
+
+        public Guid Guid { get; set; }
     }
 
     public class SubcategoriaDtoIn

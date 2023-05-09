@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gastos.Core.Entities
@@ -13,10 +14,11 @@ namespace Gastos.Core.Entities
 
         public virtual CategoriaEntity Categoria { get; set; }
 
-        public string  Nombre { get; set; }
+        public string Nombre { get; set; }
 
         public bool EstaActivo { get; set; } = true;
 
         public decimal Cantidad { get; set; }
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

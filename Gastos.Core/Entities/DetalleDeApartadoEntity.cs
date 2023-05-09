@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gastos.Core.Entities
@@ -18,5 +19,6 @@ namespace Gastos.Core.Entities
         public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
 
         public bool EstaActivo { get; set; } = true;
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "aJ588wUX8VZQApVHPNxXAI+eHn/CZT5itZBZxRAbEpXRj3E2GYwCbjRUv5SV3kfi9smd3Z8ke2BtoEkhtTyEMQ==",
+  "dgSpecHash": "xTU5sbyFWoWAKSBZOSNMdrlLAM6jSILTL8GI553KJPR3nWVmKwtlwqZQlICrRr9N+EbHfT9vVz/0+6LPo2kiTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\Gastos\\Gastos.BusinessLayer\\Gastos.BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.BusinessLayer\\Gastos.BusinessLayer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vmartinez\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+    "C:\\Users\\ahal_\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -31,12 +31,24 @@ namespace Gastos.Repositories.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<SubcategoriaEntity>> ObtenerAsync()
+        public async Task<List<SubcategoriaEntity>> ObtenerAsync()
         {
-            return _appDbContext.Subcategoria
+            List<SubcategoriaEntity> entities = await  _appDbContext.Subcategoria
                 .Include(x => x.Categoria)
                 .Where(x => x.EstaActivo).OrderBy(x=>x.Nombre)
                 .ToListAsync();
+
+            //foreach (var item in entities)
+            //{
+            //    if (item.Guid == Guid.Empty || item.Guid == null)
+            //    {
+            //        item.Guid = Guid.NewGuid();
+            //        _appDbContext.Subcategoria.Update(item);
+            //    }
+            //}
+            //await _appDbContext.SaveChangesAsync();
+
+            return entities;
         }
 
         public async Task<SubcategoriaEntity> ObtenerAsync(int id)

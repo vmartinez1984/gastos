@@ -21,10 +21,19 @@ namespace Gastos.Repositories.Repository
 
         public async Task<int> AgregarAsync(ApartadoEntity entity)
         {
-            await _appDbContext.Apartado.AddAsync(entity);
-            await _appDbContext.SaveChangesAsync();
+            ApartadoEntity apartado;
 
-            return entity.Id;
+            apartado = await _appDbContext.Apartado.Where(x => x.Guid == entity.Guid).FirstOrDefaultAsync();
+            if (apartado == null)
+            {
+                await _appDbContext.Apartado.AddAsync(entity);
+                await _appDbContext.SaveChangesAsync();
+                return entity.Id;
+            }
+            else
+            {
+                return apartado.Id;
+            }
         }
 
         public async Task BorrarAsync(int id)
@@ -32,7 +41,7 @@ namespace Gastos.Repositories.Repository
             ApartadoEntity entity;
 
             entity = await _appDbContext.Apartado.Where(x => x.Id == id).FirstAsync();
-            entity.EstaActivo = false; 
+            entity.EstaActivo = false;
             _appDbContext.Apartado.Update(entity);
 
             await _appDbContext.SaveChangesAsync();
@@ -42,9 +51,9 @@ namespace Gastos.Repositories.Repository
         {
             List<ApartadoEntity> entities;
 
-            entities = await _appDbContext                
+            entities = await _appDbContext
                 .Apartado
-                .Include(x=> x.TipoDeApartado)
+                .Include(x => x.TipoDeApartado)
                 .Where(x => x.SubcategoriaId == subcategoriaId && x.EstaActivo).ToListAsync();
 
             return entities;
@@ -56,7 +65,16 @@ namespace Gastos.Repositories.Repository
                 .Apartado
                 .Include(x => x.TipoDeApartado)
                 //.Include(x => x.ListaDeDetalles)
-                .Where(x=> x.Id == id).FirstOrDefaultAsync();
+                .Where(x => x.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<ApartadoEntity> ObtenerAsync(Guid id)
+        {
+            return await _appDbContext
+                .Apartado
+                .Include(x => x.TipoDeApartado)
+                //.Include(x => x.ListaDeDetalles)
+                .Where(x => x.Guid == id).FirstOrDefaultAsync();
         }
 
         public async Task<List<ApartadoEntity>> ObtenerAsync()
@@ -67,6 +85,16 @@ namespace Gastos.Repositories.Repository
                 .Apartado
                 .Include(x => x.TipoDeApartado)
                 .Where(x => x.EstaActivo).ToListAsync();
+            //foreach (var item in entities)
+            //{
+            //    if (item.Guid == Guid.Empty || item.Guid == null)
+            //    {
+            //        item.Guid = Guid.NewGuid();
+            //        _appDbContext.Apartado.Update(item);
+            //    }
+            //}
+            //await _appDbContext.SaveChangesAsync();
+
 
             return entities;
         }
@@ -84,7 +112,7 @@ namespace Gastos.Repositories.Repository
         {
             decimal total = 0;
 
-            total = await _appDbContext.Apartado.Include(x => x.TipoDeApartado).Where(x=> x.SubcategoriaId == subcategoriaId && x.EstaActivo).SumAsync(x => x.CantidadInicial);
+            total = await _appDbContext.Apartado.Include(x => x.TipoDeApartado).Where(x => x.SubcategoriaId == subcategoriaId && x.EstaActivo).SumAsync(x => x.CantidadInicial);
 
             return total;
         }

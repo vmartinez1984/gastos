@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Core", "Gastos.Core\Gastos.Core.csproj", "{28C32B71-EE9F-46F1-8E16-60F62A653168}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Api", "Gastos.Api\Gastos.Api.csproj", "{768288CF-8BC3-4C21-8828-0AA2B05BF1C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Api", "Gastos.Api\Gastos.Api.csproj", "{768288CF-8BC3-4C21-8828-0AA2B05BF1C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.BusinessLayer", "Gastos.BusinessLayer\Gastos.BusinessLayer.csproj", "{C9C8E903-40DB-4A01-A0DE-25B530352ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.BusinessLayer", "Gastos.BusinessLayer\Gastos.BusinessLayer.csproj", "{C9C8E903-40DB-4A01-A0DE-25B530352ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Repositories", "Gastos.Repository\Gastos.Repositories.csproj", "{FC176331-FAD2-4B2F-AA3E-FBBA1F6BABDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Repositories", "Gastos.Repository\Gastos.Repositories.csproj", "{FC176331-FAD2-4B2F-AA3E-FBBA1F6BABDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Mobile.Android", "Gastos.Mobile\Gastos.Mobile.Android\Gastos.Mobile.Android.csproj", "{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Mobile", "Gastos.Mobile\Gastos.Mobile\Gastos.Mobile.csproj", "{E247E901-E44F-4147-A369-947EAA00A28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Core", "Gastos.Core\Gastos.Core.csproj", "{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{28C32B71-EE9F-46F1-8E16-60F62A653168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28C32B71-EE9F-46F1-8E16-60F62A653168}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28C32B71-EE9F-46F1-8E16-60F62A653168}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28C32B71-EE9F-46F1-8E16-60F62A653168}.Release|Any CPU.Build.0 = Release|Any CPU
 		{768288CF-8BC3-4C21-8828-0AA2B05BF1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{768288CF-8BC3-4C21-8828-0AA2B05BF1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768288CF-8BC3-4C21-8828-0AA2B05BF1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +33,20 @@ Global
 		{FC176331-FAD2-4B2F-AA3E-FBBA1F6BABDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC176331-FAD2-4B2F-AA3E-FBBA1F6BABDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC176331-FAD2-4B2F-AA3E-FBBA1F6BABDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193E15F3-A3ED-4A6B-A102-D09553BDE3B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E247E901-E44F-4147-A369-947EAA00A28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E247E901-E44F-4147-A369-947EAA00A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E247E901-E44F-4147-A369-947EAA00A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E247E901-E44F-4147-A369-947EAA00A28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

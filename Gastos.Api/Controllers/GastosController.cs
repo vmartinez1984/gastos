@@ -14,11 +14,11 @@ namespace Gastos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GastoDtoIn gasto)
         {
-            int id;
-            
-            id = await _unitOfWork.Gasto.AgregarAsync(gasto);
 
-            return Created($"Gastos/{id}", new { Id = id });
+
+            var id = await _unitOfWork.Gasto.AgregarAsync(gasto);
+
+            return Created($"Gastos/{id}", id);
         }
 
         [HttpGet]
@@ -28,12 +28,19 @@ namespace Gastos.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromBody] GastoDtoIn gasto, int id)
+        public async Task<IActionResult> Put([FromBody] GastoDtoUpdate gasto, int id)
         {
             if (await _unitOfWork.Gasto.ObtenerAsync(id) == null)
                 return NotFound(new { Message = "Elemento no encontrado" });
 
-            await _unitOfWork.Gasto.ActualizarAsync(gasto, id); 
+            await _unitOfWork.Gasto.ActualizarAsync(new GastoDtoIn
+            {
+                Cantidad = gasto.Cantidad,
+                Nombre = gasto.Nombre,
+                PeriodoId = gasto.PeriodoId,
+                SubcategoriaId = gasto.SubcategoriaId,
+
+            }, id);
 
             return Accepted();
         }
@@ -41,7 +48,7 @@ namespace Gastos.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if(await _unitOfWork.Gasto.ObtenerAsync(id) == null)
+            if (await _unitOfWork.Gasto.ObtenerAsync(id) == null)
                 return NotFound(new { Message = "Elemento no encontrado" });
 
             await _unitOfWork.Gasto.BorrarAsync(id);

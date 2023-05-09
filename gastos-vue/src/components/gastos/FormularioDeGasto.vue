@@ -10,7 +10,13 @@
                         <label class="form-label">Subcategoria</label>
                     </div>
                     <div class="col-10">
-                        <select class="form-select" v-model="gasto.subcategoriaId">
+                        <span v-if="estaCargandoSubcategoria">
+                            <div class="spinner-border spinner-border-sm text-info" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                        </span>
+                        <select v-else class="form-select" v-model="gasto.subcategoriaId"
+                            :disabled="deshabilitarFormulario">
                             <option value="0">Seleccione</option>
                             <option v-for="subcategoria in subcategorias" :key="subcategoria.id" :value="subcategoria.id">
                                 {{ subcategoria.nombre }}
@@ -23,7 +29,7 @@
                         <label class="form-label">Nombre</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" v-model="gasto.nombre" class="form-control" />
+                        <input type="text" v-model="gasto.nombre" class="form-control" :disabled="deshabilitarFormulario" />
                     </div>
                 </div>
 
@@ -41,7 +47,8 @@
                         <label class="form-label">$</label>
                     </div>
                     <div class="col-10">
-                        <input type="number" step="0.01" v-model="gasto.cantidad" class="form-control" />
+                        <input type="number" step="0.01" v-model="gasto.cantidad" class="form-control"
+                            :disabled="deshabilitarFormulario" />
                     </div>
                 </div>
                 <div class="row mt-1">
@@ -51,8 +58,13 @@
                         </router-link>
                     </div>
                     <div class="col-10">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" :disabled="estaCargando">
                             Guardar
+                            <span v-if="estaCargando">
+                                <div class="spinner-border spinner-border-sm text-info" role="status">
+                                    <span class="visually-hidden">Cargando...</span>
+                                </div>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -76,16 +88,27 @@ var gasto = ref({
     idemPotency: '',
     subcategoriaId: 0
 })
+var estaCargando = ref(false)
+var estaCargandoSubcategoria = ref(false)
+var deshabilitarFormulario = ref(false)
 
 const guardarAsync = async () => {
     try {
-
+        estaCargando.value = true
+        deshabilitarFormulario = true
         //console.log(gasto.value)
-        await servicioGastos.agregarAsync(gasto.value)
+        if (gasto.value.id == 0) {
+            await servicioGastos.agregarAsync(gasto.value)
+        } else {
+            await servicioGastos.actualizarAsync(gasto.value)
+        }
         router.push({ name: 'periodoDetalles', params: { 'id': route.query.periodoId } })
     } catch (exeption) {
         alert('Valio pepino')
         console.log(exeption)
+    } finally {
+        estaCargando.value = false
+        deshabilitarFormulario = false
     }
 }
 
@@ -99,19 +122,42 @@ const uuidv4 = () => {
 }
 
 const obtenerSubcategoriasAsync = async () => {
-    subcategorias.value = await servicioSubcategorias.obtenerTodoAsync()
-    subcategorias.value.forEach(item => {
-        if (item.id == route.query.subcategoriaId) {
-            gasto.value.presupuesto = item.cantidad
-        }
-    })
+    try {
+        estaCargandoSubcategoria.value = true
+        subcategorias.value = await servicioSubcategorias.obtenerTodoAsync()
+        subcategorias.value.forEach(item => {
+            if (item.id == route.query.subcategoriaId) {
+                gasto.value.presupuesto = item.cantidad
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    } finally {
+        estaCargandoSubcategoria.value = false
+    }
 }
 
 onMounted(async () => {
-    await obtenerSubcategoriasAsync();
     console.log(route.query)
-    gasto.value.periodoId = route.query.periodoId
-    gasto.value.subcategoriaId = route.query.subcategoriaId
-    gasto.value.idemPotency = uuidv4()
+    console.log(route.name)
+    await obtenerSubcategoriasAsync();
+    switch (route.name) {
+        case 'editarGasto':
+            gasto.value.id = route.params.id
+            gasto.value.cantidad = route.query.cantidad
+            gasto.value.nombre = route.query.nombre
+            gasto.value.subcategoriaId = route.query.subcategoriaId
+            gasto.value.periodoId = route.query.periodoId
+            break
+
+        case 'agregarGasto':
+            gasto.value.id = 0
+            gasto.value.periodoId = route.query.periodoId
+            gasto.value.subcategoriaId = route.query.subcategoriaId
+            gasto.value.idemPotency = uuidv4()
+            break
+        default:
+            break;
+    }
 })
 </script>

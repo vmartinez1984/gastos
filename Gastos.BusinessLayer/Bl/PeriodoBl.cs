@@ -4,6 +4,7 @@ using Gastos.Core.Dtos;
 using Gastos.Core.Entities;
 using Gastos.Core.Interfaces.IBusinessLayer;
 using Gastos.Core.Interfaces.IRepositories;
+using System.Text.RegularExpressions;
 
 namespace Gastos.BusinessLayer.Bl
 {
@@ -13,11 +14,11 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public async Task ActualizarAsync(PeriodoDtoIn item, int id)
+        public async Task ActualizarAsync(PeriodoDtoIn item, string idGuid)
         {
             PeriodoEntity entity;
 
-            entity = await _repositorio.Periodo.ObtenerAsync(id);
+            entity = await ObtenerPeriodoEntityAsync(idGuid);
             entity.Nombre = item.Nombre;
             entity.FechaInicial = item.FechaInicial;    
             entity.FechaFinal = item.FechaFinal;
@@ -25,19 +26,57 @@ namespace Gastos.BusinessLayer.Bl
             await _repositorio.Periodo.ActualizarAsync(entity);
         }
 
-        public async Task<int> AgregarAsync(PeriodoDtoIn item)
+        public async Task<IdDto> AgregarAsync(PeriodoDtoIn item)
         {
             PeriodoEntity entity;
+            IdDto idDto;
 
             entity = _mapper.Map<PeriodoEntity>(item);
             entity.Id = await _repositorio.Periodo.AgregarAsync(entity);
+            idDto = new IdDto
+            {
+                 Id = entity.Id,
+                 Guid = entity.Guid
+            };
 
-            return entity.Id;
+            return idDto;
         }
 
         public async Task BorrarAsync(int id)
         {
             await _repositorio.Periodo.BorrarAsync(id);
+        }
+
+        public async Task BorrarAsync(string idGuid)
+        {
+            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
+            {
+               await BorrarAsync(Convert.ToInt32(idGuid));
+            }
+            else
+            {
+                Guid guid;
+
+                guid = Guid.Parse(idGuid);
+
+                await _repositorio.Periodo.BorrarAsync(guid);
+            }
+        }
+        
+        public async Task<PeriodoEntity> ObtenerPeriodoEntityAsync(string idGuid)
+        {
+            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
+            {
+              return await _repositorio.Periodo.ObtenerAsync(Convert.ToInt32(idGuid));
+            }
+            else
+            {
+                Guid guid;
+
+                guid = Guid.Parse(idGuid);
+
+                return await _repositorio.Periodo.ObtenerAsync(guid);
+            }
         }
 
         public async Task<List<PeriodoDto>> ObtenerAsync()
@@ -51,17 +90,17 @@ namespace Gastos.BusinessLayer.Bl
             return list;
         }
 
-        public async Task<PeriodoConDetallesDto> ObtenerAsync(int periodId)
+        public async Task<PeriodoConDetallesDto> ObtenerPeriodoConDetallesAsync(string periodId)
         {
             PeriodoConDetallesDto periodo;
             PeriodoEntity periodoEntity;
             List<GastoDto> listaDeGastos;
 
-            periodoEntity = await _repositorio.Periodo.ObtenerAsync(periodId);
-            listaDeGastos = _mapper.Map<List<GastoDto>>(await _repositorio.Gasto.ObtenerPorPeriodoIdAsync(periodId));
+            periodoEntity = await ObtenerPeriodoEntityAsync(periodId);
+            listaDeGastos = _mapper.Map<List<GastoDto>>(await _repositorio.Gasto.ObtenerPorPeriodoIdAsync(periodoEntity.Id));
             periodo = new PeriodoConDetallesDto
             {
-                Id = periodId,
+                Id = periodoEntity.Id,
                 Nombre = periodoEntity.Nombre,
                 FechaFinal = periodoEntity.FechaFinal,
                 FechaInicial = periodoEntity.FechaInicial,
@@ -72,7 +111,20 @@ namespace Gastos.BusinessLayer.Bl
 
             return periodo;
         }
-             
+
+        public async Task<PeriodoDto> ObtenerAsync(string guid)
+        {
+            PeriodoDto periodoDto;
+            PeriodoEntity entity;
+            Guid guid1;
+
+            guid1 = Guid.Parse(guid);
+            entity = await _repositorio.Periodo.ObtenerAsync(guid1);
+            periodoDto = _mapper.Map<PeriodoDto>(entity);
+
+            return periodoDto;
+        }
+
         private async Task<List<GastoApartadoDto>> ObtenerListaDeApartados(List<GastoDto> listaDeGastos)
         {
             List<GastoApartadoDto> listaDeApartados;

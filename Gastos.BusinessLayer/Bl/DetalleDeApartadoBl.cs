@@ -18,16 +18,17 @@ namespace Gastos.BusinessLayer.Bl
             throw new NotImplementedException();
         }
 
-        public async Task<int> AgregarAsync(DetalleDeApartadoDtoIn item)
+        public async Task<IdDto> AgregarAsync(DetalleDeApartadoDtoIn item)
         {
-            DetalleDeApartadoEntity entity;            
+            DetalleDeApartadoEntity entity;
 
             entity = _mapper.Map<DetalleDeApartadoEntity>(item);
             await _repositorio.DetalleDeApartado.AgregarAsync(entity);
             await ActualizarApartadoAsync(item.ApartadoId);
-            await AgregarGastoAsync(item);
+            if (item.PeriodoId != 0) 
+                await AgregarGastoAsync(item);
 
-            return entity.Id;
+            return new IdDto { Id = entity.Id, Guid = entity.Guid };
         }
 
         private async Task AgregarGastoAsync(DetalleDeApartadoDtoIn item)
@@ -68,6 +69,18 @@ namespace Gastos.BusinessLayer.Bl
         public Task<DetalleDeApartadoDto> ObtenerAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> RetirarAsync(DetalleDeApartadoDtoIn item)
+        {
+            DetalleDeApartadoEntity entity;
+
+            entity = _mapper.Map<DetalleDeApartadoEntity>(item);
+            entity.Cantidad = entity.Cantidad * -1;
+            await _repositorio.DetalleDeApartado.AgregarAsync(entity);
+            await ActualizarApartadoAsync(item.ApartadoId);
+
+            return entity.Id;
         }
     }
 }

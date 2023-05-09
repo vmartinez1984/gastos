@@ -30,7 +30,7 @@ namespace Gastos.BusinessLayer.Bl
             await _repositorio.Apartado.ActualizarAsync(entity);
         }
 
-        public async Task<int> AgregarAsync(ApartadoDtoIn item)
+        public async Task<IdDto> AgregarAsync(ApartadoDtoIn item)
         {
             ApartadoEntity apartadoEntity;
 
@@ -39,7 +39,11 @@ namespace Gastos.BusinessLayer.Bl
             //await AgregarDetalleDeApartadoAsync(apartadoEntity);
             //await ActualizarGasto(item);
 
-            return apartadoEntity.Id;
+            return new IdDto
+            {
+                Id = apartadoEntity.Id,
+                Guid = apartadoEntity.Guid,
+            };
         }
 
         private async Task AgregarDetalleDeApartadoAsync(ApartadoEntity apartadoEntity)

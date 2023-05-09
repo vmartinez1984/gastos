@@ -29,7 +29,7 @@
                     <div v-if="subcategoria.gasto.cantidad == 0">
                         <div class="d-grid">
                             <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                :to="{ name: 'agregarGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
                                 class="btn btn-warning text-white text-end">
                                 {{ formatPrice(subcategoria.gasto.cantidad) }}
                             </router-link>
@@ -38,7 +38,7 @@
                     <div v-else>
                         <div class="d-grid">
                             <router-link
-                                :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                :to="{ name: 'editarGasto', params:{'id':subcategoria.gasto.id }, query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'nombre': subcategoria.gasto.nombre, 'cantidad': subcategoria.gasto.cantidad } }"
                                 class="btn btn-primary text-end">
                                 {{ formatPrice(subcategoria.gasto.cantidad) }}
                             </router-link>
@@ -100,9 +100,9 @@
                 <hr class="text-primary" />                
                 <div class="row">
                     <div class="col-md-6"></div>
-                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeApartados.presupuesto) }}</div>
-                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeApartados.cantidad) }}</div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-2 text-end">Total <br/>{{ formato.formatearMoneda(totalDeApartados.presupuesto) }}</div>
+                    <div class="col-md-2 text-end">Asignado <br/>{{ formato.formatearMoneda(totalDeApartados.cantidad) }}</div>
+                    <div class="col-md-2 text-end">Resta <br/>{{ formato.formatearMoneda(totalDeApartados.presupuesto - totalDeApartados.cantidad) }}</div>                    
                 </div>
                 <div class="row text-info">
                     <div class="col-md-6"></div>
@@ -129,7 +129,7 @@
                         <div v-if="subcategoria.gasto.cantidad == 0">
                             <div class="d-grid">
                                 <router-link
-                                    :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                    :to="{ name: 'agregarGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
                                     class="btn btn-warning text-white text-end">
                                     {{ formatPrice(subcategoria.gasto.cantidad) }}
                                 </router-link>
@@ -138,7 +138,7 @@
                         <div v-else>
                             <div class="d-grid">
                                 <router-link
-                                    :to="{ name: 'formularioDeGasto', query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id } }"
+                                    :to="{ name: 'editarGasto', params:{'id':subcategoria.gasto.id}, query: { 'periodoId': periodo.id, 'subcategoriaId': subcategoria.id, 'nombre':subcategoria.gasto.nombre, 'cantidad': subcategoria.gasto.cantidad } }"
                                     class="btn btn-primary text-end">
                                     {{ formatPrice(subcategoria.gasto.cantidad) }}
                                 </router-link>
@@ -149,8 +149,9 @@
                 <hr class="text-info" />
                 <div class="row">
                     <div class="col-md-6"></div>
-                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeGastos.presupuesto) }}</div>
-                    <div class="col-md-2 text-end">{{ formato.formatearMoneda(totalDeGastos.cantidad) }}</div>
+                    <div class="col-md-2 text-end">Total <br/>{{ formato.formatearMoneda(totalDeGastos.presupuesto) }}</div>
+                    <div class="col-md-2 text-end">Asignado <br/>{{ formato.formatearMoneda(totalDeGastos.cantidad) }}</div>
+                    <div class="col-md-2 text-end">Resta <br/>{{ formato.formatearMoneda(totalDeGastos.presupuesto - totalDeGastos.cantidad) }}</div>
                 </div>
                 <div class="row text-info">
                     <div class="col-md-6"></div>

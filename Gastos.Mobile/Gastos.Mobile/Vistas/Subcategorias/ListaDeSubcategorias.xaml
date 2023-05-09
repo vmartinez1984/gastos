@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gastos.Mobile.Vistas.Subcategorias.ListaDeSubcategorias"
+             Title="Subcategorias">
+    <ContentPage.ToolbarItems>        
+        <ToolbarItem Text="Agregar" Clicked="ToolBarItemAgregar_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Subcategorias" x:Name="LabelSubcategorias"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Text="Categoria" Grid.Column="0"/>
+                <Button Text="Nombre" Grid.Column="1"/>
+                <Button Text="$" Grid.Column="2"/>
+            </Grid>
+            <ListView x:Name="ListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Editar" x:Name="MenuItemEditar" Clicked="MenuItemEditar_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Borrar" x:Name="MenuItemBorrar" Clicked="MenuItemBorrar_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding CategoriaNombre}" Grid.Column="0"/>
+                                <Label Text="{Binding Nombre}" Grid.Column="1"/>
+                                <Label Text="{Binding Cantidad, StringFormat='{0:C}'}" Grid.Column="2" />
+                                <!--<Label Text="{Binding Total}" Grid.Column="3"/>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

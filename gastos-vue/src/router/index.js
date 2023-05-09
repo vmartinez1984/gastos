@@ -60,12 +60,22 @@ const routes = [
     },
     {
         path:'/gastos/agregar',
-        name: 'formularioDeGasto',
+        name: 'agregarGasto',
+        component: FormularioDeGasto
+    },
+    {
+        path:'/gastos/editar/:id',
+        name: 'editarGasto',
         component: FormularioDeGasto
     },
     {
         path:'/apartados/agregar',
         name: 'agregarApartado',
+        component: FormularioDeApartado
+    },
+    {
+        path:'/apartados/borrar/:id',
+        name: 'borrarApartado',
         component: FormularioDeApartado
     },
     {

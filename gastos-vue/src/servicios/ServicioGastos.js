@@ -23,4 +23,22 @@ export default {
 
         return response.data
     },
+
+    async actualizarAsync(gasto){
+        var response
+
+        response = await axios.put(
+            url + gasto.id,
+            {
+                "nombre": gasto.nombre,
+                "cantidad": gasto.cantidad,
+                "presupuesto": gasto.presupuesto,
+                "periodoId": gasto.periodoId,
+                "idemPotency": gasto.idemPotency,
+                "subcategoriaId": gasto.subcategoriaId
+            }
+        )
+
+        console.log(response)
+    }
 }

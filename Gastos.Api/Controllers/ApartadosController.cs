@@ -15,11 +15,11 @@ namespace Gastos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ApartadoDtoIn item)
         {
-            int id;
+            IdDto id;
 
             id = await _unitOfWork.Apartado.AgregarAsync(item);
 
-            return Created($"Apartados/{id}", new { Id = id });
+            return Created($"Apartados/{id.Id}",  id );
         }
 
         [HttpGet]
@@ -33,7 +33,7 @@ namespace Gastos.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
             ApartadoDto apartado;
 
@@ -53,11 +53,20 @@ namespace Gastos.Api.Controllers
         [HttpPost("Detalles")]
         public async Task<IActionResult> AgregarIncrementoAsync([FromBody] DetalleDeApartadoDtoIn detalleDeApartado)
         {
-            int id;
+            IdDto id;
 
             id = await _unitOfWork.DetalleDeApartado.AgregarAsync(detalleDeApartado);
+            //id = 10;
 
-            return Created("", new { Id = id });
+            return Created("", id);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _unitOfWork.Apartado.BorrarAsync(id);
+
+            return Accepted();
         }
     }
 }

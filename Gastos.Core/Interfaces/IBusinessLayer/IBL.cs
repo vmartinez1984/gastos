@@ -1,4 +1,6 @@
 ﻿using Gastos.Core.Dtos;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gastos.Core.Interfaces.IBusinessLayer
 {
@@ -28,11 +30,14 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task<List<CompraDto>> ObtenerPorTdcIdAsync(int tdcId);
     }
 
-    public interface IDetalleDeApartadoBl : IBaseBl<DetalleDeApartadoDtoIn, DetalleDeApartadoDto> { }
+    public interface IDetalleDeApartadoBl : IBaseBl<DetalleDeApartadoDtoIn, DetalleDeApartadoDto>
+    {
+        Task<int> RetirarAsync(DetalleDeApartadoDtoIn detalleDeApartado);
+    }
 
     public interface IBaseBl<T, U> where T : class
     {
-        Task<int> AgregarAsync(T item);
+        Task<IdDto> AgregarAsync(T item);
         Task BorrarAsync(int id);
         Task<U> ObtenerAsync(int id);
         Task ActualizarAsync(T item, int id);
@@ -47,15 +52,22 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
     {
         Task<List<ApartadoDto>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId);
         Task<List<ApartadoDto>> ObtenerAsync();
+        Task<ApartadoDto> ObtenerAsync(string id);
     }
 
     public interface IPeriodoBl
     {
-        Task ActualizarAsync(PeriodoDtoIn item, int id);
-        Task<int> AgregarAsync(PeriodoDtoIn item);
-        Task BorrarAsync(int id);
+        Task ActualizarAsync(PeriodoDtoIn item, string idGuid);
+
+        Task<IdDto> AgregarAsync(PeriodoDtoIn item);
+
+        Task BorrarAsync(string idGuid);
+
         Task<List<PeriodoDto>> ObtenerAsync();
-        Task<PeriodoConDetallesDto> ObtenerAsync(int periodId);        
+
+        Task<PeriodoConDetallesDto> ObtenerPeriodoConDetallesAsync(string periodId);
+
+        Task<PeriodoDto> ObtenerAsync(string guid);
     }
 
     public interface ITipoDeApartadoBl

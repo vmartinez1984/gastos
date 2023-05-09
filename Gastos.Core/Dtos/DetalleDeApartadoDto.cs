@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
 {
-    public class DetalleDeApartadoDtoIn
+    public class DetalleDeApartadoBaseDto
     {
         [Required]
         public int ApartadoId { get; set; }
@@ -20,7 +21,9 @@ namespace Gastos.Core.Dtos
         public int SubcategoriaId { get; set; }
     }
 
-    public class DetalleDeApartadoDto: DetalleDeApartadoDtoIn
+    public class DetalleDeApartadoDtoIn : DetalleDeApartadoBaseDto { }
+
+    public class DetalleDeApartadoDto : DetalleDeApartadoBaseDto
     {
         [DataType(DataType.Date)]
         public DateTime FechaDeRegistro { get; set; }

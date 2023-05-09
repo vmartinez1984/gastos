@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
 {
@@ -23,10 +25,13 @@ namespace Gastos.Core.Dtos
                 return dias;
             }
         }
+
+        public Guid Guid { get; set; }
     }
     
     public class ApartadoDtoIn
     {
+
         public int TipoDeApartadoId { get; set; }
 
         [Required]

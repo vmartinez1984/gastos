@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "pWUv3bQPGR8dBrBNcJT7CpMZh/L38x/IqwA/Ax0AXxrqHA+lyGCQbcblb4qhpoPrTEvEfUVWx7cx/1UM/YuoTw==",
+  "dgSpecHash": "NeMPi5SbKCNUkWMRr2f1MysLGxNBZUEYvjSH1OkCFy9h2eRkUX9FlpxgYzdtLhvDDzV8NyIn/oRU1DJ3Qe7NaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\Gastos\\Gastos.Core\\Gastos.Core.csproj",
+  "projectFilePath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vmartinez\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+    "C:\\Users\\ahal_\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\ahal_\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

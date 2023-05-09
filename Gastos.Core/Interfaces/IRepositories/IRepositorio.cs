@@ -1,4 +1,7 @@
 ﻿using Gastos.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gastos.Core.Interfaces.IRepositories
 {
@@ -48,6 +51,7 @@ namespace Gastos.Core.Interfaces.IRepositories
     {
         Task<List<ApartadoEntity>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId);
         Task<List<ApartadoEntity>> ObtenerAsync();
+        Task<ApartadoEntity> ObtenerAsync(Guid id);
         Task<List<ApartadoEntity>> ObtenerPorPeriodoAsync(int periodoId);
         Task<decimal> ObtenerTotalPorSubcategoriaId(int subcategoriaId);
     }
@@ -86,6 +90,8 @@ namespace Gastos.Core.Interfaces.IRepositories
 
     public interface IPeriodoRepository: IBaseRepositorio<PeriodoEntity>
     {
+        Task BorrarAsync(Guid guid);
         Task<List<PeriodoEntity>> ObtenerAsync();
+        Task<PeriodoEntity> ObtenerAsync(Guid guid1);
     }
 }

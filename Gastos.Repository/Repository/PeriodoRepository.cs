@@ -12,15 +12,22 @@ namespace Gastos.Repositories.Repository
         {
         }
 
-        public Task ActualizarAsync(PeriodoEntity entity)
+        public async Task ActualizarAsync(PeriodoEntity entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Periodo.Update(entity);
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<int> AgregarAsync(PeriodoEntity entity)
         {
-            _appDbContext.Periodo.Add(entity);
-            await _appDbContext.SaveChangesAsync();
+            PeriodoEntity periodo;
+
+            periodo = await _appDbContext.Periodo.Where(x => x.Guid == entity.Guid).FirstOrDefaultAsync();
+            if (periodo == null)
+            {
+                _appDbContext.Periodo.Add(entity);
+                await _appDbContext.SaveChangesAsync();
+            }
 
             return entity.Id;
         }
@@ -29,7 +36,18 @@ namespace Gastos.Repositories.Repository
         {
             PeriodoEntity entity;
 
-            entity = await _appDbContext.Periodo.Where(x=>x.Id == id).FirstOrDefaultAsync();
+            entity = await _appDbContext.Periodo.Where(x => x.Id == id).FirstOrDefaultAsync();
+            entity.EstaActivo = false;
+            _appDbContext.Update(entity);
+
+            await _appDbContext.SaveChangesAsync();
+        }
+
+        public async Task BorrarAsync(Guid guid)
+        {
+            PeriodoEntity entity;
+
+            entity = await _appDbContext.Periodo.Where(x => x.Guid == guid).FirstOrDefaultAsync();
             entity.EstaActivo = false;
             _appDbContext.Update(entity);
 
@@ -41,6 +59,15 @@ namespace Gastos.Repositories.Repository
             PeriodoEntity entity;
 
             entity = await _appDbContext.Periodo.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            return entity;
+        }
+
+        public async Task<PeriodoEntity> ObtenerAsync(Guid guid)
+        {
+            PeriodoEntity entity;
+
+            entity = await _appDbContext.Periodo.Where(x => x.Guid == guid).FirstOrDefaultAsync();
 
             return entity;
         }

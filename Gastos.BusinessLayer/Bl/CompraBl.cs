@@ -27,14 +27,14 @@ namespace Gastos.BusinessLayer.Bl
             await _repositorio.Compra.ActualizarAsync(entity);
         }
 
-        public async Task<int> AgregarAsync(CompraDtoIn item)
+        public async Task<IdDto> AgregarAsync(CompraDtoIn item)
         {
             CompraEntity entity;
 
             entity = _mapper.Map<CompraEntity>(item);
             entity.Id = await _repositorio.Compra.AgregarAsync(entity);
 
-            return entity.Id;
+            return new IdDto { Guid=entity.Guid, Id = entity.Id };
         }
 
         public async Task BorrarAsync(int id)

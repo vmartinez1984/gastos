@@ -1,4 +1,6 @@
-﻿namespace Gastos.Core.Entities
+﻿using System;
+
+namespace Gastos.Core.Entities
 {
     public class CompraEntity
     {
@@ -16,5 +18,6 @@
         public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
 
         public bool EstaActivo { get; set; } = true;
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }
