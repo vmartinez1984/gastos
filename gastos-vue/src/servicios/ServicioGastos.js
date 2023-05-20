@@ -14,9 +14,9 @@ export default {
                 "nombre": gasto.nombre,
                 "cantidad": gasto.cantidad,
                 "presupuesto": gasto.presupuesto,
-                "periodoId": gasto.periodoId,
+                "PeriodoGuidId": gasto.periodoId,
                 "idemPotency": gasto.idemPotency,
-                "subcategoriaId": gasto.subcategoriaId,
+                "SubcategoriaGuidId": gasto.subcategoriaId,
             }
         )        
         console.log(response)
@@ -33,9 +33,9 @@ export default {
                 "nombre": gasto.nombre,
                 "cantidad": gasto.cantidad,
                 "presupuesto": gasto.presupuesto,
-                "periodoId": gasto.periodoId,
+                "PeriodoGuidId": gasto.periodoId,
                 "idemPotency": gasto.idemPotency,
-                "subcategoriaId": gasto.subcategoriaId
+                "SubcategoriaGuidId": gasto.subcategoriaId
             }
         )
 

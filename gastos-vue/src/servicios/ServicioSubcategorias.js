@@ -19,14 +19,14 @@ export default {
         var response
 
         response = await axios.post(
-            url,            
+            url,
             {
                 "categoriaId": subcategoria.categoriaId,
                 "nombre": subcategoria.nombre,
                 "cantidad": subcategoria.cantidad
             }
         )
-        
+
         console.log(response)
 
         return response.data
@@ -37,7 +37,7 @@ export default {
      * @param {int} subcategoriaId 
      * @returns apartado[]
      */
-    async obtenerApartadosPorSubcategoriaIdAsync(subcategoriaId){
+    async obtenerApartadosPorSubcategoriaIdAsync(subcategoriaId) {
         var response
 
         response = await axios({
@@ -46,18 +46,30 @@ export default {
         })
 
         return response.data
-    },   
+    },
 
-    async actualizarAsync(subcategoria){
+    async actualizarAsync(subcategoria) {
+        //console.log("servicio", subcategoria)
         var response
 
         response = await axios.put(
-            url+subcategoria.id,
+            url + subcategoria.id,
             {
                 "categoriaId": subcategoria.categoriaId,
                 "nombre": subcategoria.nombre,
-                "cantidad": subcategoria.cantidad
+                "cantidad": subcategoria.cantidad,
+                "guid": subcategoria.guid
             }
+        )
+
+        return response.data
+    },
+
+    async borrarAsync(subcategoriaId) {        
+        var response
+
+        response = await axios.delete(
+            url + subcategoriaId
         )
 
         return response.data

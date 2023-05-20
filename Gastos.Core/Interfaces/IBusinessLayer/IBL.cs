@@ -1,4 +1,5 @@
 ﻿using Gastos.Core.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -45,6 +46,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
 
     public interface IGastoBl : IBaseBl<GastoDtoIn, GastoDto>
     {
+        Task<GastoDto> ObtenerAsync(string idGuid);
         Task<List<GastoDto>> ObtenerPorPeriodoIdAsync(int periodoId);
     }
 
@@ -57,7 +59,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
 
     public interface IPeriodoBl
     {
-        Task ActualizarAsync(PeriodoDtoIn item, string idGuid);
+        Task ActualizarAsync(PeriodoDtoUpdate item, string idGuid);
 
         Task<IdDto> AgregarAsync(PeriodoDtoIn item);
 
@@ -68,6 +70,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task<PeriodoConDetallesDto> ObtenerPeriodoConDetallesAsync(string periodId);
 
         Task<PeriodoDto> ObtenerAsync(string guid);
+        bool Existe(Guid guid);
     }
 
     public interface ITipoDeApartadoBl
@@ -80,8 +83,11 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         Task<List<CategoriaDto>> ObtenerAsync();
     }
 
-    public interface ISubcategoriaBl : IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
+    public interface ISubcategoriaBl //: IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
     {
+        Task ActualizarAsync(SubcategoriaDtoIn subcategoria, string idGuid);
+        Task<IdDto> AgregarAsync(SubcategoriaDtoIn subcategoria);
+        Task BorrarAsync(string idGuid);
         Task<List<SubcategoriaDto>> ObtenerAsync();
         Task<List<SubcategoriaDto>> ObtenerPorCategoriaIdAsync(int categoriaId);
     }

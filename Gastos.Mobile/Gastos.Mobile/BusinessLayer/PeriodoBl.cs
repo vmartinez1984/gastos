@@ -32,7 +32,7 @@ namespace Gastos.Mobile.BusinessLayer
                 ////obtnemo la lista local
                 listaLocal = _repositorioSqlit.Periodo.ObtenerTodos();
                 //Borrar los que esten como inactivo en el ws
-                SincronizarPeriodosBorradosWsConLocal(lista);
+                await SincronizarPeriodosBorradosWsConLocal(lista);
                 //Recorremos la lista ws y comparamos con los locales
                 SincronizarPeriodosWsConLocal(lista, listaLocal);
                 ////Sincronizar local con ws
@@ -48,26 +48,23 @@ namespace Gastos.Mobile.BusinessLayer
             }
         }
 
-        private void SincronizarPeriodosBorradosWsConLocal(List<PeriodoDto> lista)
+        private async Task SincronizarPeriodosBorradosWsConLocal(List<PeriodoDto> lista)
         {
-            _ = Task.Run(async () =>
+            try
             {
-                try
-                {
-                    List<PeriodoModel> listaLocal;
+                List<PeriodoModel> listaLocal;
 
-                    listaLocal = _repositorioSqlit.Periodo.ObtenerTodos(false);
-                    foreach (var periodo in listaLocal)
-                    {
-                        await _repositorioApi.Periodo.BorrarAsync(periodo.Guid);
-                        _repositorioSqlit.Periodo.Borrar(periodo.Guid, false);
-                    }
-                }
-                catch (Exception)
+                listaLocal = _repositorioSqlit.Periodo.ObtenerTodos(false);
+                foreach (var periodo in listaLocal)
                 {
-                    throw;
+                    await _repositorioApi.Periodo.BorrarAsync(periodo.Guid);
+                    _repositorioSqlit.Periodo.Borrar(periodo.Guid, false);
                 }
-            });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void SincronizarPeriodosWsConLocal(List<PeriodoDto> lista, List<PeriodoModel> listaLocal)
@@ -93,31 +90,30 @@ namespace Gastos.Mobile.BusinessLayer
             });
         }
 
-        private void SincronizarPeriodosLocalConWs()
+        private async void SincronizarPeriodosLocalConWs()
         {
             List<PeriodoModel> listaLocal;
-            List<PeriodoModel> listaNoSinconizada;
 
             listaLocal = _repositorioSqlit.Periodo.ObtenerTodos();
-            listaNoSinconizada = listaLocal.Where(x => x.EstaSincronizado == false).ToList();
-
-            _ = Task.Run(async () =>
+            listaLocal = listaLocal.Where(x => x.EstaSincronizado == false).ToList();
+            foreach (var item in listaLocal)
             {
-                foreach (var item in listaNoSinconizada)
+                PeriodoDtoIn periodoDtoIn;
+
+                periodoDtoIn = new PeriodoDtoIn
                 {
-                    PeriodoDtoIn periodoDtoIn;
+                    Nombre = item.Nombre,
+                    FechaFinal = item.FechaFinal,
+                    FechaInicial = item.FechaInicial,    
+                    Guid = item.Guid,
+                };
+                IdDto idDto;
 
-                    periodoDtoIn = new PeriodoDtoIn
-                    {
-                        Nombre = item.Nombre,
-                        FechaFinal = item.FechaFinal,
-                        FechaInicial = item.FechaInicial,
-                        Guid = item.Guid
-                    };
-
-                    await _repositorioApi.Periodo.AgregarAsync(periodoDtoIn);
-                }
-            });
+                idDto = await _repositorioApi.Periodo.AgregarAsync(periodoDtoIn);
+                item.Guid = idDto.Guid;
+                item.EstaSincronizado = true;
+                _repositorioSqlit.Periodo.Actualizar(item);
+            }
         }
 
         public List<PeriodoModel> ObtenerTodos()
@@ -129,51 +125,15 @@ namespace Gastos.Mobile.BusinessLayer
             return listaLocal;
         }
 
-        internal void Guardar(PeriodoModel periodo)
+        public void Guardar(PeriodoModel periodo)
         {
-            if (periodo.Id == 0)
-            {
+            PeriodoModel periodoModel;
+
+            periodoModel = _repositorioSqlit.Periodo.Obtener(periodo.Guid);
+            if (periodoModel == null)
                 _repositorioSqlit.Periodo.Agregar(periodo);
-            }
             else
-            {
                 _repositorioSqlit.Periodo.Actualizar(periodo);
-            }
-        }
-
-        private Task ActualizarAsync(PeriodoModel periodo)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AgregarAsync(PeriodoModel periodo)
-        {
-            //1.- Guardar en local
-            _repositorioSqlit.Periodo.Agregar(periodo);
-            //2.- Guardar en ws
-            _ = Task.Run(async () =>
-            {
-                try
-                {
-                    PeriodoDtoIn periodoDtoIn;
-
-                    periodoDtoIn = new PeriodoDtoIn
-                    {
-                        FechaFinal = periodo.FechaFinal,
-                        FechaInicial = periodo.FechaInicial,
-                        Guid = Guid.NewGuid(),
-                        Nombre = periodo.Nombre
-                    };
-
-                    await _repositorioApi.Periodo.AgregarAsync(periodo);
-                    periodo.EstaSincronizado = true;
-                    _repositorioSqlit.Periodo.Actualizar(periodo);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            });
         }
 
         public void Borrar(PeriodoModel periodo)
@@ -181,65 +141,62 @@ namespace Gastos.Mobile.BusinessLayer
             _repositorioSqlit.Periodo.Borrar(periodo.Guid);
         }
 
-        internal async Task<PeriodoConDetallesDto> ObtenerAsync(Guid periodoId)
+        public PeriodoConDetallesModel Obtener(Guid periodoId)
         {
-            PeriodoConDetallesDto periodo;
-            List<SubcategoriaDto> subcategorias;
+            PeriodoConDetallesModel periodo;
+            PeriodoModel periodoModel;
+            List<SubcategoriaModel> subcategorias;
+            List<GastoModel> gastos;
+            const int Gastos = 2;
+            const int Apartado = 3;
+            const int Entradas = 1;
 
-            periodo = await _repositorioApi.Periodo.ObtenerAsync(periodoId);
-            if (periodo != null)
+            periodoModel = _repositorioSqlit.Periodo.Obtener(periodoId);
+            gastos = _repositorioSqlit.Gasto.ObtenerTodos(periodoId);
+            subcategorias = _repositorioSqlit.Subcategoria.ObtenerTodos();
+            periodo = new PeriodoConDetallesModel
             {
-                List<GastoApartadoDto> listaDeApartados;
-                List<GastoDto> listaDeGastos;
-
-                listaDeApartados = new List<GastoApartadoDto>();
-                subcategorias = await _repositorioApi.Subcategoria.ObtenerTodosAsync();
-                subcategorias.Where(x => x.Categoria.Id == 3).ToList().ForEach(subcategoria =>
-                {
-                    GastoApartadoDto gasto;
-
-                    gasto = periodo.ListaDeApartados.Where(y => y.Subcategoria.Id == subcategoria.Id).FirstOrDefault();
-                    if (gasto == null)
-                    {
-                        gasto = new GastoApartadoDto
-                        {
-                            Id = 0,
-                            Subcategoria = subcategoria,
-                            Cantidad = 0,
-                            Nombre = string.Empty,
-                            PeriodoId = periodo.Id,
-                            Presupuesto = subcategoria.Cantidad,
-                            Total = 0
-                        };
-                    }
-                    listaDeApartados.Add(gasto);
-                });
-                periodo.ListaDeApartados = listaDeApartados;
-                listaDeGastos = new List<GastoDto>();
-                subcategorias.Where(x => x.Categoria.Id == 2).ToList().ForEach(subcategoria =>
-                {
-                    GastoDto gasto;
-
-                    gasto = periodo.ListaDeGastos.Where(y => y.Subcategoria.Id == subcategoria.Id).FirstOrDefault();
-                    if (gasto == null)
-                    {
-                        gasto = new GastoDto
-                        {
-                            Id = 0,
-                            Subcategoria = subcategoria,
-                            Cantidad = 0,
-                            Nombre = string.Empty,
-                            PeriodoId = periodo.Id,
-                            Presupuesto = subcategoria.Cantidad
-                        };
-                    }
-                    listaDeGastos.Add(gasto);
-                });
-                periodo.ListaDeGastos = listaDeGastos;
-            }
+                ListaDeApartados = ObtenerlistaDeGastos(subcategorias, gastos, periodoModel.Guid, Apartado),
+                ListaDeGastos = ObtenerlistaDeGastos(subcategorias, gastos, periodoModel.Guid, Gastos),
+                ListaDeEntradas = ObtenerlistaDeGastos(subcategorias, gastos, periodoModel.Guid, Entradas),
+                FechaInicial = periodoModel.FechaInicial,
+                FechaFinal = periodoModel.FechaFinal,
+                Nombre = periodoModel.Nombre
+            };
 
             return periodo;
         }
 
+        private List<GastoModel> ObtenerlistaDeGastos(List<SubcategoriaModel> subcategorias, List<GastoModel> listaDeGastos, Guid periodoGuid, int categoriaId)
+        {
+            List<GastoModel> lista;
+            lista = new List<GastoModel>();
+            subcategorias.Where(x => x.CategoriaId == categoriaId).ToList().ForEach(subcategoria =>
+            {
+                GastoModel gasto;
+
+                gasto = listaDeGastos.Where(y => y.SubcategoriaGuid == subcategoria.Guid).FirstOrDefault();
+                if (gasto == null)
+                {
+                    gasto = new GastoModel
+                    {
+                        Cantidad = 0,
+                        Nombre = string.Empty,
+                        SubcategoriaGuid = subcategoria.Guid,
+                        PeriodoGuid = periodoGuid,
+                        Presupuesto = subcategoria.Cantidad,
+                        SubcategoriaNombre = subcategoria.Nombre,
+                        CategoriaId = categoriaId
+                    };
+                }
+                else
+                {
+                    gasto.Presupuesto = subcategoria.Cantidad;
+                }
+                lista.Add(gasto);
+            });
+
+            return lista;
+        }
     }//end class
 }

@@ -34,20 +34,20 @@ namespace Gastos.BusinessLayer.Bl
             entity = _mapper.Map<CompraEntity>(item);
             entity.Id = await _repositorio.Compra.AgregarAsync(entity);
 
-            return new IdDto { Guid=entity.Guid, Id = entity.Id };
+            return new IdDto { Guid = (Guid)entity.Guid, Id = entity.Id };
         }
 
         public async Task BorrarAsync(int id)
         {
             await _repositorio.Compra.BorrarAsync(id);
         }
-            
+
 
         public async Task<CompraDto> ObtenerAsync(int id)
         {
             return _mapper.Map<CompraDto>(await _repositorio.Compra.ObtenerAsync(id));
         }
-        
+
         public async Task<List<CompraDto>> ObtenerPorTdcIdAsync(int tdcId)
         {
             List<CompraDto> lista;
@@ -80,7 +80,7 @@ namespace Gastos.BusinessLayer.Bl
                     item.Pago = item.Cantidad / item.MesesSinIntereses;
                 }
             });
-       
+
             return lista;
         }
 

@@ -57,5 +57,10 @@ namespace Gastos.Mobile.RepositorioSqlite
                 _connection.Delete(periodo);
             }
         }
+
+        public SubcategoriaModel Obtener(Guid guid)
+        {
+            return _connection.Table<SubcategoriaModel>().Where(x=> x.Guid == guid).FirstOrDefault();
+        }
     }
 }

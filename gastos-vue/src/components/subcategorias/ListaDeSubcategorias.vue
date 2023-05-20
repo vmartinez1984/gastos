@@ -3,10 +3,10 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-8">
-                    <h3>Subcategorias</h3>
+                    <h3 class="text-primary">Subcategorias</h3>
                 </div>
                 <div class="col-4">
-                    <router-link :to="{ path: '/subcategorias/agregar' }">Nuevo</router-link>
+                    <router-link class="btn btn-primary" :to="{ path: '/subcategorias/agregar' }">Nuevo</router-link>
                 </div>
             </div>
         </div>
@@ -21,8 +21,12 @@
                 </div>
                 <div class="col text-end">
                     <router-link class="btn btn-warning text-white"
-                        :to="{ name: 'editarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad } }">
+                        :to="{ name: 'editarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad, 'guid': subcategoria.guid } }">
                         Editar
+                    </router-link>
+                    <router-link class="btn btn-danger text-white mx-2"
+                        :to="{ name: 'borrarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad, 'guid': subcategoria.guid } }">
+                        Borrar
                     </router-link>
                 </div>
             </div>
@@ -46,9 +50,13 @@
                     <div class="text-end">{{ formatPrice(subcategoria.cantidad) }}</div>
                 </div>
                 <div class="col text-end">
-                    <router-link class="btn btn-warning text-white"
-                        :to="{ name: 'editarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad } }">
+                    <router-link class="btn btn-warning text-white m-1"
+                        :to="{ name: 'editarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad, 'guid': subcategoria.guid } }">
                         Editar
+                    </router-link>
+                    <router-link class="btn btn-danger text-white m-1"
+                        :to="{ name: 'borrarSubcategoria', params: { 'id': subcategoria.id }, query: { 'categoriaId': subcategoria.categoria.id, 'nombre': subcategoria.nombre, 'cantidad': subcategoria.cantidad, 'guid': subcategoria.guid } }">
+                        Borrar
                     </router-link>
                 </div>
             </div>
@@ -107,22 +115,23 @@ var totalDeEntradas = ref({})
 
 const obtenerSubcategoriasAsync = async () => {
     subcategorias.value = await servicioSubcategorias.obtenerTodoAsync()
+    //console.log(subcategorias.value)
     total.value = 0
     totalDeApartados.value = 0
     totalDeEntradas.value = 0
     subcategorias.value.forEach(item => {
         if (item.categoria.id == 2) {
-            gastos.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad })
+            gastos.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad, guid: item.guid })
             total.value += item.cantidad
         } else if (item.categoria.id == 3) {
-            apartados.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad })
+            apartados.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad, guid: item.guid })
             totalDeApartados.value += item.cantidad
         } else if (item.categoria.id == 1) {
-            entradas.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad })
+            entradas.value.push({ id: item.id, nombre: item.nombre, categoria: { nombre: item.categoria.nombre, id: item.categoria.id }, cantidad: item.cantidad, guid: item.guid })
             totalDeEntradas.value += item.cantidad
         }
     })
-    //console.log(subcategorias.value)
+    console.log(gastos.value)
 }
 
 const formatPrice = (value) => {

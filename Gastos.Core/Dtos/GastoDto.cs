@@ -10,19 +10,30 @@ namespace Gastos.Core.Dtos
         public SubcategoriaDto Subcategoria { get; set; }
         
         public decimal Presupuesto { get; set; }
-    }
-
-    public class GastoApartadoDto : GastoDto
-    {
+        
         public decimal Total { get; set; }
-    }
+    }    
 
-    public class GastoDtoIn: GastoBaseDto
+    public class GastoDtoIn
     {
 
         [Required]
-        public int SubcategoriaId { get; set; }
+        public string SubcategoriaGuidId { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [Range(0, 13000)]
+        public decimal Cantidad { get; set; }
+
+
+        [Required]
+        public string PeriodoGuidId { get; set; }
+
+        [Required]
+        public Guid IdemPotency { get; set; } = Guid.NewGuid();
     }
     
     public class GastoDtoUpdate
@@ -36,10 +47,10 @@ namespace Gastos.Core.Dtos
         public decimal Cantidad { get; set; }
 
         [Required]
-        public int SubcategoriaId { get; set; }
+        public string SubcategoriaGuidId { get; set; }
 
         [Required]
-        public int PeriodoId { get; set; }
+        public string PeriodoGuidId { get; set; }
     }
 
     public class GastoBaseDto

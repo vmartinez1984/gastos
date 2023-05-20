@@ -32,10 +32,34 @@ export default {
         response = await axios.post(url, {
             "nombre": periodo.nombre,
             "fechaInicial": periodo.fechaInicial,
-            "fechaFinal": periodo.fechaFinal
+            "fechaFinal": periodo.fechaFinal,
+            "guid": periodo.guid
+        })
+
+        return response.data
+    },
+
+    async borrarAsync(id) {
+        var response
+
+        response = await axios({
+            url: url + id,
+            method: 'DELETE'
+        })
+
+        return response.data
+    },
+
+    async actualizarAsync(periodo) {
+        var response
+
+        response = await axios.put(url + periodo.guid, {
+            "nombre": periodo.nombre,
+            "fechaInicial": periodo.fechaInicial,
+            "fechaFinal": periodo.fechaFinal,
+            "guid": periodo.guid
         })
 
         return response.data
     }
-
 }

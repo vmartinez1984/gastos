@@ -14,11 +14,24 @@ namespace Gastos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GastoDtoIn gasto)
         {
+            IdDto idDto;
+            GastoDto gastoDto;
 
+            gastoDto = await _unitOfWork.Gasto.ObtenerAsync(gasto.IdemPotency.ToString());
+            if (gastoDto == null)
+            {
+                idDto = await _unitOfWork.Gasto.AgregarAsync(gasto);
+            }
+            else
+            {
+                idDto = new IdDto
+                {
+                    Guid = gastoDto.IdemPotency,
+                    Id = gastoDto.Id
+                };
+            }
 
-            var id = await _unitOfWork.Gasto.AgregarAsync(gasto);
-
-            return Created($"Gastos/{id}", id);
+            return Created($"Gastos/{idDto}", idDto);
         }
 
         [HttpGet]
@@ -37,8 +50,8 @@ namespace Gastos.Api.Controllers
             {
                 Cantidad = gasto.Cantidad,
                 Nombre = gasto.Nombre,
-                PeriodoId = gasto.PeriodoId,
-                SubcategoriaId = gasto.SubcategoriaId,
+                PeriodoGuidId = gasto.PeriodoGuidId,
+                SubcategoriaGuidId = gasto.SubcategoriaGuidId,
 
             }, id);
 

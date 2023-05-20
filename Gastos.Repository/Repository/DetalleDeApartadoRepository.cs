@@ -3,6 +3,7 @@ using Gastos.Core.Interfaces.IRepositories;
 using Gastos.Repositories.Helpers;
 using Gastos.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Gastos.Repositories.Repository
 {
@@ -37,6 +38,18 @@ namespace Gastos.Repositories.Repository
 
         public async Task<List<DetalleDeApartadoEntity>> ObtenerPorApartadoIdAsync(int apartadoId)
         {
+            //List<DetalleDeApartadoEntity> entities;
+
+            //entities = await _appDbContext.DetalleDeApartado.ToListAsync();
+            //foreach (var item in entities)
+            //{
+            //    if (item.Guid == Guid.Empty || item.Guid == null)
+            //    {
+            //        item.Guid = Guid.NewGuid();
+            //        _appDbContext.DetalleDeApartado.Update(item);
+            //    }
+            //}
+            //await _appDbContext.SaveChangesAsync();
             return await _appDbContext.DetalleDeApartado.Where(x=> x.ApartadoId == apartadoId && x.EstaActivo).ToListAsync();
         }
 

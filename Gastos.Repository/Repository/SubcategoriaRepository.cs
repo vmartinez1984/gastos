@@ -3,6 +3,7 @@ using Gastos.Core.Interfaces.IRepositories;
 using Gastos.Repositories.Helpers;
 using Gastos.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace Gastos.Repositories.Repository
 {
@@ -26,16 +27,21 @@ namespace Gastos.Repositories.Repository
             return entity.Id;
         }
 
-        public Task BorrarAsync(int id)
+        public async Task BorrarAsync(string idGuid)
         {
-            throw new NotImplementedException();
+            SubcategoriaEntity entity;
+
+            entity = await ObtenerAsync(idGuid);
+            entity.EstaActivo = false; 
+
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<List<SubcategoriaEntity>> ObtenerAsync()
         {
-            List<SubcategoriaEntity> entities = await  _appDbContext.Subcategoria
+            List<SubcategoriaEntity> entities = await _appDbContext.Subcategoria
                 .Include(x => x.Categoria)
-                .Where(x => x.EstaActivo).OrderBy(x=>x.Nombre)
+                .Where(x => x.EstaActivo).OrderBy(x => x.Nombre)
                 .ToListAsync();
 
             //foreach (var item in entities)
@@ -56,10 +62,37 @@ namespace Gastos.Repositories.Repository
             SubcategoriaEntity entity;
 
             entity = await _appDbContext.Subcategoria
-                .Include(x=> x.Categoria)
+                .Include(x => x.Categoria)
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
 
             return entity;
+        }
+
+        public async Task<SubcategoriaEntity> ObtenerAsync(Guid guid)
+        {
+            SubcategoriaEntity entity;
+
+            entity = await _appDbContext.Subcategoria
+                .Include(x => x.Categoria)
+                .Where(x => x.Guid == guid).FirstOrDefaultAsync();
+
+            return entity;
+        }
+
+        public async Task<SubcategoriaEntity> ObtenerAsync(string idGuid)
+        {
+            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
+            {
+                return await ObtenerAsync(Convert.ToInt32(idGuid));
+            }
+            else
+            {
+                Guid guid;
+
+                guid = Guid.Parse(idGuid);
+
+                return await ObtenerAsync(guid);
+            }
         }
 
         public Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId)

@@ -44,6 +44,16 @@ namespace Gastos.Repositories.Repository
 
         public async Task<List<CompraEntity>> ObtenerPorTdcIdAsync(int tdcId)
         {
+            //var entities = _appDbContext.Compra.ToList();
+            //foreach (var item in entities)
+            //{
+            //    if (item.Guid == Guid.Empty || item.Guid == null)
+            //    {
+            //        item.Guid = Guid.NewGuid();
+            //        _appDbContext.Compra.Update(item);
+            //    }
+            //}
+            //await _appDbContext.SaveChangesAsync();
             return await _appDbContext.Compra.Where(x => x.TdcId == tdcId && x.EstaActivo).ToListAsync();
         }
     }

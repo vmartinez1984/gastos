@@ -4,6 +4,7 @@ using Gastos.Core.Dtos;
 using Gastos.Core.Entities;
 using Gastos.Core.Interfaces.IBusinessLayer;
 using Gastos.Core.Interfaces.IRepositories;
+using System.Text.RegularExpressions;
 
 namespace Gastos.BusinessLayer.Bl
 {
@@ -140,6 +141,34 @@ namespace Gastos.BusinessLayer.Bl
             list = _mapper.Map<List<ApartadoDto>>(entities);
 
             return list;
+        }
+
+        public async Task<ApartadoDto> ObtenerAsync(string idGuid)
+        {
+            ApartadoEntity entity;
+            ApartadoDto item;
+
+            entity = await ObtenerApartadoEntityAsync(idGuid);
+            item = _mapper.Map<ApartadoDto>(entity);
+            item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(entity.Id);
+
+            return item;
+        }
+
+        public async Task<ApartadoEntity> ObtenerApartadoEntityAsync(string idGuid)
+        {
+            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
+            {
+                return await _repositorio.Apartado.ObtenerAsync(Convert.ToInt32(idGuid));
+            }
+            else
+            {
+                Guid guid;
+
+                guid = Guid.Parse(idGuid);
+
+                return await _repositorio.Apartado.ObtenerAsync(guid);
+            }
         }
     }
 }

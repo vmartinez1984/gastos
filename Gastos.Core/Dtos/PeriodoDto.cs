@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Gastos.Core.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace Gastos.Core.Dtos
 {
@@ -11,7 +13,8 @@ namespace Gastos.Core.Dtos
 
         public List<GastoDto> ListaDeEntradas { get; set; }
 
-        public List<GastoApartadoDto> ListaDeApartados { get; set; }
+        public List<GastoDto> ListaDeApartados { get; set; }
+
     }
 
     public class PeriodoDto : PeriodoDtoIn
@@ -19,7 +22,22 @@ namespace Gastos.Core.Dtos
         public int Id { get; set; }        
     }
 
-    public class PeriodoDtoIn
+    public class PeriodoDtoUpdate
+    {
+        [Required]
+        [StringLength(100)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime FechaInicial { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime FechaFinal { get; set; }
+    }
+
+    public class PeriodoDtoIn : PeriodoDtoUpdate
     {
         [Required]
         [StringLength(100)]
@@ -33,6 +51,8 @@ namespace Gastos.Core.Dtos
         [DataType(DataType.Date)]
         public DateTime FechaFinal { get; set; }
 
+        [Required]
+        [PeriodoGuidExiste]        
         public Guid Guid { get; set; }
     }
 }

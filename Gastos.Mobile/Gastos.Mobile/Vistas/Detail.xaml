@@ -19,10 +19,10 @@
             </Label.FormattedText>
         </Label>
         <Button x:Name="BtnSincPeriodos" Clicked="BtnSincPeriodos_Clicked"  Text="Sincronizar periodos"/>
+        <Button x:Name="BtnSincGastos" Clicked="BtnSincGastos_Clicked"  Text="Sincronizar Gastos"/>
         <Button x:Name="BtnSincCategorias" Clicked="BtnSincCategorias_Clicked"  Text="Sincronizar categorias"/>
         <Button x:Name="BtnSincSubategorias" Clicked="BtnSincSubategorias_Clicked"  Text="Sincronizar Subcategorias"/>
         <Button x:Name="BtnSincApartados" Clicked="BtnSincApartados_Clicked"  Text="Sincronizar Apartados"/>
-        
         <Label x:Name="LabelDePeriodos" />
         <Label x:Name="LabelDeSubcategorias" />
     </StackLayout>

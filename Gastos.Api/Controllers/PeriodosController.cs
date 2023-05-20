@@ -26,7 +26,7 @@ namespace Gastos.Api.Controllers
         }
 
         [HttpGet("{periodoId}/Gastos")]
-        public async Task<IActionResult> ObtenerPorPeriodoIdAsync(string periodoId)
+        public async Task<IActionResult> ObtenerPorPeriodoConDetalleAsync(string periodoId)
         {
             PeriodoConDetallesDto periodo;
 
@@ -35,8 +35,22 @@ namespace Gastos.Api.Controllers
             return Ok(periodo);
         }
 
+        [HttpGet("{periodoId}")]
+        public async Task<IActionResult> ObtenerPorPeriodoIdAsync(string periodoId)
+        {
+            PeriodoDto periodo;
+
+            periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId);
+            if (periodo == null)
+            {
+                return NotFound(new { Mensaje = "No encontrado" });
+            }
+
+            return Ok(periodo);
+        }
+
         [HttpPut("{periodoId}")]
-        public async Task<IActionResult> ActualizarAsync(string periodoId, [FromBody] PeriodoDtoIn item)
+        public async Task<IActionResult> ActualizarAsync(string periodoId, [FromBody] PeriodoDtoUpdate item)
         {
             await _unitOfWork.Periodo.ActualizarAsync(item, periodoId);
 
@@ -48,10 +62,25 @@ namespace Gastos.Api.Controllers
         public async Task<IActionResult> Post([FromBody] PeriodoDtoIn item)
         {
             IdDto idDto;
+            PeriodoDto periodoDto;
 
-            idDto = await _unitOfWork.Periodo.AgregarAsync(item);
+            periodoDto = await _unitOfWork.Periodo.ObtenerAsync(item.Guid.ToString());
+            if (periodoDto == null)
+            {
+                idDto = await _unitOfWork.Periodo.AgregarAsync(item);
 
-            return Created($"Periodos/{idDto.Id}", idDto);
+                return Created($"Periodos/{idDto.Id}", idDto);
+            }
+            else
+            {
+                idDto = new IdDto
+                {
+                    Guid = periodoDto.Guid,
+                    Id = periodoDto.Id
+                };
+
+                return Ok(idDto);
+            }
         }
 
         [HttpDelete("{periodoId}")]

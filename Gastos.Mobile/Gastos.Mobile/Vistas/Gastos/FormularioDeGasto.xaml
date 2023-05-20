@@ -1,13 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Gastos.Mobile.Vistas.Gastos.FormularioDeGasto">
+             x:Class="Gastos.Mobile.Vistas.Gastos.FormularioDeGasto"
+             Title="Agregar gasto">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Gasto"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="LabelCategoriaNombre"/>
+            <Label x:Name="LabelPresupuesto"/>
             <Label Text="Nombre" />
+            <Entry x:Name="EntryNombre" />
+            <Label Text="Cantidad" />
+            <Entry x:Name="EntryCantidad"  Keyboard="Numeric"/>
+            <Button Text="Guardar" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

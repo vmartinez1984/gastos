@@ -105,8 +105,12 @@ namespace Gastos.Mobile.BusinessLayer
                     Cantidad = item.Cantidad,
                     CategoriaId = item.CategoriaId
                 };
+                IdDto idDto;
 
-                await _repositorioApi.Subcategoria.AgregarAsync(SubcategoriaDtoIn);
+                idDto = await _repositorioApi.Subcategoria.AgregarAsync(SubcategoriaDtoIn);
+                item.Guid = idDto.Guid;
+                item.EstaSincronizado = true;
+                _repositorioSqlit.Subcategoria.Actualizar(item);
             }
         }
 
@@ -119,116 +123,20 @@ namespace Gastos.Mobile.BusinessLayer
             return listaLocal;
         }
 
-        internal void Guardar(SubcategoriaModel Subcategoria)
+        public void Guardar(SubcategoriaModel Subcategoria)
         {
-            if (Subcategoria.Id == 0)
-            {
-                //AgregarAsync(Subcategoria);
+            SubcategoriaModel subcategoria;
+
+            subcategoria = _repositorioSqlit.Subcategoria.Obtener(Subcategoria.Guid);
+            if (subcategoria == null)
                 _repositorioSqlit.Subcategoria.Agregar(Subcategoria);
-            }
             else
-            {
-                Actualizar(Subcategoria);
-            }
-        }
-
-        private void Actualizar(SubcategoriaModel Subcategoria)
-        {
             _repositorioSqlit.Subcategoria.Actualizar(Subcategoria);
-        }
-
-        private void AgregarAsync(SubcategoriaModel Subcategoria)
-        {
-            //1.- Guardar en local
-            _repositorioSqlit.Subcategoria.Agregar(Subcategoria);
-            //2.- Guardar en ws
-            _ = Task.Run(async () =>
-            {
-                try
-                {
-                    SubcategoriaDtoIn SubcategoriaDtoIn;
-
-                    SubcategoriaDtoIn = new SubcategoriaDtoIn
-                    {
-                        Nombre = Subcategoria.Nombre,
-                        Cantidad = Subcategoria.Cantidad,
-                        CategoriaId = Subcategoria.CategoriaId
-                    };
-
-                    await _repositorioApi.Subcategoria.AgregarAsync(Subcategoria);
-                    Subcategoria.EstaSincronizado = true;
-                    _repositorioSqlit.Subcategoria.Actualizar(Subcategoria);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            });
-        }
+        }        
 
         public void Borrar(SubcategoriaModel Subcategoria)
         {
             _repositorioSqlit.Subcategoria.Borrar(Subcategoria.Guid);
         }
-
-        internal async Task<PeriodoConDetallesDto> ObtenerAsync(Guid periodoId)
-        {
-            PeriodoConDetallesDto periodo;
-            List<SubcategoriaDto> subcategorias;
-
-            periodo = await _repositorioApi.Periodo.ObtenerAsync(periodoId);
-            if (periodo != null)
-            {
-                List<GastoApartadoDto> listaDeApartados;
-                List<GastoDto> listaDeGastos;
-
-                listaDeApartados = new List<GastoApartadoDto>();
-                subcategorias = await _repositorioApi.Subcategoria.ObtenerTodosAsync();
-                subcategorias.Where(x => x.Categoria.Id == 3).ToList().ForEach(subcategoria =>
-                {
-                    GastoApartadoDto gasto;
-
-                    gasto = periodo.ListaDeApartados.Where(y => y.Subcategoria.Id == subcategoria.Id).FirstOrDefault();
-                    if (gasto == null)
-                    {
-                        gasto = new GastoApartadoDto
-                        {
-                            Id = 0,
-                            Subcategoria = subcategoria,
-                            Cantidad = 0,
-                            Nombre = string.Empty,
-                            PeriodoId = periodo.Id,
-                            Presupuesto = subcategoria.Cantidad,
-                            Total = 0
-                        };
-                    }
-                    listaDeApartados.Add(gasto);
-                });
-                periodo.ListaDeApartados = listaDeApartados;
-                listaDeGastos = new List<GastoDto>();
-                subcategorias.Where(x => x.Categoria.Id == 2).ToList().ForEach(subcategoria =>
-                {
-                    GastoDto gasto;
-
-                    gasto = periodo.ListaDeGastos.Where(y => y.Subcategoria.Id == subcategoria.Id).FirstOrDefault();
-                    if (gasto == null)
-                    {
-                        gasto = new GastoDto
-                        {
-                            Id = 0,
-                            Subcategoria = subcategoria,
-                            Cantidad = 0,
-                            Nombre = string.Empty,
-                            PeriodoId = periodo.Id,
-                            Presupuesto = subcategoria.Cantidad
-                        };
-                    }
-                    listaDeGastos.Add(gasto);
-                });
-                periodo.ListaDeGastos = listaDeGastos;
-            }
-
-            return periodo;
-        }       
     }
 }

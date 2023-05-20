@@ -62,14 +62,19 @@ namespace Gastos.Core.Interfaces.IRepositories
 
     }
 
-    public interface ISubcategoriaRepository: IBaseRepositorio<SubcategoriaEntity>
+    public interface ISubcategoriaRepository//: IBaseRepositorio<SubcategoriaEntity>
     {
-        Task<List<SubcategoriaEntity>> ObtenerAsync();
-        Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId);        
+        Task<List<SubcategoriaEntity>> ObtenerAsync();        
+        Task<SubcategoriaEntity> ObtenerAsync(string idGuid);
+        Task BorrarAsync(string idGuid);
+        Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId);
+        Task ActualizarAsync(SubcategoriaEntity entity);
+        Task<int> AgregarAsync(SubcategoriaEntity entity);
     }
 
     public interface IGastoRepository: IBaseRepositorio<GastoEntity> 
-    {     
+    {
+        Task<GastoEntity> ObtenerAsync(string idGuid);
         Task<List<GastoEntity>> ObtenerPorPeriodoIdAsync(int periodoId);
         Task<GastoEntity> ObtenerPorSubcategoriaIdAsync(int subcategoriaId, int periodoId);
     }
@@ -91,6 +96,7 @@ namespace Gastos.Core.Interfaces.IRepositories
     public interface IPeriodoRepository: IBaseRepositorio<PeriodoEntity>
     {
         Task BorrarAsync(Guid guid);
+        bool Existe(Guid guid);
         Task<List<PeriodoEntity>> ObtenerAsync();
         Task<PeriodoEntity> ObtenerAsync(Guid guid1);
     }

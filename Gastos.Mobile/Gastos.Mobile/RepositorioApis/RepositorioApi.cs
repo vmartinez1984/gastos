@@ -11,6 +11,7 @@
             Subcategoria = new SubcategoriaRepositorioApi();
             Apartado = new ApartadoRepositoryApi();
             Categoria = new CategoriaRepositorioApi();
+            Gasto = new GastoRepositorioApi();
         }
 
         public PeriodoRepositorioApi Periodo { get; }
@@ -20,5 +21,6 @@
         public ApartadoRepositoryApi Apartado { get; set; }
 
         public CategoriaRepositorioApi Categoria { get; }
+        public GastoRepositorioApi Gasto { get; }
     }
 }

@@ -13,18 +13,18 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public async Task ActualizarAsync(SubcategoriaDtoIn item, int id)
+        public async Task ActualizarAsync(SubcategoriaDtoIn item, string idGuid)
         {
             SubcategoriaEntity entity;
 
-            entity = await _repositorio.Subcategoria.ObtenerAsync(id);
+            entity = await _repositorio.Subcategoria.ObtenerAsync(idGuid);
             entity.CategoriaId = item.CategoriaId;
             entity.Cantidad = item.Cantidad;
             entity.Nombre = item.Nombre;
 
             await _repositorio.Subcategoria.ActualizarAsync(entity);
         }
-
+               
         public async Task<IdDto> AgregarAsync(SubcategoriaDtoIn item)
         {
             SubcategoriaEntity entity;
@@ -35,9 +35,9 @@ namespace Gastos.BusinessLayer.Bl
             return new IdDto { Id = entity.Id, Guid = (Guid)entity.Guid };
         }
 
-        public Task BorrarAsync(int id)
+        public async Task BorrarAsync(string idGuid)
         {
-            throw new NotImplementedException();
+            await _repositorio.Subcategoria.BorrarAsync(idGuid);
         }
 
         public async Task<List<SubcategoriaDto>> ObtenerAsync()

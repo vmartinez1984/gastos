@@ -28,7 +28,7 @@ namespace Gastos.BusinessLayer.Bl
             if (item.PeriodoId != 0) 
                 await AgregarGastoAsync(item);
 
-            return new IdDto { Id = entity.Id, Guid = entity.Guid };
+            return new IdDto { Id = entity.Id, Guid = (Guid)entity.Guid };
         }
 
         private async Task AgregarGastoAsync(DetalleDeApartadoDtoIn item)

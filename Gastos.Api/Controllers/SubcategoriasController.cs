@@ -28,12 +28,12 @@ namespace Gastos.Api.Controllers
             return Created($"Subcategorias/{id}", id);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromBody] SubcategoriaDtoIn subcategoria, int id)
+        [HttpPut("{idGuid}")]
+        public async Task<IActionResult> Put([FromBody] SubcategoriaDtoIn subcategoria, string idGuid)
         {
-            await _unitOfWork.Subcategoria.ActualizarAsync(subcategoria, id);
+            await _unitOfWork.Subcategoria.ActualizarAsync(subcategoria, idGuid);
 
-            return Accepted($"Subcategorias/{id}", new { Id = id });
+            return Accepted($"Subcategorias/{idGuid}", new { Id = idGuid });
         }
 
         [HttpGet("{subcategoriaId}/Apartados")]
@@ -44,6 +44,15 @@ namespace Gastos.Api.Controllers
             lista = await _unitOfWork.Apartado.ObtenerApartadosPorSubcategoriaId(subcategoriaId);
 
             return Ok(lista);
+        }
+
+
+        [HttpDelete("{idGuid}")]
+        public async Task<IActionResult> Delete(string idGuid)
+        {
+            await _unitOfWork.Subcategoria.BorrarAsync(idGuid);
+
+            return Accepted($"Subcategorias/{idGuid}", new { Id = idGuid });
         }
     }
 }

@@ -11,7 +11,7 @@
                         <label class="form-label">Nombre</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" v-model="periodo.nombre" class="form-control" placeholder="Enero 10" />
+                        <input type="text" v-model="periodo.nombre" class="form-control" placeholder="Enero 10"  :disabled="borrar"/>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -19,7 +19,7 @@
                         <label class="form-label">Fecha inicial</label>
                     </div>
                     <div class="col-10">
-                        <input type="date" v-model="periodo.fechaInicial" class="form-control" />
+                        <input type="date" v-model="periodo.fechaInicial" class="form-control" :disabled="borrar"/>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                         <label class="form-label">Fecha final</label>
                     </div>
                     <div class="col-10">
-                        <input type="date" v-model="periodo.fechaFinal" class="form-control" />
+                        <input type="date" v-model="periodo.fechaFinal" class="form-control" :disabled="borrar"/>
                     </div>
                 </div>
 
@@ -59,6 +59,7 @@ import servicioPeriodo from '@/servicios/ServicioPeriodo';
 import router from '@/router';
 import { useRoute } from 'vue-router'
 import Formato from '@/ayudantes/Formato';
+import Ayudante from '@/ayudantes/Ayudante';
 
 var periodo = ref({
     id: 0,
@@ -75,14 +76,21 @@ var borrar = ref(false)
 var estaCargando = ref()
 
 const guardarAsync = async () => {
-    try{
-        //console.log(periodo.value)    
+    try {
+        //console.log(periodo.value)
         estaCargando.value = true
-        servicioPeriodo.agregarAsync(periodo.value)
+        if (borrar.value) {
+            await servicioPeriodo.borrarAsync(periodo.value.id)
+        } else {
+            if (periodo.value.id == 0)
+                await servicioPeriodo.agregarAsync(periodo.value)
+            else
+                await servicioPeriodo.actualizarAsync(periodo.value)
+        }
         router.push({ name: 'listaDePeriodos' })
-    }catch(error){
+    } catch (error) {
         console.log(error)
-    }finally{
+    } finally {
         estaCargando.value = false
     }
 }
@@ -91,6 +99,7 @@ const obtenerPerido = async () => {
     periodo.value = await servicioPeriodo.obtener(useRoute().params.id)
     periodo.value.fechaInicial = Formato.formatearFecha(periodo.value.fechaInicial)
     periodo.value.fechaFinal = Formato.formatearFecha(periodo.value.fechaFinal)
+    //console.log(periodo.value)
 }
 
 onMounted(async () => {
@@ -102,6 +111,7 @@ onMounted(async () => {
             titulo.value.claseDelBoton = 'btn-info'
             periodo.value.fechaInicial = Formato.formatearFecha()
             periodo.value.fechaFinal = Formato.formatearFecha()
+            periodo.value.guid = Ayudante.uuidv4();
             break
 
         case 'editarPeriodo':

@@ -26,7 +26,7 @@ namespace Gastos.Core.Mappers
 
             CreateMap<CategoriaEntity, CategoriaDto>();
 
-            CreateMap<GastoDto, GastoApartadoDto>();
+            //CreateMap<GastoDto, GastoApartadoDto>();
 
             CreateMap<ApartadoEntity, ApartadoDto>();
 

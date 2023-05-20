@@ -59,6 +59,11 @@ const routes = [
         component: FormularioDeSubcategoria
     },
     {
+        path:'/subcategorias/borrar/:id',
+        name: 'borrarSubcategoria',
+        component: FormularioDeSubcategoria
+    },
+    {
         path:'/gastos/agregar',
         name: 'agregarGasto',
         component: FormularioDeGasto

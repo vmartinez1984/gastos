@@ -70,7 +70,6 @@ namespace Gastos.Mobile.RepositorioApis
             }
         }
 
-
         public async Task<PeriodoConDetallesDto> ObtenerAsync(Guid periodoId)
         {
             PeriodoConDetallesDto item;

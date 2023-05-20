@@ -18,6 +18,7 @@ namespace Gastos.Core.Entities
         public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
 
         public bool EstaActivo { get; set; } = true;
+
         public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

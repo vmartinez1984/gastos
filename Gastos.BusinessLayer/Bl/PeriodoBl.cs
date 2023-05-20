@@ -14,13 +14,13 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public async Task ActualizarAsync(PeriodoDtoIn item, string idGuid)
+        public async Task ActualizarAsync(PeriodoDtoUpdate item, string idGuid)
         {
             PeriodoEntity entity;
 
             entity = await ObtenerPeriodoEntityAsync(idGuid);
             entity.Nombre = item.Nombre;
-            entity.FechaInicial = item.FechaInicial;    
+            entity.FechaInicial = item.FechaInicial;
             entity.FechaFinal = item.FechaFinal;
 
             await _repositorio.Periodo.ActualizarAsync(entity);
@@ -35,8 +35,8 @@ namespace Gastos.BusinessLayer.Bl
             entity.Id = await _repositorio.Periodo.AgregarAsync(entity);
             idDto = new IdDto
             {
-                 Id = entity.Id,
-                 Guid = entity.Guid
+                Id = entity.Id,
+                Guid = entity.Guid
             };
 
             return idDto;
@@ -51,7 +51,7 @@ namespace Gastos.BusinessLayer.Bl
         {
             if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
             {
-               await BorrarAsync(Convert.ToInt32(idGuid));
+                await BorrarAsync(Convert.ToInt32(idGuid));
             }
             else
             {
@@ -62,12 +62,12 @@ namespace Gastos.BusinessLayer.Bl
                 await _repositorio.Periodo.BorrarAsync(guid);
             }
         }
-        
+
         public async Task<PeriodoEntity> ObtenerPeriodoEntityAsync(string idGuid)
         {
             if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
             {
-              return await _repositorio.Periodo.ObtenerAsync(Convert.ToInt32(idGuid));
+                return await _repositorio.Periodo.ObtenerAsync(Convert.ToInt32(idGuid));
             }
             else
             {
@@ -106,7 +106,8 @@ namespace Gastos.BusinessLayer.Bl
                 FechaInicial = periodoEntity.FechaInicial,
                 ListaDeEntradas = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Entrada").ToList(),
                 ListaDeGastos = listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Gastos").ToList(),
-                ListaDeApartados = await ObtenerListaDeApartados(listaDeGastos)
+                ListaDeApartados = await ObtenerListaDeApartados(listaDeGastos),
+                Guid = periodoEntity.Guid
             };
 
             return periodo;
@@ -116,20 +117,18 @@ namespace Gastos.BusinessLayer.Bl
         {
             PeriodoDto periodoDto;
             PeriodoEntity entity;
-            Guid guid1;
 
-            guid1 = Guid.Parse(guid);
-            entity = await _repositorio.Periodo.ObtenerAsync(guid1);
+            entity = await ObtenerPeriodoEntityAsync(guid);
             periodoDto = _mapper.Map<PeriodoDto>(entity);
 
             return periodoDto;
         }
 
-        private async Task<List<GastoApartadoDto>> ObtenerListaDeApartados(List<GastoDto> listaDeGastos)
+        private async Task<List<GastoDto>> ObtenerListaDeApartados(List<GastoDto> listaDeGastos)
         {
-            List<GastoApartadoDto> listaDeApartados;
+            List<GastoDto> listaDeApartados;
 
-            listaDeApartados = _mapper.Map<List<GastoApartadoDto>>(listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Apartado").ToList());
+            listaDeApartados = _mapper.Map<List<GastoDto>>(listaDeGastos.Where(x => x.Subcategoria.Categoria.Nombre == "Apartado").ToList());
             foreach (var item in listaDeApartados)
             {
                 item.Total = await ObtenerTotalDeApartado(item.Subcategoria.Id);
@@ -145,6 +144,11 @@ namespace Gastos.BusinessLayer.Bl
             total = await _repositorio.Apartado.ObtenerTotalPorSubcategoriaId(subcategoriaId);
 
             return total;
+        }
+
+        public bool Existe(Guid guid)
+        {
+            return _repositorio.Periodo.Existe(guid);
         }
     }
 }

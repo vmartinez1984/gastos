@@ -52,10 +52,7 @@ namespace Gastos.Mobile.Vistas
 
         private void BtnSincPeriodos_Clicked(object sender, EventArgs e)
         {
-            if (SincronizarPeriodos())
-            {
-                SincronizarSubcategorias();
-            }
+            SincronizarPeriodos();
         }
 
         private async void BtnSincCategorias_Clicked(object sender, EventArgs e)
@@ -71,6 +68,11 @@ namespace Gastos.Mobile.Vistas
         private async void BtnSincApartados_Clicked(object sender, EventArgs e)
         {
             await App.UnitOfWork.Apartado.Sincronizar();
+        }
+
+        private async void BtnSincGastos_Clicked(object sender, EventArgs e)
+        {
+            await App.UnitOfWork.Gasto.Sincronizar();
         }
     }
 }

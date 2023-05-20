@@ -13,6 +13,7 @@ namespace Gastos.Mobile.BusinessLayer
             Apartado = new  ApartadoBl(repositorioApi,repositorioSqlite);
             Subcategoria = new SubcategoriaBl(repositorioApi, repositorioSqlite);
             Categoria = new CategoriaBl(repositorioApi, repositorioSqlite);
+            Gasto = new GastoBl(repositorioApi,repositorioSqlite);
         }
 
         public PeriodoBl Periodo { get; set; }
@@ -20,7 +21,10 @@ namespace Gastos.Mobile.BusinessLayer
         public ApartadoBl Apartado { get; set; }
 
         public SubcategoriaBl Subcategoria { get; set; }
-        public CategoriaBl Categoria { get; internal set; }
+
+        public CategoriaBl Categoria { get; set; }
+
+        public GastoBl Gasto { get; set; }
     }
 
 

@@ -54,11 +54,20 @@ namespace Gastos.Repositories.Repository
             await _appDbContext.SaveChangesAsync();
         }
 
+        public bool Existe(Guid guid)
+        {
+            bool existe;
+
+            existe = _appDbContext.Periodo.Any(x => x.Guid == guid);
+
+            return existe;
+        }
+
         public async Task<PeriodoEntity> ObtenerAsync(int id)
         {
             PeriodoEntity entity;
 
-            entity = await _appDbContext.Periodo.Where(x => x.Id == id).FirstOrDefaultAsync();
+            entity = await _appDbContext.Periodo.Where(x => x.Id == id && x.EstaActivo).FirstOrDefaultAsync();
 
             return entity;
         }
@@ -67,7 +76,7 @@ namespace Gastos.Repositories.Repository
         {
             PeriodoEntity entity;
 
-            entity = await _appDbContext.Periodo.Where(x => x.Guid == guid).FirstOrDefaultAsync();
+            entity = await _appDbContext.Periodo.Where(x => x.Guid == guid && x.EstaActivo).FirstOrDefaultAsync();
 
             return entity;
         }

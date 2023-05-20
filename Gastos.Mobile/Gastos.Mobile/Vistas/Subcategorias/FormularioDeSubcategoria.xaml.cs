@@ -22,10 +22,8 @@ namespace Gastos.Mobile.Vistas.Subcategorias
             this.subcategoria = new SubcategoriaModel
             {
                 EstaSincronizado = true,
-                EstaActivo
-                 = true,
-                Guid = Guid.NewGuid(),
-                Id = 0
+                EstaActivo = true,
+                Guid = Guid.NewGuid(),                
             };
             categorias = App.UnitOfWork.Categoria.ObtenerTodos();
             ListViewCategorias.ItemsSource = categorias;
