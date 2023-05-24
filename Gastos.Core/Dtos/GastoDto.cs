@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Gastos.Core.Validators;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Gastos.Core.Dtos
 {
@@ -18,7 +20,10 @@ namespace Gastos.Core.Dtos
     {
 
         [Required]
+        [SubcategoriaIdGuidValidar]
         public string SubcategoriaGuidId { get; set; }
+        [JsonIgnore]
+        public int SubcategoriaId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -30,10 +35,14 @@ namespace Gastos.Core.Dtos
 
 
         [Required]
+        [PeriodoGuidValidar]
         public string PeriodoGuidId { get; set; }
+        [JsonIgnore]
+        public int PeriodoId { get; set; }
 
         [Required]
-        public Guid IdemPotency { get; set; } = Guid.NewGuid();
+        public Guid Guid { get; set; } = Guid.NewGuid();
+
     }
     
     public class GastoDtoUpdate

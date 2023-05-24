@@ -12,6 +12,11 @@ namespace Gastos.Repositories.Repository
         {
         }
 
+        public bool Existe(int id)
+        {
+            return _appDbContext.Categoria.Any(c => c.Id == id);
+        }
+
         public async Task<List<CategoriaEntity>> ObtenerAsync()
         {
             return await _appDbContext.Categoria.Where(x => x.EstaActivo).ToListAsync();

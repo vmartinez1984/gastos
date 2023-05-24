@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gastos.Core.Validators;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
@@ -21,6 +22,26 @@ namespace Gastos.Core.Dtos
     public class SubcategoriaDtoIn
     {
         [Required]
+        [CategoriaIdExiste]
+        public int CategoriaId { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [Range(0, int.MaxValue)]
+        public decimal Cantidad { get; set; }
+
+        [Required]
+        [SubcategoriaGuidExiste]
+        public Guid Guid { get; set; }
+    }
+
+    public class SubcategoriaDtoUpdate
+    {
+        [Required]
+        [CategoriaIdExiste]
         public int CategoriaId { get; set; }
 
         [Required]
@@ -31,5 +52,4 @@ namespace Gastos.Core.Dtos
         [Range(0, int.MaxValue)]
         public decimal Cantidad { get; set; }
     }
-
 }

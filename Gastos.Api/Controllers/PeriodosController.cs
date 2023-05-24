@@ -6,16 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gastos.Api.Controllers
 {
+    /// <summary>
+    /// Periodos
+    /// </summary>
     [Route("api/[controller]")]
-    [ApiController]
     public class PeriodosController : ControllerBaseGastos
     {
         public PeriodosController(IBl bl) : base(bl)
         {
         }
 
-        // GET: api/<PeriodosController>
+        /// <summary>
+        /// Obtiene la lista de los periodos
+        /// </summary>
+        /// <response code="200">Lista de periodos</response>
         [HttpGet]
+        [ProducesResponseType(typeof(List<PeriodoDto>), StatusCodes.Status200OK)]
+        [Produces("application/json")]
         public async Task<IActionResult> Get()
         {
             List<PeriodoDto> list;
@@ -35,7 +42,16 @@ namespace Gastos.Api.Controllers
             return Ok(periodo);
         }
 
+        /// <summary>
+        /// Obtiene el periodo por el Id o Guid
+        /// </summary>
+        /// <param name="periodoId"></param>
+        /// <response code="200">Perido previamente registrado</response>
+        /// <response code="404">Perido no encontrado</response>        
         [HttpGet("{periodoId}")]
+        [ProducesResponseType(typeof(PeriodoDto), StatusCodes.Status200OK)]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> ObtenerPorPeriodoIdAsync(string periodoId)
         {
             PeriodoDto periodo;
@@ -49,6 +65,11 @@ namespace Gastos.Api.Controllers
             return Ok(periodo);
         }
 
+        /// <summary>
+        /// Actualiza el periodo
+        /// </summary>
+        /// <param name="periodoId"></param>
+        /// <param name="item"></param>
         [HttpPut("{periodoId}")]
         public async Task<IActionResult> ActualizarAsync(string periodoId, [FromBody] PeriodoDtoUpdate item)
         {
@@ -57,8 +78,15 @@ namespace Gastos.Api.Controllers
             return Accepted(new { Mensaje = "Datos Actualizados" });
         }
 
-        // POST api/<PeriodosController>
+        /// <summary>
+        /// Agregar periodo
+        /// </summary>
+        /// <response code="200">Perido previamente registrado</response>
+        /// <response code="201">Perido registrado</response>        
         [HttpPost]
+        [ProducesResponseType(typeof(IdDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IdDto), StatusCodes.Status201Created)]
+        [Produces("application/json")]
         public async Task<IActionResult> Post([FromBody] PeriodoDtoIn item)
         {
             IdDto idDto;
@@ -67,9 +95,16 @@ namespace Gastos.Api.Controllers
             periodoDto = await _unitOfWork.Periodo.ObtenerAsync(item.Guid.ToString());
             if (periodoDto == null)
             {
-                idDto = await _unitOfWork.Periodo.AgregarAsync(item);
+                if (ModelState.IsValid)
+                {
+                    idDto = await _unitOfWork.Periodo.AgregarAsync(item);
 
-                return Created($"Periodos/{idDto.Id}", idDto);
+                    return Created($"Periodos/{idDto.Id}", idDto);
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
             else
             {
@@ -83,6 +118,11 @@ namespace Gastos.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Borrar periodo por el Id o Guid
+        /// </summary>
+        /// <param name="periodoId"></param>
+        /// <returns></returns>
         [HttpDelete("{periodoId}")]
         public async Task<IActionResult> Delete(string periodoId)
         {

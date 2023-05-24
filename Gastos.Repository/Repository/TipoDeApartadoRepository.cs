@@ -12,6 +12,11 @@ namespace Gastos.Repositories.Repository
         {
         }
 
+        public bool Existe(int id)
+        {
+            return _appDbContext.TipoDeApartado.Any(a => a.Id == id);
+        }
+
         public async Task<List<TipoDeApartadoEntity>> ObtenerAsync()
         {
             return await _appDbContext.TipoDeApartado.Where(x => x.EstaActivo)

@@ -37,6 +37,11 @@ namespace Gastos.Repositories.Repository
             await _appDbContext.SaveChangesAsync();
         }
 
+        public bool Existe(Guid guid)
+        {
+            return _appDbContext.Subcategoria.Any(a => a.Guid == guid);
+        }
+
         public async Task<List<SubcategoriaEntity>> ObtenerAsync()
         {
             List<SubcategoriaEntity> entities = await _appDbContext.Subcategoria

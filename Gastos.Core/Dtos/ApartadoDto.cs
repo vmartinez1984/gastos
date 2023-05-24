@@ -1,15 +1,17 @@
-﻿using System;
+﻿using Gastos.Core.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Core.Dtos
-{
-    public class ApartadoDto: ApartadoDtoIn
+{    
+    public class ApartadoDto: ApartadoDtoBase
     {
         public int Id { get; set; }
 
         public TipoDeApartadoDto TipoDeApartado { get; set; }
 
+        //public List<DetalleDeApartadoDto> ListaDeDetalles { get; set; }
         public List<DetalleDeApartadoDto> ListaDeDetalles { get; set; }
 
         public int DiasRestantes 
@@ -26,14 +28,38 @@ namespace Gastos.Core.Dtos
             }
         }
 
+        public SubcategoriaDto Subcategoria { get; set; }
+
         public Guid Guid { get; set; }
     }
     
-    public class ApartadoDtoIn
+    public class ApartadoDtoIn: ApartadoDtoUpdate
     {
-
+        [Required]
+        [ApartadoGuidExiste]
+        public Guid Guid { get; set; }        
+                
+    }
+    
+    public class ApartadoDtoUpdate: ApartadoDtoBase
+    {      
+        [Required]
+        [TipoDeApartadoIdValidar]        
         public int TipoDeApartadoId { get; set; }
+       
+       
+        //[Required]
+        //[PeriodoGuidExiste]
+       // public string PeriodoIdGuid { get; set; }
 
+        [Required]
+        [SubcategoriaIdGuidValidar]
+        [MaxLength(36)]
+        public string SubcategoriaIdGuid { get; set; }
+    }
+
+    public class ApartadoDtoBase
+    {
         [Required]
         [StringLength(50)]
         public string Nombre { get; set; }
@@ -50,12 +76,9 @@ namespace Gastos.Core.Dtos
         [Required]
         [DataType(DataType.Date)]
         public DateTime FechaInicial { get; set; }
-                
+
         [Required]
         [DataType(DataType.Date)]
         public DateTime FechaFinal { get; set; }
-        public int PeriodoId { get; set; }
-
-        public int SubcategoriaId { get; set; }
     }
 }

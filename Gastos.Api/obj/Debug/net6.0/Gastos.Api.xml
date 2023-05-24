@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gastos.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Gastos.Api.Controllers.ApartadosController.Post(Gastos.Core.Dtos.ApartadoDtoIn)">
+            <summary>
+            Agregar un apartado
+            </summary>
+            <param name="item"></param>
+            <response code="200">Perido previamente registrado</response>
+            <response code="201">Perido registrado</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.ApartadosController.Get">
+            <summary>
+            Obtiene la lista de apartados
+            </summary>
+            <response code="200">Lista de apartados</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.ApartadosController.Get(System.String)">
+            <summary>
+            Obtiene apartado por id o guid
+            </summary>
+            <param name="id">Id o Guid</param>
+            <returns></returns>        
+            <response code="200">Apartado</response>  
+        </member>
+        <member name="M:Gastos.Api.Controllers.ApartadosController.put(System.String,Gastos.Core.Dtos.ApartadoDtoUpdate)">
+            <summary>
+            Actualiza apartado
+            </summary>
+            <param name="idGuid">Id o Guid</param>
+            <param name="apartado">Datos a actualizar</param>
+            <returns></returns>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.ApartadosController.Delete(System.String)">
+            <summary>
+            Borrar apartado
+            </summary>
+            <param name="idGuid">Id o Guid</param>        
+            <response code="202">Elemento borrado</response> 
+            <response code="404">Elemento no encontrado</response> 
+        </member>
+        <member name="M:Gastos.Api.Controllers.CategoriasController.Get">
+            <summary>
+            Obtiene lista de categorias
+            </summary>
+            <response code="200">Lista de apartados</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.DetalleDeApartadosController.Post(Gastos.Core.Dtos.DetalleDeApartadoDtoIn)">
+            <summary>
+            Agrega Detalle del apartado
+            </summary>
+            <param name="detalleDeApartado"></param>
+            <response code="200">Perido previamente registrado</response>
+            <response code="201">Perido registrado</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.GastosController.Post(Gastos.Core.Dtos.GastoDtoIn)">
+            <summary>
+            
+            </summary>
+            <param name="gasto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gastos.Api.Controllers.PeriodosController">
+            <summary>
+            Periodos
+            </summary>
+        </member>
+        <member name="M:Gastos.Api.Controllers.PeriodosController.Get">
+            <summary>
+            Obtiene la lista de los periodos
+            </summary>
+            <response code="200">Lista de periodos</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.PeriodosController.ObtenerPorPeriodoIdAsync(System.String)">
+            <summary>
+            Obtiene el periodo por el Id o Guid
+            </summary>
+            <param name="periodoId"></param>
+            <response code="200">Perido previamente registrado</response>
+            <response code="404">Perido no encontrado</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.PeriodosController.ActualizarAsync(System.String,Gastos.Core.Dtos.PeriodoDtoUpdate)">
+            <summary>
+            Actualiza el periodo
+            </summary>
+            <param name="periodoId"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Gastos.Api.Controllers.PeriodosController.Post(Gastos.Core.Dtos.PeriodoDtoIn)">
+            <summary>
+            Agregar periodo
+            </summary>
+            <response code="200">Perido previamente registrado</response>
+            <response code="201">Perido registrado</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.PeriodosController.Delete(System.String)">
+            <summary>
+            Borrar periodo por el Id o Guid
+            </summary>
+            <param name="periodoId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gastos.Api.Controllers.SubcategoriasController">
+            <summary>
+            Subcategorias
+            </summary>
+        </member>
+        <member name="M:Gastos.Api.Controllers.SubcategoriasController.Get">
+            <summary>
+            Obtiene la lista de subcategorias
+            </summary>
+            <response code="200">Listad de Subcategorias</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.SubcategoriasController.Get(System.String)">
+            <summary>
+            Obtiene Subcategoria
+            </summary>
+            <response code="200">Subcategoria</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.SubcategoriasController.Post(Gastos.Core.Dtos.SubcategoriaDtoIn)">
+            <summary>
+            Agregar una subcategoria
+            </summary>
+            <param name="subcategoria"></param>
+            <response code="200">Id Guid</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.SubcategoriasController.Put(Gastos.Core.Dtos.SubcategoriaDtoUpdate,System.String)">
+            <summary>
+            Actualiza subcategoria
+            </summary>
+            <param name="subcategoria"></param>
+            <param name="idGuid"></param> 
+            <response code="202">Actualización con exito</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.SubcategoriasController.Delete(System.String)">
+            <summary>
+            Eliminar subcategoria
+            </summary>
+            <param name="idGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gastos.Api.Controllers.TiposDeApartadosController.Get">
+            <summary>
+            Obtiene la lista de apartados
+            </summary>        
+            <response code="200">Lista de apartados</response>
+        </member>
+    </members>
+</doc>

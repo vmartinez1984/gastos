@@ -52,7 +52,7 @@ namespace Gastos.Mobile.BusinessLayer
                     Nombre = item.Nombre,
                     Cantidad = item.Cantidad,
                     PeriodoGuidId = item.PeriodoGuid.ToString(),
-                    IdemPotency = item.IdemPotency,
+                    Guid = item.IdemPotency,
                 };
 
                 await _repositorioApi.Gasto.AgregarAsync(dtoIn);

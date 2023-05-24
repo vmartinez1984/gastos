@@ -4,7 +4,6 @@ using Gastos.Core.Dtos;
 using Gastos.Core.Entities;
 using Gastos.Core.Interfaces.IBusinessLayer;
 using Gastos.Core.Interfaces.IRepositories;
-using System.Text.RegularExpressions;
 
 namespace Gastos.BusinessLayer.Bl
 {
@@ -14,7 +13,7 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public async Task ActualizarAsync(ApartadoDtoIn item, int id)
+        public async Task ActualizarAsync(ApartadoDtoUpdate item, int id)
         {
             ApartadoEntity entity;
 
@@ -24,8 +23,8 @@ namespace Gastos.BusinessLayer.Bl
             entity.CantidadInicial = item.CantidadInicial;
             entity.CantidadFinal = item.CantidadFinal;
             entity.Intereses = item.Intereses;
-            entity.SubcategoriaId = item.SubcategoriaId;
-            entity.TipoDeApartadoId = item.TipoDeApartadoId;
+            //entity.SubcategoriaId = item.SubcategoriaId;
+            //entity.TipoDeApartadoId = item.TipoDeApartadoId;
             entity.Nombre = item.Nombre;
 
             await _repositorio.Apartado.ActualizarAsync(entity);
@@ -36,6 +35,7 @@ namespace Gastos.BusinessLayer.Bl
             ApartadoEntity apartadoEntity;
 
             apartadoEntity = _mapper.Map<ApartadoEntity>(item);
+            apartadoEntity.SubcategoriaId = _repositorio.Subcategoria.ObtenerAsync(item.SubcategoriaIdGuid).Result.Id;
             apartadoEntity.Id = await _repositorio.Apartado.AgregarAsync(apartadoEntity);
             //await AgregarDetalleDeApartadoAsync(apartadoEntity);
             //await ActualizarGasto(item);
@@ -47,51 +47,51 @@ namespace Gastos.BusinessLayer.Bl
             };
         }
 
-        private async Task AgregarDetalleDeApartadoAsync(ApartadoEntity apartadoEntity)
-        {
-            DetalleDeApartadoEntity detalleDeApartadoEntity;
+        //private async Task AgregarDetalleDeApartadoAsync(ApartadoEntity apartadoEntity)
+        //{
+        //    DetalleDeApartadoEntity detalleDeApartadoEntity;
 
-            detalleDeApartadoEntity = new DetalleDeApartadoEntity
-            {
-                ApartadoId = apartadoEntity.Id,
-                Cantidad = apartadoEntity.CantidadInicial,
-                EstaActivo = true,
-                FechaDeRegistro = DateTime.Now
-            };
+        //    detalleDeApartadoEntity = new DetalleDeApartadoEntity
+        //    {
+        //        ApartadoId = apartadoEntity.Id,
+        //        Cantidad = apartadoEntity.CantidadInicial,
+        //        EstaActivo = true,
+        //        FechaDeRegistro = DateTime.Now
+        //    };
 
-            await _repositorio.DetalleDeApartado.AgregarAsync(detalleDeApartadoEntity);
-        }
+        //    await _repositorio.DetalleDeApartado.AgregarAsync(detalleDeApartadoEntity);
+        //}
 
-        private async Task ActualizarGasto(ApartadoDtoIn item)
-        {
-            GastoEntity gastoEntity;
-            const int Apartados = 1;
+        //private async Task ActualizarGasto(ApartadoDtoIn item)
+        //{
+        //    GastoEntity gastoEntity;
+        //    const int Apartados = 1;
 
-            gastoEntity = await _repositorio.Gasto.ObtenerPorSubcategoriaIdAsync(Apartados, item.PeriodoId);
-            if (gastoEntity == null)
-            {
-                gastoEntity = new GastoEntity
-                {
-                    Cantidad = item.CantidadInicial,
-                    EstaActivo = true,
-                    Nombre = "Apartados",
-                    PeriodoId = item.PeriodoId,
-                    SubcategoriaId = item.SubcategoriaId,
-                    IdemPotency = Guid.NewGuid()
-                };
+        //    gastoEntity = await _repositorio.Gasto.ObtenerPorSubcategoriaIdAsync(Apartados, item.PeriodoId);
+        //    if (gastoEntity == null)
+        //    {
+        //        gastoEntity = new GastoEntity
+        //        {
+        //            Cantidad = item.CantidadInicial,
+        //            EstaActivo = true,
+        //            Nombre = "Apartados",
+        //            PeriodoId = item.PeriodoId,
+        //            SubcategoriaId = item.SubcategoriaId,
+        //            IdemPotency = Guid.NewGuid()
+        //        };
 
-                gastoEntity.Id = await _repositorio.Gasto.AgregarAsync(gastoEntity);
-            }
-            else
-            {
-                List<ApartadoEntity> apartadoEntities;
+        //        gastoEntity.Id = await _repositorio.Gasto.AgregarAsync(gastoEntity);
+        //    }
+        //    else
+        //    {
+        //        List<ApartadoEntity> apartadoEntities;
 
-                apartadoEntities = await _repositorio.Apartado.ObtenerPorPeriodoAsync(item.PeriodoId);
-                gastoEntity.Cantidad = apartadoEntities.Sum(x => x.CantidadInicial);
+        //        apartadoEntities = await _repositorio.Apartado.ObtenerPorPeriodoAsync(item.PeriodoId);
+        //        gastoEntity.Cantidad = apartadoEntities.Sum(x => x.CantidadInicial);
 
-                await _repositorio.Gasto.ActualizarAsync(gastoEntity);
-            }
-        }
+        //        await _repositorio.Gasto.ActualizarAsync(gastoEntity);
+        //    }
+        //}
 
         public async Task BorrarAsync(int id)
         {
@@ -105,7 +105,7 @@ namespace Gastos.BusinessLayer.Bl
 
             entity = await _repositorio.Apartado.ObtenerAsync(id);
             item = _mapper.Map<ApartadoDto>(entity);
-            item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(id);
+            //item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(id);
 
             return item;
         }
@@ -139,6 +139,10 @@ namespace Gastos.BusinessLayer.Bl
 
             entities = await _repositorio.Apartado.ObtenerAsync();
             list = _mapper.Map<List<ApartadoDto>>(entities);
+            foreach (var item in list)
+            {
+                item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(item.Id);
+            }
 
             return list;
         }
@@ -148,27 +152,39 @@ namespace Gastos.BusinessLayer.Bl
             ApartadoEntity entity;
             ApartadoDto item;
 
-            entity = await ObtenerApartadoEntityAsync(idGuid);
+            entity = await _repositorio.Apartado.ObtenerAsync(idGuid);
             item = _mapper.Map<ApartadoDto>(entity);
-            item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(entity.Id);
+            if (item != null)
+                item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(entity.Id);
 
             return item;
         }
 
-        public async Task<ApartadoEntity> ObtenerApartadoEntityAsync(string idGuid)
+        public Task ActualizarAsync(ApartadoDtoIn item, int id)
         {
-            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
-            {
-                return await _repositorio.Apartado.ObtenerAsync(Convert.ToInt32(idGuid));
-            }
-            else
-            {
-                Guid guid;
+            throw new NotImplementedException();
+        }
 
-                guid = Guid.Parse(idGuid);
+        public async Task ActualizarAsync(string idGuid, ApartadoDtoUpdate item)
+        {
+            ApartadoEntity entity;
 
-                return await _repositorio.Apartado.ObtenerAsync(guid);
-            }
+            entity = await _repositorio.Apartado.ObtenerAsync(idGuid);
+            entity.FechaInicial = item.FechaInicial;
+            entity.FechaFinal = item.FechaFinal;
+            entity.CantidadInicial = item.CantidadInicial;
+            entity.CantidadFinal = item.CantidadFinal;
+            entity.Intereses = item.Intereses;
+            entity.SubcategoriaId = (await _repositorio.Subcategoria.ObtenerAsync(item.SubcategoriaIdGuid)).Id;
+            entity.TipoDeApartadoId = item.TipoDeApartadoId;
+            entity.Nombre = item.Nombre;
+
+            await _repositorio.Apartado.ActualizarAsync(entity);
+        }
+
+        public async Task BorrarAsync(string idGuid)
+        {
+            await _repositorio.Apartado.BorrarAsync(idGuid);
         }
     }
 }

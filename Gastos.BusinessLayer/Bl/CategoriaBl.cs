@@ -12,6 +12,11 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
+        public bool Existe(int id)
+        {
+            return _repositorio.Categoria.Existe(id);
+        }
+
         public async Task<List<CategoriaDto>> ObtenerAsync()
         {
             return _mapper.Map<List<CategoriaDto>>(await _repositorio.Categoria.ObtenerAsync());

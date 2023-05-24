@@ -37,7 +37,7 @@ namespace Gastos.BusinessLayer.Bl
             entity.SubcategoriaId = await ObtenerSubcategoriaId(item.SubcategoriaGuidId);
             entity.Id = await _repositorio.Gasto.AgregarAsync(entity);
 
-            return new IdDto { Id = entity.Id, Guid = entity.IdemPotency };
+            return new IdDto { Id = entity.Id, Guid = entity.Guid };
         }
 
         private async Task<int> ObtenerSubcategoriaId(string idGuid)

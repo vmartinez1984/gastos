@@ -24,7 +24,7 @@ namespace Gastos.Repositories.Repository
         {
             GastoEntity gastoEntity;
 
-            gastoEntity = await _appDbContext.Gasto.Where(x => x.IdemPotency == entity.IdemPotency).FirstOrDefaultAsync();
+            gastoEntity = await _appDbContext.Gasto.Where(x => x.Guid == entity.Guid).FirstOrDefaultAsync();
             if (gastoEntity is null)
             {
                 _appDbContext.Gasto.Add(entity);
@@ -69,7 +69,7 @@ namespace Gastos.Repositories.Repository
 
                 guid = Guid.Parse(idGuid);
 
-                return await _appDbContext.Gasto.Where(x => x.IdemPotency == guid).FirstOrDefaultAsync();
+                return await _appDbContext.Gasto.Where(x => x.Guid == guid).FirstOrDefaultAsync();
             }
         }
 

@@ -170,3 +170,8 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\ref
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.pdb
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.genruntimeconfig.cache
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\ref\Gastos.Api.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Debug\net6.0\Gastos.Api.xml
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.xml
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

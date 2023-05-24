@@ -40,9 +40,9 @@ namespace Gastos.BusinessLayer.Bl
                 Cantidad = item.Cantidad,
                 EstaActivo = true,
                 FechaDeRegistro = DateTime.Now,
-                IdemPotency = Guid.NewGuid(),
+                Guid = Guid.NewGuid(),
                 PeriodoId = item.PeriodoId,
-                SubcategoriaId = item.SubcategoriaId,
+                //SubcategoriaId = item.SubcategoriaId,
                 Nombre = string.Empty
             };
 
@@ -81,6 +81,17 @@ namespace Gastos.BusinessLayer.Bl
             await ActualizarApartadoAsync(item.ApartadoId);
 
             return entity.Id;
+        }
+
+        public async Task<DetalleDeApartadoDto> ObtenerAsync(string idGuid)
+        {
+            DetalleDeApartadoDto dto;
+            DetalleDeApartadoEntity entity;
+
+            entity = await _repositorio.DetalleDeApartado.ObtenerAsync(idGuid);
+            dto = _mapper.Map<DetalleDeApartadoDto>(entity);
+
+            return dto;
         }
     }
 }

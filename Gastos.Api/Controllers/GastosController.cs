@@ -4,23 +4,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gastos.Api.Controllers
 {
-
+    [Route("api/[controller]")]
     public class GastosController : ControllerBaseGastos
     {
         public GastosController(IBl bl) : base(bl)
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gasto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GastoDtoIn gasto)
         {
             IdDto idDto;
             GastoDto gastoDto;
 
-            gastoDto = await _unitOfWork.Gasto.ObtenerAsync(gasto.IdemPotency.ToString());
+            gastoDto = await _unitOfWork.Gasto.ObtenerAsync(gasto.Guid.ToString());
             if (gastoDto == null)
             {
-                idDto = await _unitOfWork.Gasto.AgregarAsync(gasto);
+                if (ModelState.IsValid)
+                {
+                    idDto = await _unitOfWork.Gasto.AgregarAsync(gasto);
+                    return Created($"Gastos/{idDto.Id}", idDto);
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
             else
             {
@@ -29,9 +42,10 @@ namespace Gastos.Api.Controllers
                     Guid = gastoDto.IdemPotency,
                     Id = gastoDto.Id
                 };
+
+                return Ok(idDto);
             }
 
-            return Created($"Gastos/{idDto}", idDto);
         }
 
         [HttpGet]

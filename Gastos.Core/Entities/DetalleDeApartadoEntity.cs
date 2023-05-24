@@ -9,7 +9,7 @@ namespace Gastos.Core.Entities
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(ApartadoEntity))]
+        //[ForeignKey(nameof(ApartadoEntity))]
         public int ApartadoId { get; set; }
 
         public decimal Cantidad { get; set; }

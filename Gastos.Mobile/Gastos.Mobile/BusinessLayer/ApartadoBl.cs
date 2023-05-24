@@ -65,7 +65,7 @@ namespace Gastos.Mobile.BusinessLayer
                     CantidadFinal = item.CantidadFinal,
                     CantidadInicial = item.CantidadInicial,
                     Intereses = item.Intereses,
-                    PeriodoId = item.PeriodoId,
+                    //PeriodoId = item.PeriodoId,
                     SubcategoriaId = item.SubcategoriaId,
                     TipoDeApartadoId = item.TipoDeApartadoId
                 };

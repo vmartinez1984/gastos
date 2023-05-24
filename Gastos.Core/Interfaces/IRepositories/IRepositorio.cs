@@ -33,6 +33,7 @@ namespace Gastos.Core.Interfaces.IRepositories
 
     public interface IDetalleDeApartadoRepository : IBaseRepositorio<DetalleDeApartadoEntity>
     {
+        Task<DetalleDeApartadoEntity> ObtenerAsync(string idGuid);
         Task<List<DetalleDeApartadoEntity>> ObtenerPorApartadoIdAsync(int apartadoId);
         Task<decimal> ObtenerTotalAsync(int apartadoId);
     }
@@ -44,20 +45,25 @@ namespace Gastos.Core.Interfaces.IRepositories
     
     public interface ITipoDeApartadoRepository
     {
+        bool Existe(int id);
         Task<List<TipoDeApartadoEntity>> ObtenerAsync();
     }
 
     public interface IApartadoRepository : IBaseRepositorio<ApartadoEntity>
     {
+        Task BorrarAsync(string idGuid);
+        bool Existe(Guid guid);
         Task<List<ApartadoEntity>> ObtenerApartadosPorSubcategoriaId(int subcategoriaId);
         Task<List<ApartadoEntity>> ObtenerAsync();
         Task<ApartadoEntity> ObtenerAsync(Guid id);
+        Task<ApartadoEntity> ObtenerAsync(string idGuid);
         Task<List<ApartadoEntity>> ObtenerPorPeriodoAsync(int periodoId);
         Task<decimal> ObtenerTotalPorSubcategoriaId(int subcategoriaId);
     }
 
     public interface ICategoriaRepository
     {
+        bool Existe(int id);
         Task<List<CategoriaEntity>> ObtenerAsync();
 
     }
@@ -70,6 +76,7 @@ namespace Gastos.Core.Interfaces.IRepositories
         Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId);
         Task ActualizarAsync(SubcategoriaEntity entity);
         Task<int> AgregarAsync(SubcategoriaEntity entity);
+        bool Existe(Guid guid);
     }
 
     public interface IGastoRepository: IBaseRepositorio<GastoEntity> 
