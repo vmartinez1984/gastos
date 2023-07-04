@@ -48,6 +48,7 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
     public interface IGastoBl : IBaseBl<GastoDtoIn, GastoDto>
     {
         Task<GastoDto> ObtenerAsync(string idGuid);
+        Task<List<GastoDto>> ObtenerListaDeGastosYSubcategorias(string idGuid);
         Task<List<GastoDto>> ObtenerPorPeriodoIdAsync(int periodoId);
     }
 

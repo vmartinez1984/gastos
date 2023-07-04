@@ -24,19 +24,13 @@ namespace Gastos.Mobile.BusinessLayer
         {
             try
             {
-                List<PeriodoDto> lista;
                 List<PeriodoModel> listaLocal;
-
-                //sincronizar los de la ws a la dblocal
-                lista = await _repositorioApi.Periodo.ObtenerTodosAsync();
-                ////obtnemo la lista local
-                listaLocal = _repositorioSqlit.Periodo.ObtenerTodos();
                 //Borrar los que esten como inactivo en el ws
-                await SincronizarPeriodosBorradosWsConLocal(lista);
+                await SincronizarPeriodosBorradosWsConLocal();
                 //Recorremos la lista ws y comparamos con los locales
-                SincronizarPeriodosWsConLocal(lista, listaLocal);
+                await SincronizarPeriodosWsConLocal();
                 ////Sincronizar local con ws
-                SincronizarPeriodosLocalConWs();
+                await SincronizarPeriodosLocalConWs();
                 listaLocal = _repositorioSqlit.Periodo.ObtenerTodos();
 
                 return listaLocal;
@@ -48,7 +42,7 @@ namespace Gastos.Mobile.BusinessLayer
             }
         }
 
-        private async Task SincronizarPeriodosBorradosWsConLocal(List<PeriodoDto> lista)
+        private async Task SincronizarPeriodosBorradosWsConLocal()
         {
             try
             {
@@ -67,8 +61,15 @@ namespace Gastos.Mobile.BusinessLayer
             }
         }
 
-        private void SincronizarPeriodosWsConLocal(List<PeriodoDto> lista, List<PeriodoModel> listaLocal)
+        private async Task SincronizarPeriodosWsConLocal()
         {
+            List<PeriodoDto> lista;
+            List<PeriodoModel> listaLocal;
+
+            //sincronizar los de la ws a la dblocal
+            lista = await _repositorioApi.Periodo.ObtenerTodosAsync();
+            ////obtnemo la lista local
+            listaLocal = _repositorioSqlit.Periodo.ObtenerTodos();
             lista.ForEach(periodoWs =>
             {
                 PeriodoModel periodoLocal;
@@ -90,7 +91,7 @@ namespace Gastos.Mobile.BusinessLayer
             });
         }
 
-        private async void SincronizarPeriodosLocalConWs()
+        private async Task SincronizarPeriodosLocalConWs()
         {
             List<PeriodoModel> listaLocal;
 
@@ -104,7 +105,7 @@ namespace Gastos.Mobile.BusinessLayer
                 {
                     Nombre = item.Nombre,
                     FechaFinal = item.FechaFinal,
-                    FechaInicial = item.FechaInicial,    
+                    FechaInicial = item.FechaInicial,
                     Guid = item.Guid,
                 };
                 IdDto idDto;

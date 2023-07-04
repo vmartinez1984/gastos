@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Mobile.Android", "Ga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Mobile", "Gastos.Mobile\Gastos.Mobile\Gastos.Mobile.csproj", "{E247E901-E44F-4147-A369-947EAA00A28A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastos.Core", "Gastos.Core\Gastos.Core.csproj", "{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Core", "Gastos.Core\Gastos.Core.csproj", "{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastos.Mvc", "Gastos.Mvc\Gastos.Mvc.csproj", "{2DDE69F0-1EC6-433A-8620-A83654B88E13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC7EAFE1-58D8-41AB-9351-6B76E3DB95A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDE69F0-1EC6-433A-8620-A83654B88E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDE69F0-1EC6-433A-8620-A83654B88E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDE69F0-1EC6-433A-8620-A83654B88E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDE69F0-1EC6-433A-8620-A83654B88E13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

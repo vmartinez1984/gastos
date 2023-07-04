@@ -1,0 +1,74 @@
+﻿@model Gastos.Core.Dtos.ApartadoDtoIn
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h1>Agregar</h1>
+
+<h4>Apartado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Guid" value="@Guid.NewGuid()" type="hidden" />
+            <input asp-for="CantidadInicial" type="hidden" value="0"/>
+
+            <div class="form-group">
+                <label asp-for="TipoDeApartadoId" class="control-label"></label>
+                <select asp-for="TipoDeApartadoId" class="form-select" asp-items="@ViewBag.TipoDeApartados">
+                    <option>Seleccione</option>
+                </select>
+                <span asp-validation-for="TipoDeApartadoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubcategoriaIdGuid" class="control-label"></label>
+                <select asp-for="SubcategoriaIdGuid" class="form-select" asp-items="@ViewBag.Subcategorias">
+                    <option>Seleccione</option>
+                </select>
+                <span asp-validation-for="SubcategoriaIdGuid" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intereses" class="control-label"></label>
+                <input asp-for="Intereses" class="form-control" />
+                <span asp-validation-for="Intereses" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CantidadFinal" class="control-label"></label>
+                <input asp-for="CantidadFinal" class="form-control" />
+                <span asp-validation-for="CantidadFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicial" class="control-label"></label>
+                <input asp-for="FechaInicial" class="form-control" />
+                <span asp-validation-for="FechaInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinal" class="control-label"></label>
+                <input asp-for="FechaFinal" class="form-control" />
+                <span asp-validation-for="FechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

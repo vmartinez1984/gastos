@@ -653,3 +653,7 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.And
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\android\assets\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\android\assets\System.Text.Encodings.Web.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\android\assets\System.Text.Json.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mobile\Gastos.Mobile.Android\obj\Debug\130\android\assets\System.Threading.Tasks.Extensions.dll

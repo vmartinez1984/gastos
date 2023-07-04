@@ -10,7 +10,8 @@ namespace Gastos.Core.Dtos
         public int Id { get; set; }
 
         public SubcategoriaDto Subcategoria { get; set; }
-        
+
+        [DataType(DataType.Currency)]
         public decimal Presupuesto { get; set; }
         
         public decimal Total { get; set; }
@@ -25,7 +26,7 @@ namespace Gastos.Core.Dtos
         [JsonIgnore]
         public int SubcategoriaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El nombre es requerido")]
         [StringLength(50)]
         public string Nombre { get; set; }
 
@@ -56,9 +57,11 @@ namespace Gastos.Core.Dtos
         public decimal Cantidad { get; set; }
 
         [Required]
+        [SubcategoriaIdGuidValidar]
         public string SubcategoriaGuidId { get; set; }
 
         [Required]
+        [PeriodoGuidValidar]
         public string PeriodoGuidId { get; set; }
     }
 

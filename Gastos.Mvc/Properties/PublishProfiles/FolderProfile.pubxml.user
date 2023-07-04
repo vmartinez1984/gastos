@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\GastosMvc</_PublishTargetUrl>
+    <History>True|2023-06-25T15:39:31.5119496Z;True|2023-06-19T18:52:50.9454561-06:00;True|2023-06-01T17:29:50.9632875-06:00;True|2023-05-31T18:40:09.4058774-06:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

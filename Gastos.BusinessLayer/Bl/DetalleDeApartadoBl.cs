@@ -42,7 +42,7 @@ namespace Gastos.BusinessLayer.Bl
                 FechaDeRegistro = DateTime.Now,
                 Guid = Guid.NewGuid(),
                 PeriodoId = item.PeriodoId,
-                //SubcategoriaId = item.SubcategoriaId,
+                SubcategoriaId = item.SubcategoriaId,
                 Nombre = string.Empty
             };
 

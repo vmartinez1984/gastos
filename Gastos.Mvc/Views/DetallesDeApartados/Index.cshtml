@@ -1,0 +1,70 @@
+﻿@using Gastos.Core.Dtos;
+@model ApartadoDto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Model.Nombre</h1>
+<h2 class="text-primary fs-5 mb-5">@Model.Subcategoria.Nombre</h2>
+
+<p>
+    @if (ViewBag.PeriodoId == null)
+    {    
+        <a asp-action="Create" asp-route-apartadoId="@Model.Id">Agregar nuevo</a>
+    }
+    else
+    {
+        <a asp-action="Create" asp-route-periodoId="@ViewBag.PeriodoId" asp-route-apartadoId="@Model.Id">Agregar nuevo</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeDetalles[0].FechaDeRegistro)
+            </th>         
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeDetalles[0].Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeDetalles[0].Nota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListaDeDetalles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeRegistro)
+                </td>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |                    
+                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeDetalles[0].FechaDeRegistro)
+            </th>            
+            <th>
+                @Model.ListaDeDetalles.Sum(x=> x.Cantidad).ToString("c")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeDetalles[0].Nota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+</table>

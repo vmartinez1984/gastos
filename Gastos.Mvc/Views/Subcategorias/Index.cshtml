@@ -1,0 +1,247 @@
+﻿@model IEnumerable<Gastos.Core.Dtos.SubcategoriaDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Subcategorias</h1>
+
+<!-- Facts Start -->
+<div class="container-xxl bg-light py-5 my-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.Where(x => x.Categoria.Id == 1).Sum(x=> x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Entradas</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
+                <img class="img-fluid mb-4" src="img/icon-10.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.Where(x => x.Categoria.Id == 2).Sum(x=> x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Gastos</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
+                <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.Where(x => x.Categoria.Id == 3).Sum(x=> x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Apartados</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+<p>
+    <a asp-action="Create">Agregar nuevo</a>
+</p>
+
+<table id="tablaDeEntradas" class="table dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model.Where(x=>x.Categoria.Id == 1))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Borrar", "Delete", new {  id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table id="tabla" class="table dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model.Where(x=>x.Categoria.Id != 1))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Borrar", "Delete", new {  id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>    
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>    
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $('#tabla').DataTable({               
+                responsive:true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Registro(s) no encontrado(s)",
+                    "info": "Página _PAGE_ de _PAGES_, _TOTAL_ elementos",
+                    "infoEmpty": "Registros no disponibles",
+                    "infoFiltered": "(de _MAX_ elementos en total)",
+                    "search": "Buscar",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                    aria: {
+                        paginate: {
+                            previous: 'Anterior',
+                            next: 'Siguiente'
+                        }
+                    }
+                },
+                "lengthMenu": [[-1], ["Todos"]],
+                "bLengthChange": false,
+                "bPaginate": false,
+                "binfo": false,
+                footerCallback: function (row, data, start, end, display) {
+                    console.log(this.api())
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\£,]/g, '').replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                        .column(2)
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Total over this page
+                    pageTotal = api
+                        .column(2, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer
+                    console.log(pageTotal)
+                    $(api.column(2).footer()).html('$' + pageTotal + ' ( $' + total + ' total)');
+                },
+            });
+            $('#tablaDeEntradas').DataTable({
+                responsive: true,                
+                "bLengthChange": false,
+                "bPaginate": false,
+                "bInfo": false,
+                "bSearch": false,
+                footerCallback: function (row, data, start, end, display) {
+                    console.log(this.api())
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\£,]/g, '').replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                        .column(2)
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Total over this page
+                    pageTotal = api
+                        .column(2, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer
+                    console.log(pageTotal)
+                    $(api.column(2).footer()).html('$' + pageTotal);                    
+                },
+            });
+        });
+    </script>
+}                  

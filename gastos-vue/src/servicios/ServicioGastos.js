@@ -7,7 +7,7 @@ export default {
 
     async agregarAsync(gasto) {
         var response
-
+        
         response = await axios.post(
             url,            
             {

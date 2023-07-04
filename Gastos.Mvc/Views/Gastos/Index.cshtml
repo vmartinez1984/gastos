@@ -1,0 +1,351 @@
+﻿@model PeriodoConGastosModel
+
+@{
+    decimal total = @Model.ListaDeGastos.Where(x => x.Subcategoria.Categoria.Id == 1).Sum(x => x.Cantidad) - @Model.ListaDeGastos.Where(x => x.Subcategoria.Categoria.Id != 1).Sum(x => x.Cantidad);
+    ViewData["Title"] = "Gastos";
+}
+
+<h1>Periodo @Model.Periodo.Nombre</h1>
+
+<!-- Facts Start -->
+<div class="container-xxl bg-light py-5 my-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.ListaDeGastos.Where(x=> x.Subcategoria.Categoria.Id == 1).Sum(x => x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad inicial</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
+                <img class="img-fluid mb-4" src="img/icon-10.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.ListaDeGastos.Where(x=> x.Subcategoria.Categoria.Id != 1).Sum(x => x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad final</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
+                <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@total</h1>
+                <p class="fs-5 text-primary mb-0">Total</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+<table id="tablaDeEntradas" class="table dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Presupuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Presupuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Total)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model.ListaDeGastos.Where(x => x.Subcategoria.Categoria.Id == 1))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategoria.Categoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presupuesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @if (item.Id == 0)
+                    {
+                        @Html.ActionLink("Agregar", "Agregar", new {  periodoId=Model.Periodo.Id, subcategoriaId = item.Subcategoria.Id  })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Editar", "Editar", new {  id=item.Id })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<table id="tabla" class="table table-hover dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Presupuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Presupuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDeGastos[0].Total)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model.ListaDeGastos.Where(x => x.Subcategoria.Categoria.Id != 1))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategoria.Categoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presupuesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @if (item.Subcategoria.Categoria.Id == 3)
+                    {
+                        if (item.Id == 0)
+                        {
+                            @Html.ActionLink("Agregar","Index", "Apartados", new {  periodoId=Model.Periodo.Id, subcategoriaId = item.Subcategoria.Id  })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Editar", "Editar", new {  id=item.Id })
+                        }
+                    }
+                    else
+                    {
+                        if (item.Id == 0)
+                        {
+                            @Html.ActionLink("Agregar", "Agregar", new {  periodoId=Model.Periodo.Id, subcategoriaId = item.Subcategoria.Id  })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Editar", "Editar", new {  id=item.Id })
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#tabla').DataTable({
+                responsive: true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Registro(s) no encontrado(s)",
+                    "info": "Página _PAGE_ de _PAGES_, _TOTAL_ elementos",
+                    "infoEmpty": "Registros no disponibles",
+                    "infoFiltered": "(de _MAX_ elementos en total)",
+                    "search": "Buscar",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                    aria: {
+                        paginate: {
+                            previous: 'Anterior',
+                            next: 'Siguiente'
+                        }
+                    }
+                },
+                "lengthMenu": [[-1], ["Todos"]],
+                "bLengthChange": false,
+                "bPaginate": false,
+                "binfo": false,
+                footerCallback: function (row, data, start, end, display) {
+                    console.log(this.api())
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\£,]/g, '').replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                        .column(3)
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Total over this page
+                    pageTotal = api
+                        .column(3, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    pageTotal2 = api
+                        .column(4, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer
+                    console.log(pageTotal)
+                    $(api.column(3).footer()).html('$' + pageTotal);
+                    $(api.column(4).footer()).html('$' + pageTotal2);
+                },
+            });
+            $('#tablaDeEntradas').DataTable({
+                responsive: true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Registro(s) no encontrado(s)",
+                    "info": "Página _PAGE_ de _PAGES_, _TOTAL_ elementos",
+                    "infoEmpty": "Registros no disponibles",
+                    "infoFiltered": "(de _MAX_ elementos en total)",
+                    "search": "Buscar",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                    aria: {
+                        paginate: {
+                            previous: 'Anterior',
+                            next: 'Siguiente'
+                        }
+                    }
+                },
+                "lengthMenu": [[-1], ["Todos"]],
+                "bLengthChange": false,
+                "bPaginate": false,
+                "bInfo": false,
+                "bSearch": false,
+                footerCallback: function (row, data, start, end, display) {
+                    console.log(this.api())
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\£,]/g, '').replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                        .column(3)
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Total over this page
+                    pageTotal = api
+                        .column(3, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    pageTotal2 = api
+                        .column(4, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer
+                    console.log(pageTotal)
+                    $(api.column(3).footer()).html('$' + pageTotal);
+                    $(api.column(4).footer()).html('$' + pageTotal2);
+                },
+            });
+        });
+    </script>
+}         

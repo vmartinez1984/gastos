@@ -4,50 +4,37 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!-- Roadmap Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6">Periodos</h1>
+            <p class="text-primary fs-5 mb-5">
+                <a asp-action="Create">Agregar nuevo</a>
+            </p>
+        </div>
+        <div class="owl-carousel roadmap-carousel wow fadeInUp" data-wow-delay="0.1s">
+            @foreach (var item in Model)
+            {
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>@item.Nombre</h5>
+                    <span>
+                        @item.FechaInicial.ToLongDateString() / @item.FechaFinal.ToLongDateString()
+                    </span>
+                    <span>
+                        @Html.ActionLink("Detalles", "Index", "Gastos", new {  periodoId=item.Id })
+                    </span>/
+                    <span>
+                        @Html.ActionLink("Editar", "Edit", "Periodos", new {  Id=item.Id })
+                    </span>/
+                    <span>
+                        @Html.ActionLink("Borrar", "Delete", "Periodos", new {  Id=item.Id })
+                    </span>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaInicial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaFinal)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFinal)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Roadmap End -->

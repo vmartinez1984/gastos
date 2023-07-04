@@ -24,33 +24,23 @@ namespace Gastos.Core.Dtos
 
     public class PeriodoDtoUpdate
     {
-        [Required]
+        [Required(ErrorMessage ="El nombre es requerido")]
         [StringLength(100)]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La fecha inicial es requerida")]
         [DataType(DataType.Date)]
+        [Display(Name = "Fecha inicial")]
         public DateTime FechaInicial { get; set; }
-
-        [Required]
+                
+        [Required(ErrorMessage = "La fecha final es requerida")]
         [DataType(DataType.Date)]
+        [Display(Name = "Fecha final")]
         public DateTime FechaFinal { get; set; }
     }
 
     public class PeriodoDtoIn : PeriodoDtoUpdate
-    {
-        [Required]
-        [StringLength(100)]
-        public string Nombre { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
-        public DateTime FechaInicial { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
-        public DateTime FechaFinal { get; set; }
-
+    {        
         [Required]
         [PeriodoGuidExiste]        
         public Guid Guid { get; set; }

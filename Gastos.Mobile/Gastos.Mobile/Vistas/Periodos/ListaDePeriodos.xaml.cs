@@ -41,7 +41,7 @@ namespace Gastos.Mobile.Vistas.Periodos
             PeriodoModel periodo;
 
             periodo = (sender as ListView).SelectedItem as PeriodoModel;
-            
+
             await Navigation.PushAsync(new DetalleDelPeriodo(periodo.Guid));
         }
 
@@ -65,6 +65,33 @@ namespace Gastos.Mobile.Vistas.Periodos
             periodo = (sender as MenuItem).CommandParameter as PeriodoModel;
 
             await Navigation.PushAsync(new FormularioDePeriodo(periodo));
+        }
+
+        private void BtnSincronizar_Clicked(object sender, EventArgs e)
+        {
+            SincronizarPeriodos();
+        }
+
+        private bool SincronizarPeriodos()
+        {
+            try
+            {
+                BtnSincronizar.Text = "Sincronizando Periodos";
+                BtnSincronizar.IsEnabled = false;
+                _ = App.UnitOfWork.Periodo.Sincronizar().Result;
+                DisplayAlert("Sinconización", "Sinconización completa", "Ok", FlowDirection.LeftToRight);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                BtnSincronizar.Text = "Servidor no disponible" + ex.Message;
+                DisplayAlert("Error", "Usted nacio pobre.\n" + ex.Message, ":(", FlowDirection.LeftToRight);
+                return false;
+            }
+            finally
+            {
+                BtnSincronizar.IsEnabled = true;
+            }
         }
     }
 }

@@ -44,6 +44,8 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\P
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -56,6 +58,7 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\P
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.BusinessLayer.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.Core.dll
@@ -63,3 +66,4 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\P
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.BusinessLayer.pdb
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.Repositories.pdb
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.Core.pdb
+C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\PubTmp\Out\Gastos.Api.xml

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gastos.Core.Dtos;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,7 @@ namespace Gastos.Core.Entities
         public int Id { get; set; }
 
         //[ForeignKey(nameof(ApartadoEntity))]
-        public int ApartadoId { get; set; }
+        public int ApartadoId { get; set; }        
 
         public decimal Cantidad { get; set; }
 

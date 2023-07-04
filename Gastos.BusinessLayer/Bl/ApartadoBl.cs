@@ -105,7 +105,7 @@ namespace Gastos.BusinessLayer.Bl
 
             entity = await _repositorio.Apartado.ObtenerAsync(id);
             item = _mapper.Map<ApartadoDto>(entity);
-            //item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(id);
+            item.ListaDeDetalles = await ObtenerListaDeDetallesAsync(id);
 
             return item;
         }

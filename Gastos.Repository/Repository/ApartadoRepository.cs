@@ -81,6 +81,7 @@ namespace Gastos.Repositories.Repository
             return await _appDbContext
                 .Apartado
                 .Include(x => x.TipoDeApartado)
+                .Include(x=> x.Subcategoria)
                 //.Include(x => x.ListaDeDetalles)
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
         }

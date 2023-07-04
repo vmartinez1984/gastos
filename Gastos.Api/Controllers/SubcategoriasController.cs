@@ -23,7 +23,8 @@ namespace Gastos.Api.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _unitOfWork.Subcategoria.ObtenerAsync());
+            var lista = await _unitOfWork.Subcategoria.ObtenerAsync();
+            return Ok(lista.OrderBy(x => x.Nombre));
         }
 
         /// <summary>

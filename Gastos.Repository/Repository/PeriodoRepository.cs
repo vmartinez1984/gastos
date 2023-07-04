@@ -3,6 +3,7 @@ using Gastos.Core.Interfaces.IRepositories;
 using Gastos.Repositories.Helpers;
 using Gastos.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace Gastos.Repositories.Repository
 {
@@ -88,6 +89,30 @@ namespace Gastos.Repositories.Repository
             entities = await _appDbContext.Periodo.Where(x => x.EstaActivo).ToListAsync();
 
             return entities;
+        }
+
+        public async Task<PeriodoEntity> ObtenerAsync(string idGuid)
+        {
+            PeriodoEntity entity;            
+
+            if (Regex.IsMatch(idGuid, @"^[0-9]+$"))
+            {
+                int id;
+
+                id = int.Parse(idGuid);
+
+                entity = await _appDbContext.Periodo.Where(x => x.Id == id).FirstAsync();
+            }
+            else
+            {
+                Guid guid;
+
+                guid = Guid.Parse(idGuid);
+
+                entity = await _appDbContext.Periodo.Where(x => x.Guid == guid).FirstAsync();
+            }
+
+            return entity;
         }
     }
 }

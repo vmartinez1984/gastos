@@ -58,10 +58,33 @@
         </member>
         <member name="M:Gastos.Api.Controllers.GastosController.Post(Gastos.Core.Dtos.GastoDtoIn)">
             <summary>
-            
+            Agregar Gasto
             </summary>
             <param name="gasto"></param>
-            <returns></returns>
+            <response code="200">Gasto previamente registrado</response>
+            <response code="201">Gasto registrado</response>        
+        </member>
+        <member name="M:Gastos.Api.Controllers.GastosController.ObtenerListaDeGastosPorPeriodId(System.String)">
+            <summary>
+            Lista de gastos por periodo id o guid
+            </summary>
+            <param name="idGuid"></param>
+            <response code="200">Lista de gastos por periodo y subcategoria</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.GastosController.Put(Gastos.Core.Dtos.GastoDtoUpdate,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="gasto">Gasto a actualizar</param>
+            <param name="idGuid">Id o Guid</param>
+            <response code="202">Elemento actualizado</response>
+        </member>
+        <member name="M:Gastos.Api.Controllers.GastosController.Delete(System.String)">
+            <summary>
+            Borra un pago por el id o guid
+            </summary>
+            <param name="idGuid">id o Guid</param>   
+            <response code="202">Elemento borrado</response>
         </member>
         <member name="T:Gastos.Api.Controllers.PeriodosController">
             <summary>

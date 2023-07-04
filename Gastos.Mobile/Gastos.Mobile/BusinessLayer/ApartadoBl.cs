@@ -65,8 +65,8 @@ namespace Gastos.Mobile.BusinessLayer
                     CantidadFinal = item.CantidadFinal,
                     CantidadInicial = item.CantidadInicial,
                     Intereses = item.Intereses,
-                    //PeriodoId = item.PeriodoId,
-                    SubcategoriaId = item.SubcategoriaId,
+                    //PeriodoId = item.PeriodoId, 
+                    //SubcategoriaId = item.SubcategoriaId,
                     TipoDeApartadoId = item.TipoDeApartadoId
                 };
 
@@ -106,8 +106,8 @@ namespace Gastos.Mobile.BusinessLayer
                         FechaInicial = itemWs.FechaInicial,
                         FechaFinal = itemWs.FechaFinal,
                         EstaActivo = true,
-                        PeriodoId = itemWs.PeriodoId,
-                        SubcategoriaId = itemWs.SubcategoriaId,
+                        //PeriodoId = itemWs.PeriodoId,
+                        //SubcategoriaId = itemWs.SubcategoriaId,
                         EstaSincronizado = true,
                         Guid = itemWs.Guid
                     };

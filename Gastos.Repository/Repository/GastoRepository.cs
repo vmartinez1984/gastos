@@ -51,7 +51,10 @@ namespace Gastos.Repositories.Repository
         {
             GastoEntity entity;
 
-            entity = await _appDbContext.Gasto.Where(x => x.Id == id).FirstOrDefaultAsync();
+            entity = await _appDbContext.Gasto
+                .Include(x => x.Subcategoria)
+                .Include(x => x.Subcategoria.Categoria)
+                .Where(x => x.Id == id).FirstOrDefaultAsync();
 
             return entity;
         }

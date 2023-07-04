@@ -703,7 +703,8 @@
       "Gastos.Core/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
-          "System.ComponentModel.Annotations": "5.0.0"
+          "System.ComponentModel.Annotations": "5.0.0",
+          "System.Text.Json": "7.0.0"
         },
         "runtime": {
           "Gastos.Core.dll": {}

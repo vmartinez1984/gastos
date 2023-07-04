@@ -34,6 +34,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name="BtnSincronizar" Clicked="BtnSincronizar_Clicked" Text="Sincronizar periodos"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

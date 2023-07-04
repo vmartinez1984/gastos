@@ -12,8 +12,10 @@ namespace Gastos.Core.Dtos
 
         public string Nombre { get; set; }
 
+        [DataType(DataType.Currency)]
         public decimal Cantidad { get; set; }
 
+        [DataType(DataType.Currency)]
         public decimal Total { get; set; }
 
         public Guid Guid { get; set; }
@@ -21,19 +23,20 @@ namespace Gastos.Core.Dtos
 
     public class SubcategoriaDtoIn
     {
-        [Required]
-        [CategoriaIdExiste]
+        [Required(ErrorMessage = "Seleccione una categoria")]
+        [CategoriaIdExiste("Seleccione una categoria valida")]
+        [Display(Name = "Categoria")]
         public int CategoriaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El Nombre es requerido")]
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        [Required]
-        [Range(0, int.MaxValue)]
+        [Required(ErrorMessage = "La cantidad es requerida")]
+        [Range(0, int.MaxValue, ErrorMessage = "La cantidad debe estar entre {0} y {1}")]
         public decimal Cantidad { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El Guid es requerido")]
         [SubcategoriaGuidExiste]
         public Guid Guid { get; set; }
     }
@@ -41,7 +44,7 @@ namespace Gastos.Core.Dtos
     public class SubcategoriaDtoUpdate
     {
         [Required]
-        [CategoriaIdExiste]
+        [CategoriaIdExiste("Seleccione una categoria valida")]
         public int CategoriaId { get; set; }
 
         [Required]

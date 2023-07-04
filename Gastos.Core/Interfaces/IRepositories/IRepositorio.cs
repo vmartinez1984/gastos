@@ -106,5 +106,6 @@ namespace Gastos.Core.Interfaces.IRepositories
         bool Existe(Guid guid);
         Task<List<PeriodoEntity>> ObtenerAsync();
         Task<PeriodoEntity> ObtenerAsync(Guid guid1);
+        Task<PeriodoEntity> ObtenerAsync(string idGuid);
     }
 }

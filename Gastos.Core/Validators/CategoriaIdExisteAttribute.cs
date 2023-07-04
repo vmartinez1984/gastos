@@ -6,6 +6,10 @@ namespace Gastos.Core.Validators
 {
     internal class CategoriaIdExisteAttribute: ValidationAttribute
     {
+        public CategoriaIdExisteAttribute(string errorMessage) : base(errorMessage)
+        {
+        }
+
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             bool existe;

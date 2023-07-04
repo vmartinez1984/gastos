@@ -163,6 +163,12 @@
                         <div class="col">{{ detalle.nota }}</div>
                     </div>
                 </div>
+                <hr class="text-info" />
+                <div class="row">
+                    <div class="col text-end">{{ Formato.formatearMoneda(totalDeApartado) }}</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -173,6 +179,7 @@ import { useRoute } from 'vue-router'
 import servicioCategorias from '@/servicios/ServicioCategorias';
 import servicioApartados from '@/servicios/ServicioApartados'
 import servicioTipoDeApartados from '@/servicios/ServicioTipoDeApartados';
+import servicioDetalleDeApartados from '@/servicios/ServicioDetalleDeApartados';
 import router from '@/router';
 import Formato from '@/ayudantes/Formato';
 
@@ -196,6 +203,7 @@ var titulo = ref()
 var detalleApartado = ref({})
 var mostrarAgregarDetalles = ref(true)
 var dehabilitarFormulario = ref(false)
+var totalDeApartado = ref(0)
 
 const guardarAsync = async () => {
     //console.log(apartado.value)
@@ -241,7 +249,11 @@ const obtenerApartadoAsync = async () => {
     apartado.value = await servicioApartados.obtenerAsync(route.params.id)
     apartado.value.fechaInicial = Formato.formatearFecha(apartado.value.fechaInicial)
     apartado.value.fechaFinal = Formato.formatearFecha(apartado.value.fechaFinal)
-    console.log(apartado.value)
+    apartado.value.subcategoriaId = apartado.value.subcategoria.id
+    apartado.value.tipoDeApartadoId = apartado.value.tipoDeApartado.id
+    apartado.value.listaDeDetalles.forEach(item => {
+        totalDeApartado.value += item.cantidad
+    })
 }
 
 const agregarDetalleAsync = async () => {
@@ -249,9 +261,11 @@ const agregarDetalleAsync = async () => {
 
     detalleApartado.value.nombre = apartado.value.nombre
     detalleApartado.value.apartadoId = route.params.id
-    detalleApartado.value.subcategoriaId = route.query.subcategoriaId
-    //console.log(detalleApartado.value)
-    id = await servicioApartados.agregarDetalleAsync(detalleApartado.value)
+    detalleApartado.value.subcategoriaId = apartado.value.subcategoriaId
+    detalleApartado.value.periodoId = detalleApartado.value.periodoId == undefined ? 0 : detalleApartado.value.periodoId
+    detalleApartado.value.guid = uuidv4()
+    console.log(detalleApartado.value)
+    id = await servicioDetalleDeApartados.agregarDetalleAsync(detalleApartado.value)
     apartado.value.listaDeDetalles.push({
         apartadoId: route.params.id,
         cantidad: detalleApartado.value.cantidad,
@@ -266,15 +280,16 @@ const agregarDetalleAsync = async () => {
 
 onMounted(async () => {
     //console.log(route.name)
-    //console.log(route.params)
+    console.log(route.params)
     await obtenerSubcategoriasAsync()
     await obtenerTipoDeApartadosAsync()
     apartado.value.idemPotency = uuidv4()
     switch (route.name) {
         case 'editarApartado':
             await obtenerApartadoAsync()
-            apartado.value.periodoId = route.query.periodoId
-            apartado.value.subcategoriaId = route.query.subcategoriaId
+            apartado.value.periodoId = route.query.periodoId == undefined? 0 : route.query.periodoId
+            apartado.value.subcategoria.id = route.query.subcategoriaId
+            console.log(apartado.value)
             titulo.value = "Editar apartado"
             break
 

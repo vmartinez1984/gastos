@@ -17,25 +17,6 @@ namespace Gastos.Mvc.Controllers
             return View(await _unitOfWork.Periodo.ObtenerAsync());
         }
 
-        // GET: PeriodosController/Details/5
-        public async Task<ActionResult> Details(int id)
-        {
-            PeriodoCompletoDto periodo;
-            PeriodoDto periodoDto;
-
-            periodoDto = await _unitOfWork.Periodo.ObtenerAsync(id);
-            periodo = new PeriodoCompletoDto
-            {
-                FechaFinal = periodoDto.FechaFinal,
-                FechaInicial = periodoDto.FechaInicial,
-                Id = id,
-                Nombre = periodoDto.Nombre,
-                ListaDeGastos = await _unitOfWork.Gasto.ObtenerPorPeriodoIdAsync(id)
-            };
-
-            return View(periodo);
-        }
-
         // GET: PeriodosController/Create
         public ActionResult Create()
         {
@@ -45,11 +26,16 @@ namespace Gastos.Mvc.Controllers
         // POST: PeriodosController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(PeriodoDtoIn periodo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    await _unitOfWork.Periodo.AgregarAsync(periodo);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(periodo);
             }
             catch
             {
@@ -58,19 +44,34 @@ namespace Gastos.Mvc.Controllers
         }
 
         // GET: PeriodosController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            PeriodoDto periodo;
+
+            periodo = await _unitOfWork.Periodo.ObtenerAsync(id.ToString());
+
+            return View(periodo);
         }
 
         // POST: PeriodosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, PeriodoDtoUpdate periodoDtoIn)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    await _unitOfWork.Periodo.ActualizarAsync(periodoDtoIn, id.ToString());
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(new PeriodoDto
+                {
+                    FechaFinal = periodoDtoIn.FechaFinal,
+                    FechaInicial = periodoDtoIn.FechaInicial,
+                    Id = id,
+                    Nombre = periodoDtoIn.Nombre
+                });
             }
             catch
             {
@@ -79,18 +80,23 @@ namespace Gastos.Mvc.Controllers
         }
 
         // GET: PeriodosController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            PeriodoDto periodo;
+
+            periodo = await _unitOfWork.Periodo.ObtenerAsync(id.ToString());
+
+            return View(periodo);
         }
 
         // POST: PeriodosController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
             try
             {
+                await _unitOfWork.Periodo.BorrarAsync(id.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch

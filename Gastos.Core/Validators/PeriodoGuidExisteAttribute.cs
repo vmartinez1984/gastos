@@ -58,7 +58,7 @@ namespace Gastos.Core.Validators
                 {
                     if (validationContext.ObjectType.Name == NombreDeLaClase)
                     {
-                        (validationContext.ObjectInstance as DetalleDeApartadoDto).PeriodoId = periodo.Id;
+                        (validationContext.ObjectInstance as DetalleDeApartadoDtoIn).PeriodoId = periodo.Id;
                     }
                 }
             }

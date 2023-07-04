@@ -14,6 +14,7 @@ namespace Gastos.Core.Dtos
         //public List<DetalleDeApartadoDto> ListaDeDetalles { get; set; }
         public List<DetalleDeApartadoDto> ListaDeDetalles { get; set; }
 
+        [Display(Name = "Restantes")]
         public int DiasRestantes 
         {
             get
@@ -68,17 +69,22 @@ namespace Gastos.Core.Dtos
         public decimal Intereses { get; set; }
 
         [Required]
+        [Display(Name = "Cantidad inicial")]
         public decimal CantidadInicial { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Cantidad final")]
         public decimal CantidadFinal { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "Fecha inicial")]
         public DateTime FechaInicial { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "Fecha final")]
         public DateTime FechaFinal { get; set; }
     }
 }

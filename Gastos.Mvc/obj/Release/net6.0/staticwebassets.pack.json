@@ -1,0 +1,189 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\Gastos.Mvc.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Gastos.Mvc.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\about.png",
+      "PackagePath": "staticwebassets\\img\\about.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\hero-1.png",
+      "PackagePath": "staticwebassets\\img\\hero-1.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\hero-2.png",
+      "PackagePath": "staticwebassets\\img\\hero-2.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-1.png",
+      "PackagePath": "staticwebassets\\img\\icon-1.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-10.png",
+      "PackagePath": "staticwebassets\\img\\icon-10.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-2.png",
+      "PackagePath": "staticwebassets\\img\\icon-2.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-3.png",
+      "PackagePath": "staticwebassets\\img\\icon-3.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-4.png",
+      "PackagePath": "staticwebassets\\img\\icon-4.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-5.png",
+      "PackagePath": "staticwebassets\\img\\icon-5.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-6.png",
+      "PackagePath": "staticwebassets\\img\\icon-6.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-7.png",
+      "PackagePath": "staticwebassets\\img\\icon-7.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-8.png",
+      "PackagePath": "staticwebassets\\img\\icon-8.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-9.png",
+      "PackagePath": "staticwebassets\\img\\icon-9.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-1.png",
+      "PackagePath": "staticwebassets\\img\\payment-1.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-2.png",
+      "PackagePath": "staticwebassets\\img\\payment-2.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-3.png",
+      "PackagePath": "staticwebassets\\img\\payment-3.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-4.png",
+      "PackagePath": "staticwebassets\\img\\payment-4.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\animate\\animate.css",
+      "PackagePath": "staticwebassets\\lib\\animate\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\animate\\animate.min.css",
+      "PackagePath": "staticwebassets\\lib\\animate\\animate.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\counterup\\counterup.min.js",
+      "PackagePath": "staticwebassets\\lib\\counterup\\counterup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\wow\\wow.js",
+      "PackagePath": "staticwebassets\\lib\\wow\\wow.js"
+    },
+    {
+      "Id": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\wow\\wow.min.js",
+      "PackagePath": "staticwebassets\\lib\\wow\\wow.min.js"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.Gastos.Mvc.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.Gastos.Mvc.props",
+      "PackagePath": "build\\Gastos.Mvc.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Gastos.Mvc.props",
+      "PackagePath": "buildMultiTargeting\\Gastos.Mvc.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.Gastos.Mvc.props",
+      "PackagePath": "buildTransitive\\Gastos.Mvc.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

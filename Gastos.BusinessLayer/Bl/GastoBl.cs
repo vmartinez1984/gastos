@@ -6,6 +6,7 @@ using Gastos.Core.Interfaces.IBusinessLayer;
 using Gastos.Core.Interfaces.IRepositories;
 using System.Text.RegularExpressions;
 using System;
+using System.Collections.Generic;
 
 namespace Gastos.BusinessLayer.Bl
 {
@@ -104,6 +105,50 @@ namespace Gastos.BusinessLayer.Bl
             dto = _mapper.Map<GastoDto>(entity);
 
             return dto;
+        }
+
+        public async Task<List<GastoDto>> ObtenerListaDeGastosYSubcategorias(string idGuid)
+        {
+            PeriodoEntity periodoEntity;
+            List<SubcategoriaEntity> subcategoriaEntities;
+            List<GastoEntity> gastoEntities;
+            List<GastoDto> gastoDtos;
+
+            periodoEntity = await _repositorio.Periodo.ObtenerAsync(idGuid);
+            subcategoriaEntities = await _repositorio.Subcategoria.ObtenerAsync();
+            gastoEntities = await _repositorio.Gasto.ObtenerPorPeriodoIdAsync(periodoEntity.Id);
+            gastoDtos = new List<GastoDto>();
+            foreach (var subcategoria in subcategoriaEntities)
+            {
+                GastoDto gastoDto;
+                GastoEntity gastoEntity;
+
+                gastoEntity = gastoEntities.FirstOrDefault(gastoEntity => gastoEntity.SubcategoriaId == subcategoria.Id);
+                if (gastoEntity == null)
+                {
+                    gastoDto = new GastoDto
+                    {
+                        Cantidad = 0,
+                        Id = 0,
+                        IdemPotency = Guid.NewGuid(),
+                        Nombre = string.Empty,
+                        PeriodoId = periodoEntity.Id,
+                        Presupuesto = subcategoria.Cantidad,
+                        Subcategoria = _mapper.Map<SubcategoriaDto>(subcategoria)
+                    };
+                }
+                else
+                {
+                    gastoDto = _mapper.Map<GastoDto>(gastoEntity);
+                    gastoDto.Presupuesto = subcategoria.Cantidad;
+                }
+                gastoDto.Total = await _repositorio.Apartado.ObtenerTotalPorSubcategoriaId(subcategoria.Id);
+                gastoDto.Subcategoria.Total = gastoDto.Total;
+
+                gastoDtos.Add(gastoDto);
+            }
+
+            return gastoDtos;
         }
     }
 }

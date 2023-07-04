@@ -8,6 +8,7 @@ export default {
     async agregarAsync(apartado) {
         var response
 
+        console.log("post",apartado)
         response = await axios.post(
             url,
             {
@@ -19,7 +20,8 @@ export default {
                 "fechaInicial": apartado.fechaInicial,
                 "fechaFinal": apartado.fechaFinal,
                 "periodoId": apartado.periodoId,
-                "subcategoriaId": apartado.subcategoriaId
+                "subcategoriaIdGuid": apartado.subcategoriaId + "",
+                "guid": apartado.idemPotency
             }
         )
         console.log(response)
@@ -41,7 +43,7 @@ export default {
                 "fechaInicial": apartado.fechaInicial,
                 "fechaFinal": apartado.fechaFinal,
                 "periodoId": apartado.periodoId,
-                "subcategoriaId": apartado.subcategoriaId
+                "subcategoriaIdGuid": apartado.subcategoriaId + ""
             }
         )
         console.log(response)
@@ -80,28 +82,5 @@ export default {
         })
 
         return response.data
-    },
-
-    /**
-     * 
-     * @param {detalle} detalle 
-     * @returns {id = id}
-     */
-    async agregarDetalleAsync(detalle) {
-        console.log(detalle)
-        let response
-
-        response = await axios.post(
-            url + 'detalles',
-            {
-                "apartadoId": detalle.apartadoId,
-                "cantidad": detalle.cantidad,
-                "nota": detalle.nota,
-                "periodoId": detalle.periodoId,
-                "subcategoriaId": detalle.subcategoriaId
-            }
-        )
-
-        return response.data.id
-    }
+    }   
 }

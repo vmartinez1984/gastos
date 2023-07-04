@@ -1,8 +1,163 @@
-﻿@{
+﻿@using Gastos.Core.Dtos;
+@{
     ViewData["Title"] = "Home Page";
+    PeriodoDto periodo = ViewBag.Periodo;
+    List<GastoDto> listaDeGastos = ViewBag.ListaDeGastos;
+    decimal total = listaDeGastos.Where(x => x.Subcategoria.Categoria.Id == 1).Sum(x => x.Cantidad) - listaDeGastos.Where(x => x.Subcategoria.Categoria.Id != 1).Sum(x => x.Cantidad);
+    List<PeriodoDto> listaDePeriodos = ViewBag.Periodos;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <img class="img-fluid" src="img/about.png" alt="">
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="h-100">
+                    <h1 class="display-6">Periodo</h1>
+                    <p class="text-primary fs-5 mb-4">@periodo.Nombre</p>
+
+                    <a class="btn btn-primary py-3 px-4" asp-controller="Gastos" asp-action="Index" asp-route-periodoId="@periodo.Id">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- About End -->
+<!-- Facts Start -->
+<div class="container-xxl bg-light py-5 my-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@listaDeGastos.Where(x=> x.Subcategoria.Categoria.Id == 1).Sum(x => x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad inicial</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
+                <img class="img-fluid mb-4" src="img/icon-10.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@listaDeGastos.Where(x=> x.Subcategoria.Categoria.Id != 1).Sum(x => x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad final</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
+                <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@total</h1>
+                <p class="fs-5 text-primary mb-0">Total</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+<!-- Service Start -->
+<div class="container-xxl bg-light py-5 my-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6">Items</h1>
+            <p class="text-primary fs-5 mb-5">Otros items</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-7.png" alt="">
+                    <h5 class="mb-3">Subcategorias</h5>
+                    <p>
+                        Presupuestos de entradas, apartados y gastos
+                    </p>
+                    <a asp-action="Index" asp-controller="Subcategorias">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                    <h5 class="mb-3">Apartados</h5>
+                    <p>
+                        Ahorros plazo fijo, ahorros e Inversiones
+                    </p>
+                    <a asp-action="Index" asp-controller="Apartados">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+           @* <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                    <h5 class="mb-3">Bitcoin Investment</h5>
+                    <p>
+                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                        justo
+                    </p>
+                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-5.png" alt="">
+                    <h5 class="mb-3">Currency Exchange</h5>
+                    <p>
+                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                        justo
+                    </p>
+                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                    <h5 class="mb-3">Bitcoin Escrow</h5>
+                    <p>
+                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                        justo
+                    </p>
+                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item bg-white p-5">
+                    <img class="img-fluid mb-4" src="img/icon-8.png" alt="">
+                    <h5 class="mb-3">Token Sale</h5>
+                    <p>
+                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                        justo
+                    </p>
+                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- Roadmap Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6">Periodos</h1>
+            <p class="text-primary fs-5 mb-5">
+                <a asp-action="Create">Agregar nuevo</a>
+            </p>
+        </div>
+        <div class="owl-carousel roadmap-carousel wow fadeInUp" data-wow-delay="0.1s">
+            @foreach (var item in listaDePeriodos)
+            {
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>@item.Nombre</h5>
+                    <span>
+                        @item.FechaInicial.ToLongDateString() / @item.FechaFinal.ToLongDateString()
+                    </span>
+                    <span>
+                        @Html.ActionLink("Detalles", "Index", "Gastos", new {  periodoId=item.Id })
+                    </span>/
+                    <span>
+                        @Html.ActionLink("Editar", "Edit", "Periodos", new {  Id=item.Id })
+                    </span>/
+                    <span>
+                        @Html.ActionLink("Borrar", "Delete", "Periodos", new {  Id=item.Id })
+                    </span>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Roadmap End -->
+

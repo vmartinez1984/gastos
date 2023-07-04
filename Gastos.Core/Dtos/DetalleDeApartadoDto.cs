@@ -32,6 +32,7 @@ namespace Gastos.Core.Dtos
         [Required]
         [MaxLength(36)]
         [ApartadoIdGuidValidar("ApartadoId", nameof(DetalleDeApartadoDtoIn))]
+        [Display(Name = "Apartado")]
         public string ApartadoIdGuid { get; set; }
 
         [Required]
@@ -43,13 +44,21 @@ namespace Gastos.Core.Dtos
         [Required]
         [MaxLength(36)]
         [PeriodoGuidValidar(nameof(DetalleDeApartadoDtoIn))]
-        public string PeriodoIdGuid { get; set; }
+        public string PeriodoIdGuid { get; set; } = "0";
 
         [JsonIgnore]
         public int ApartadoId { get; set; }
 
         [JsonIgnore]
         public int PeriodoId { get; set; }
+
+        [JsonIgnore]
+        public int SubcategoriaId { get; set; }
+
+        [Required]
+        [SubcategoriaIdGuidValidar(nameof(DetalleDeApartadoDtoIn))]
+        [Display(Name = "Subcategoria")]
+        public string SubcategoriaIdGuid { get; set; }
     }
 
     public class DetalleDeApartadoDto : DetalleDeApartadoBaseDto

@@ -1,4 +1,5 @@
-﻿using Gastos.Core.Interfaces.IBusinessLayer;
+﻿using Gastos.Core.Dtos;
+using Gastos.Core.Interfaces.IBusinessLayer;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
@@ -34,12 +35,24 @@ namespace Gastos.Core.Validators
 
     internal class SubcategoriaIdGuidValidarAttribute : ValidationAttribute
     {
+        public SubcategoriaIdGuidValidarAttribute()
+        {
+            
+        }
+        public SubcategoriaIdGuidValidarAttribute(string nombreDeLaClase)
+        {
+            NombreDeLaClase = nombreDeLaClase;
+        }
+
+        public string NombreDeLaClase { get; }
+
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             bool existe;
             Guid guid;
+            SubcategoriaDto subcategoria;
 
-            if (string.IsNullOrEmpty(value.ToString()))
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
             {
                 return new ValidationResult("El Id o Guid es obligatorio");
             }
@@ -56,10 +69,17 @@ namespace Gastos.Core.Validators
                 return new ValidationResult("Guid no tiene el formato correspondiente");
             }
             var _unitOfWork = validationContext.GetService(typeof(IBl)) as IBl;
-            existe = _unitOfWork.Subcategoria.ObtenerAsync(value.ToString()).Result == null ? false : true;
-            if (existe == false)
+            subcategoria = _unitOfWork.Subcategoria.ObtenerAsync(value.ToString()).Result;
+            if (subcategoria == null)
             {
                 return new ValidationResult("La SubcategoriaId Guid no existe");
+            }
+            else
+            {
+                if(validationContext.ObjectType.Name == NombreDeLaClase)
+                {
+                    (validationContext.ObjectInstance as DetalleDeApartadoDtoIn).SubcategoriaId = subcategoria.Id;
+                }
             }
 
             return ValidationResult.Success;

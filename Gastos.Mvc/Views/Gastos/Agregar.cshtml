@@ -1,0 +1,46 @@
+﻿@model Gastos.Core.Dtos.GastoDtoIn
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h1>Agregar</h1>
+
+<h4>Gasto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Agregar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div class="form-group">
+                <label asp-for="SubcategoriaId" class="control-label"></label>
+                <select asp-for="SubcategoriaId" asp-items="@ViewBag.Subcategorias" class="form-select" disabled></select>
+                <span asp-validation-for="SubcategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>            
+            <input asp-for="PeriodoGuidId" class="form-control" type="hidden"/>                
+            <input asp-for="Guid" class="form-control"  value="@Guid.NewGuid()" type="hidden"/>
+            <input asp-for="SubcategoriaGuidId" type="hidden" value="@Model.SubcategoriaId"/>
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Gastos" asp-route-periodoId="@Model.PeriodoId">Regresar a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

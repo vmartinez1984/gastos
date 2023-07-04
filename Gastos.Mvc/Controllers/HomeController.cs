@@ -1,20 +1,35 @@
-﻿using Gastos.Mvc.Models;
+﻿using Gastos.Core.Dtos;
+using Gastos.Core.Interfaces.IBusinessLayer;
+using Gastos.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Gastos.Mvc.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerGastos
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBl bl) : base(bl)
         {
-            _logger = logger;
         }
 
-        public IActionResult Index()
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public async Task<IActionResult> Index()
         {
+            PeriodoDto periodo;
+            List<PeriodoDto> periodos;
+
+            periodos = await _unitOfWork.Periodo.ObtenerAsync();
+            periodo = periodos.OrderByDescending(x => x.Id).FirstOrDefault();
+            ViewBag.Periodo = periodo;
+            ViewBag.Periodos = periodos;
+            ViewBag.ListaDeGastos = await _unitOfWork.Gasto.ObtenerListaDeGastosYSubcategorias(periodo.Id.ToString());
+
             return View();
         }
 

@@ -73,9 +73,10 @@
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 import servicioSubcategorias from '@/servicios/ServicioSubcategorias'
-import servicioApartados from '@/servicios/ServicioApartados'
+import servicioDetalleDeApartados from '@/servicios/ServicioDetalleDeApartados';
 import formato from '@/ayudantes/Formato'
 import router from '@/router';
+import Ayudante from '@/ayudantes/Ayudante';
 
 var route = useRoute()
 var apartados = ref([])
@@ -93,10 +94,11 @@ const agregarDetalleAsync = async (index, apartadoId) => {
             'cantidad': cantidad.value[index],
             'nota': nota.value[index],
             'periodoId': route.query.periodoId,
-            'subcategoriaId': route.query.subcategoriaId
+            'subcategoriaId': route.query.subcategoriaId,
+            'guid': Ayudante.uuidv4()
         }
-        //console.log(detalle.value)
-        await servicioApartados.agregarDetalleAsync(detalle.value)
+        console.log(detalle.value)
+        await servicioDetalleDeApartados.agregarDetalleAsync(detalle.value)
         if(route.query.periodoId != undefined){
             router.push({name: 'periodoDetalles',params:{ 'id': route.query.periodoId} })
         }
@@ -112,7 +114,7 @@ const obtenerApartadosAsync = async () => {
 }
 
 onMounted(async () => {
-    //console.log(route.query)    
+    console.log(route.query)    
     await obtenerApartadosAsync()
     total.value = 0
     apartados.value.forEach(apartado => {
