@@ -69,7 +69,7 @@
             Lista de gastos por periodo id o guid
             </summary>
             <param name="idGuid"></param>
-            <response code="200">Lista de gastos por periodo</response>
+            <response code="200">Lista de gastos por periodo y subcategoria</response>
         </member>
         <member name="M:Gastos.Api.Controllers.GastosController.Put(Gastos.Core.Dtos.GastoDtoUpdate,System.String)">
             <summary>

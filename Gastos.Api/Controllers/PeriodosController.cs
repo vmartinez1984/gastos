@@ -32,6 +32,7 @@ namespace Gastos.Api.Controllers
             return Ok(list.OrderByDescending(x => x.Id));
         }
 
+
         [HttpGet("{periodoId}/Gastos")]
         public async Task<IActionResult> ObtenerPorPeriodoConDetalleAsync(string periodoId)
         {

@@ -13,7 +13,8 @@ namespace Gastos.BusinessLayer
             ISubcategoriaBl subcategoriaBl,
             ICategoriaBl categoriaBl,
             IDetalleDeApartadoBl detalleDeApartadoBl,
-            ICompraBl compraBl
+            ICompraBl compraBl,
+            IPagoBl pagoBl
         )
         {
             Periodo = periodoBl;
@@ -25,6 +26,7 @@ namespace Gastos.BusinessLayer
             Categoria = categoriaBl;
             DetalleDeApartado = detalleDeApartadoBl;
             Compra = compraBl;
+            Pago = pagoBl;
         }
         public IPeriodoBl Periodo { get; }
 
@@ -38,5 +40,7 @@ namespace Gastos.BusinessLayer
 
         public IDetalleDeApartadoBl DetalleDeApartado { get; }
         public ICompraBl Compra { get; }
+
+        public IPagoBl Pago { get; }
     }
 }

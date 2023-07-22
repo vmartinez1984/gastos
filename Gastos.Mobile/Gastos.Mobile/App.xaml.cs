@@ -1,6 +1,4 @@
 ﻿using Gastos.Mobile.BusinessLayer;
-using Gastos.Mobile.RepositorioApis;
-using Gastos.Mobile.RepositorioSqlite;
 using System;
 using Xamarin.Forms;
 

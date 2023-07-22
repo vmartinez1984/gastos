@@ -48,8 +48,7 @@ namespace Gastos.Core.Validators
         public string AtributoDestino { get; }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        {
-            bool existe;
+        {            
             Guid guid;
             ApartadoDto apartado;
             if (string.IsNullOrEmpty(value.ToString()))

@@ -8,3 +8,13 @@ C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstan
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.csproj.CoreCompileInputs.cache
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.dll
 C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\bin\Release\netstandard2.0\Gastos.Core.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\bin\Release\netstandard2.0\Gastos.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\bin\Release\netstandard2.0\Gastos.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Core\obj\Release\netstandard2.0\Gastos.Core.pdb

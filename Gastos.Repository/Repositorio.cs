@@ -13,7 +13,8 @@ namespace Gastos.Repositories
             ICategoriaRepository categoriaRepository,
             ISubcategoriaRepository subcategoriaRepository,
             IDetalleDeApartadoRepository detalleDeApartadoRepository,
-            ICompraRepository compraRepository
+            ICompraRepository compraRepository,
+            IPagoRepository pagoRepository
         )
         {
             Periodo = periodoRepository;
@@ -25,6 +26,7 @@ namespace Gastos.Repositories
             Subcategoria = subcategoriaRepository;
             DetalleDeApartado = detalleDeApartadoRepository;
             Compra = compraRepository;
+            Pago = pagoRepository;
         }
 
         public IPeriodoRepository Periodo { get;}
@@ -40,5 +42,7 @@ namespace Gastos.Repositories
 
         public IDetalleDeApartadoRepository DetalleDeApartado { get; }
         public ICompraRepository Compra { get; }
+
+        public IPagoRepository Pago { get; }
     }
 }

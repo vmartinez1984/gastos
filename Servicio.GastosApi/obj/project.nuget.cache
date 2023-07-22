@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "DDCkkAYJUHcYdhyM8i5VjbDumaYW+OnYeonNhJ8lR0AMiUhMKzbpYOrNAYaS72dWbwZoy859H0Nhw5OEHQXBaw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Servicio.GastosApi\\Servicio.GastosApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.http\\7.0.0\\microsoft.extensions.http.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

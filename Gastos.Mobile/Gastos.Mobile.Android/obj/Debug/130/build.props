@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638220714989095429
+_nugetassetstimestamp=638242404863590733
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\ahal_\source\repos\vmartinez1984\gastos\gastos.mobile\gastos.mobile.android\gastos.mobile.android.csproj
+projectfullpath=c:\users\vmartinez\source\repos\vmartinez1984\gastos\gastos.mobile\gastos.mobile.android\gastos.mobile.android.csproj

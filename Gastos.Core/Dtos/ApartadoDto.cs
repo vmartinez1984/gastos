@@ -23,7 +23,7 @@ namespace Gastos.Core.Dtos
                 DateTime fechaActual;
 
                 fechaActual = DateTime.Now;
-                dias = FechaFinal.DayOfYear - fechaActual.DayOfYear;
+                dias = (FechaFinal - fechaActual).Days;
 
                 return dias;
             }
@@ -69,6 +69,7 @@ namespace Gastos.Core.Dtos
         public decimal Intereses { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
         [Display(Name = "Cantidad inicial")]
         public decimal CantidadInicial { get; set; }
 

@@ -76,18 +76,23 @@ namespace Gastos.Mvc.Controllers
         }
 
         // GET: DetallesDeApartadosController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            DetalleDeApartadoDto detalles;
+
+            detalles = await _unitOfWork.DetalleDeApartado.ObtenerAsync(id);
+
+            return View(detalles);
         }
 
         // POST: DetallesDeApartadosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, DetalleDeApartadoDtoIn collection)
         {
             try
             {
+                await _unitOfWork.DetalleDeApartado.ActualizarAsync(collection, id);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -17,6 +17,7 @@ namespace Gastos.BusinessLayer.Helpers
             services.AddScoped<ISubcategoriaBl, SubcategoriaBl>();
             services.AddScoped<IDetalleDeApartadoBl, DetalleDeApartadoBl>();
             services.AddScoped<ICompraBl, CompraBl>();
+            services.AddScoped<IPagoBl, PagoBl>();            
 
             services.AddScoped<IBl, UnitOfWork>();
         }

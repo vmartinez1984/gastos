@@ -88,6 +88,14 @@
                 else
                 {
                     <a asp-action="Index" asp-controller="Apartados" class="nav-item nav-link">Apartados</a>
+                }  
+                @if ("compras" == controllerName.ToLower())
+                {
+                    <a asp-action="Index" asp-controller="Compras" class="nav-item nav-link active">Compras</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-controller="Compras" class="nav-item nav-link">Compras</a>
                 }              
             </div>
             @*<div class="h-100 d-lg-inline-flex align-items-center d-none">

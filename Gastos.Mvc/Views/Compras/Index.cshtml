@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Gastos.Core.Dtos.CompraDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Compras</h1>
+
+<!-- Facts Start -->
+<div class="container-xxl bg-light py-5 my-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Model.Sum(x => x.Cantidad)</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad inicial</p>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
+                <img class="img-fluid mb-4" src="img/icon-10.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Math.Truncate(Model.Where(x=> x.MesesSinIntereses > 1).Sum(x => x.Pago))</h1>
+                <p class="fs-5 text-primary mb-0">Cantidad final</p>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
+            <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                <h1 class="display-4" data-toggle="counter-up">@Math.Truncate(Model.Sum(x => x.Pago))</h1>
+            <p class="fs-5 text-primary mb-0">Total</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+
+<p>
+    <a asp-action="Create">Agregar nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDePago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeCorte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDePago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesesSinIntereses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeRegistro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDePago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeCorte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDePago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesesSinIntereses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeRegistro)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

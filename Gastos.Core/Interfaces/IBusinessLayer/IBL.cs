@@ -24,10 +24,12 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         IDetalleDeApartadoBl DetalleDeApartado { get; }
 
         ICompraBl Compra { get; }
+
+        IPagoBl Pago { get; }
     }
 
     public interface ICompraBl : IBaseBl<CompraDtoIn, CompraDto>
-    {        
+    {
         Task<List<CompraDto>> ObtenerPorTdcIdAsync(int tdcId);
     }
 
@@ -103,4 +105,6 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
     {
         Task<List<DestinoDto>> ObtenerAsync();
     }
+
+    public interface IPagoBl : IBaseBl<PagoDtoIn, PagoDto> { }
 }

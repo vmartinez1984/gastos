@@ -23,6 +23,7 @@ namespace Gastos.BusinessLayer.Bl
             entity.Cantidad = item.Cantidad;
             entity.Nombre = item.Nombre;
             entity.Nota = item.Nota;
+            AgregarListaDePagos(entity);
 
             await _repositorio.Compra.ActualizarAsync(entity);
         }
@@ -32,9 +33,38 @@ namespace Gastos.BusinessLayer.Bl
             CompraEntity entity;
 
             entity = _mapper.Map<CompraEntity>(item);
+            AgregarListaDePagos(entity);
             entity.Id = await _repositorio.Compra.AgregarAsync(entity);
 
             return new IdDto { Guid = (Guid)entity.Guid, Id = entity.Id };
+        }
+
+        private void AgregarListaDePagos(CompraEntity entity)
+        {
+            TdcDto tdcDto;
+
+            tdcDto = ObtenerTdc(entity.TdcId);
+            for (int i = 0; i < entity.MesesSinIntereses; i++)
+            {
+                entity.ListaDePagos.Add(new PagoEntity
+                {
+                    NumeroDePago = i + 1,
+                    CantidadDepositada = 0,
+                    CantidadEsperada = entity.Cantidad / entity.MesesSinIntereses,
+                    FechaDePago = ObtenerFechaDePago(i, entity.MesesSinIntereses, tdcDto, entity.FechaDeRegistro)
+                });
+            }
+        }
+
+        private DateTime ObtenerFechaDePago(int numeroDePago, int totalDePagos, TdcDto tdcDto, DateTime fechaDeRegistro)
+        {
+            DateTime fechaDePago;
+            DateTime fechaDeCorte;
+
+            fechaDeCorte = GetDateCut(tdcDto.DateCut.Day, fechaDeRegistro);
+            fechaDePago = fechaDeCorte.AddMonths(numeroDePago).AddDays(20);
+
+            return fechaDePago;
         }
 
         public async Task BorrarAsync(int id)
@@ -42,10 +72,15 @@ namespace Gastos.BusinessLayer.Bl
             await _repositorio.Compra.BorrarAsync(id);
         }
 
-
         public async Task<CompraDto> ObtenerAsync(int id)
         {
-            return _mapper.Map<CompraDto>(await _repositorio.Compra.ObtenerAsync(id));
+            CompraDto dto;
+            CompraEntity entity;
+
+            entity = await _repositorio.Compra.ObtenerAsync(id);
+            dto = _mapper.Map<CompraDto>(entity);            
+
+            return dto;
         }
 
         public async Task<List<CompraDto>> ObtenerPorTdcIdAsync(int tdcId)
@@ -79,9 +114,25 @@ namespace Gastos.BusinessLayer.Bl
                 {
                     item.Pago = item.Cantidad / item.MesesSinIntereses;
                 }
+                item.NumeroDePago = ObtenerNumeroDePago(item.ListaDePagos); 
             });
 
             return lista;
+        }
+
+        private int ObtenerNumeroDePago(List<PagoDto> listaDePagos)
+        {
+            PagoDto pago;
+
+            pago = listaDePagos.Where(x => x.FechaDePago.Year == DateTime.Now.Year && x.FechaDePago.Month == DateTime.Now.Month).FirstOrDefault();
+            if (pago == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return pago.NumeroDePago;
+            }
         }
 
         private TdcDto ObtenerTdc(int tdcId)
@@ -97,11 +148,11 @@ namespace Gastos.BusinessLayer.Bl
             };
         }
 
-        private DateTime GetDateCut(int day, DateTime dateRegistration)
+        private DateTime GetDateCut(int dayCut, DateTime dateRegistration)
         {
             DateTime dateCut;
 
-            dateCut = new DateTime(dateRegistration.Year, dateRegistration.Month, day);
+            dateCut = new DateTime(dateRegistration.Year, dateRegistration.Month, dayCut);
 
             if (dateRegistration >= dateCut)
             {

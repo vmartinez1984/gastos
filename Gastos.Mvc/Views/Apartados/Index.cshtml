@@ -207,7 +207,7 @@
 
                     // Update footer
                     console.log(pageTotal)
-                    $(api.column(4).footer()).html('$' + pageTotal + ' <br/>( $' + total + ' total)');
+                    $(api.column(4).footer()).html('$' + pageTotal.toFixed(2) + ' <br/>( $' + total.toFixed(2) + ' total)');
                 },
             });
         });

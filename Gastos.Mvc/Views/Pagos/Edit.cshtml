@@ -1,0 +1,58 @@
+﻿@model Gastos.Core.Dtos.PagoDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PagoDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-controller="Pagos" asp-route-id="Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" type="hidden" />
+            <input asp-for="CompraId" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="NumeroDePago" class="control-label"></label>
+                <input asp-for="NumeroDePago" class="form-control" disabled />
+                <span asp-validation-for="NumeroDePago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadEsperada" class="control-label"></label>
+                <input asp-for="CantidadEsperada" class="form-control" disabled />
+                <span asp-validation-for="CantidadEsperada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDePago" class="control-label"></label>
+                <input asp-for="FechaDePago" class="form-control" disabled />
+                <span asp-validation-for="FechaDePago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadDepositada" class="control-label"></label>
+                <input asp-for="CantidadDepositada" class="form-control" />
+                <span asp-validation-for="CantidadDepositada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDeDeposito" class="control-label"></label>
+                <input asp-for="FechaDeDeposito" class="form-control" />
+                <span asp-validation-for="FechaDeDeposito" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

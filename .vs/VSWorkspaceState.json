@@ -1,13 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Gastos.Api",
-    "\\Gastos.Api\\Controllers",
-    "\\Gastos.BusinessLayer",
-    "\\Gastos.BusinessLayer\\Bl",
+    "\\Gastos.Mobile",
+    "\\Gastos.Mobile\\Gastos.Mobile",
+    "\\Gastos.Mobile\\Gastos.Mobile\\Vistas",
+    "\\Gastos.Mobile\\Gastos.Mobile\\Vistas\\Subcategorias",
+    "\\Gastos.Mvc",
     "\\Gastos.Repository",
     "\\Gastos.Repository\\Contexts"
   ],
-  "SelectedNode": "\\Gastos.Api\\Controllers\\GastosController.cs",
+  "SelectedNode": "\\Gastos.Mobile\\Gastos.Mobile\\Vistas\\Subcategorias\\ListaDeSubcategorias.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

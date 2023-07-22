@@ -10,6 +10,10 @@
     <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
-    <NameOfLastUsedPublishProfile>C:\Users\ahal_\source\repos\vmartinez1984\gastos\Gastos.Mvc\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\Properties\PublishProfiles\Publish.pubxml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>Gastos.Mvc</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

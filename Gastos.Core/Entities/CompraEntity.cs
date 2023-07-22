@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gastos.Core.Entities
 {
     public class CompraEntity
     {
+        public CompraEntity()
+        {
+            ListaDePagos = new List<PagoEntity>();    
+        }
+
         public int Id { get; set; }
         public string Nombre { get; set; }
 
@@ -20,5 +26,7 @@ namespace Gastos.Core.Entities
         public bool EstaActivo { get; set; } = true;
 
         public Guid Guid { get; set; } = Guid.NewGuid();
+
+        public virtual List<PagoEntity> ListaDePagos { get; set; }
     }
 }

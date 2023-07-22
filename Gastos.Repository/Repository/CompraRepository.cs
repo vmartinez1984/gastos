@@ -39,7 +39,10 @@ namespace Gastos.Repositories.Repository
 
         public async Task<CompraEntity> ObtenerAsync(int id)
         {
-            return await _appDbContext.Compra.Where(x=> x.Id == id && x.EstaActivo).FirstOrDefaultAsync();
+            return await 
+                _appDbContext.Compra
+                .Include(x=> x.ListaDePagos)
+                .Where(x=> x.Id == id && x.EstaActivo).FirstOrDefaultAsync();
         }
 
         public async Task<List<CompraEntity>> ObtenerPorTdcIdAsync(int tdcId)
@@ -54,7 +57,9 @@ namespace Gastos.Repositories.Repository
             //    }
             //}
             //await _appDbContext.SaveChangesAsync();
-            return await _appDbContext.Compra.Where(x => x.TdcId == tdcId && x.EstaActivo).ToListAsync();
+            return await _appDbContext.Compra
+                .Include(x=> x.ListaDePagos)
+                .Where(x => x.TdcId == tdcId && x.EstaActivo).ToListAsync();
         }
     }
 }

@@ -11,10 +11,10 @@ namespace Gastos.Core.Interfaces.IRepositories
 
         IGastoRepository Gasto { get; }
 
-        ISubcategoriaRepository Subcategoria { get; }   
-        
-        IApartadoRepository Apartado { get; }   
-        
+        ISubcategoriaRepository Subcategoria { get; }
+
+        IApartadoRepository Apartado { get; }
+
         ITipoDeApartadoRepository TipoDeApartado { get; }
 
         IDestinoRepository Destino { get; }
@@ -24,6 +24,8 @@ namespace Gastos.Core.Interfaces.IRepositories
         IDetalleDeApartadoRepository DetalleDeApartado { get; }
 
         ICompraRepository Compra { get; }
+
+        IPagoRepository Pago { get; }
     }
 
     public interface ICompraRepository : IBaseRepositorio<CompraEntity>
@@ -42,7 +44,7 @@ namespace Gastos.Core.Interfaces.IRepositories
     {
         Task<List<DestinoEntity>> ObtenerAsync();
     }
-    
+
     public interface ITipoDeApartadoRepository
     {
         bool Existe(int id);
@@ -70,7 +72,7 @@ namespace Gastos.Core.Interfaces.IRepositories
 
     public interface ISubcategoriaRepository//: IBaseRepositorio<SubcategoriaEntity>
     {
-        Task<List<SubcategoriaEntity>> ObtenerAsync();        
+        Task<List<SubcategoriaEntity>> ObtenerAsync();
         Task<SubcategoriaEntity> ObtenerAsync(string idGuid);
         Task BorrarAsync(string idGuid);
         Task<List<SubcategoriaEntity>> ObtenerPorCategoriaIdAsync(int categoriaId);
@@ -79,7 +81,7 @@ namespace Gastos.Core.Interfaces.IRepositories
         bool Existe(Guid guid);
     }
 
-    public interface IGastoRepository: IBaseRepositorio<GastoEntity> 
+    public interface IGastoRepository : IBaseRepositorio<GastoEntity>
     {
         Task<GastoEntity> ObtenerAsync(string idGuid);
         Task<List<GastoEntity>> ObtenerPorPeriodoIdAsync(int periodoId);
@@ -99,8 +101,7 @@ namespace Gastos.Core.Interfaces.IRepositories
         Task BorrarAsync(int id);
     }
 
-
-    public interface IPeriodoRepository: IBaseRepositorio<PeriodoEntity>
+    public interface IPeriodoRepository : IBaseRepositorio<PeriodoEntity>
     {
         Task BorrarAsync(Guid guid);
         bool Existe(Guid guid);
@@ -108,4 +109,9 @@ namespace Gastos.Core.Interfaces.IRepositories
         Task<PeriodoEntity> ObtenerAsync(Guid guid1);
         Task<PeriodoEntity> ObtenerAsync(string idGuid);
     }
+
+    public interface IPagoRepository : IBaseRepositorio<PagoEntity>
+    { 
+    }
+
 }

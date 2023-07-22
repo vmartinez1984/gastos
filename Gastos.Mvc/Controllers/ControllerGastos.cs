@@ -1,7 +1,5 @@
 ﻿using Gastos.Core.Interfaces.IBusinessLayer;
-using Gastos.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Gastos.Mvc.Controllers
 {

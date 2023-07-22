@@ -4100,24 +4100,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ahal_\\.nuget\\packages\\": {},
+    "C:\\Users\\vmartinez\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\Gastos.Mobile.Android.csproj",
+      "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\Gastos.Mobile.Android.csproj",
       "projectName": "Gastos.Mobile.Android",
-      "projectPath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\Gastos.Mobile.Android.csproj",
-      "packagesPath": "C:\\Users\\ahal_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\obj\\",
+      "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\Gastos.Mobile.Android.csproj",
+      "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ahal_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4126,13 +4126,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\vmartinez\\Documents\\NugetLocal": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile\\Gastos.Mobile.csproj": {
-              "projectPath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile\\Gastos.Mobile.csproj"
+            "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile\\Gastos.Mobile.csproj": {
+              "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mobile\\Gastos.Mobile\\Gastos.Mobile.csproj"
             }
           }
         }
@@ -4144,14 +4145,6 @@
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.7.0, )"
-          },
-          "Xamarin.Essentials": {
-            "target": "Package",
-            "version": "[1.7.0, )"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[5.0.0.2196, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

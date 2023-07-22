@@ -750,23 +750,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ahal_\\.nuget\\packages\\": {},
+    "C:\\Users\\vmartinez\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj",
+      "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj",
       "projectName": "Gastos.Core",
-      "projectPath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj",
-      "packagesPath": "C:\\Users\\ahal_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ahal_\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\obj\\",
+      "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj",
+      "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ahal_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -776,6 +776,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Users\\vmartinez\\Documents\\NugetLocal": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -32,9 +32,9 @@ namespace Gastos.Repositories.Repository
             throw new NotImplementedException();
         }
 
-        public Task<DetalleDeApartadoEntity> ObtenerAsync(int id)
+        public async Task<DetalleDeApartadoEntity> ObtenerAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _appDbContext.DetalleDeApartado.FirstAsync(x => x.Id == id);
         }
 
         public async Task<DetalleDeApartadoEntity> ObtenerAsync(string idGuid)

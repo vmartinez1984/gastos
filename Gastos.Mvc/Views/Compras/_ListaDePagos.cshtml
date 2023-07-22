@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Gastos.Core.Dtos.PagoDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDePago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadEsperada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDePago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadDepositada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeDeposito)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDePago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadEsperada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDePago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadDepositada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeDeposito)
+                </td>
+                <td>
+                    @Html.ActionLink("Realizar pago", "Edit", "Pagos" , new { id=item.Id, compraId = item.CompraId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

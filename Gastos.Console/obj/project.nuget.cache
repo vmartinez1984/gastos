@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "rLzeEG1jCEVnN4X5WniZyhxMAFX23EJf3ffcsBNPdnnnWarQlEA37WoGxWJ/Uvv4UGzPViyezRHMNqLyEuoELA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Console\\Gastos.Console.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

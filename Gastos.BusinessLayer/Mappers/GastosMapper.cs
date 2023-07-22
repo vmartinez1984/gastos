@@ -35,6 +35,8 @@ namespace Gastos.Core.Mappers
 
             CreateMap<CompraEntity, CompraDto>();
             CreateMap<CompraDtoIn, CompraEntity>();
+
+            CreateMap<PagoEntity, PagoDto>();
         }
     }
 }

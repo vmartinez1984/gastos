@@ -8,11 +8,14 @@ namespace Gastos.Core.Dtos
     {
         public int Id { get; set; }
 
+        [Display(Name = "No de pago")]
         public int NumeroDePago { get; set; }
 
+        [DataType(DataType.Date)]
+        [Display(Name = "Corte")]
         public DateTime FechaDeCorte { get; set; }
         
-        public List<PayDto> ListPays { get; set; }
+        public List<PagoDto> ListaDePagos { get; set; }
 
         public List<FechaDePagoDto> ListaDeFechaDePagos { get; set; }
                
@@ -20,11 +23,14 @@ namespace Gastos.Core.Dtos
         [DataType(DataType.Currency)]
         public decimal Pago { get; set; }
 
+        [Display(Name = "Fecha de pago")]
+        [DataType(DataType.Date)]
         public DateTime FechaDePago { get; set; }
     }
 
     public class CompraDtoIn
     {
+        [Required(ErrorMessage = "El nombre es requerido")]
         [Display(Name = "Nombre")]
         [StringLength(20)]
         public string Nombre { get; set; }
@@ -33,9 +39,10 @@ namespace Gastos.Core.Dtos
         public string Nota { get; set; }
 
         [Display(Name = "MSI")]
-        [Range(1,18)]
-        public int MesesSinIntereses { get; set; }
+        [Range(1, 18)]
+        public int MesesSinIntereses { get; set; } = 1;
 
+        [Required(ErrorMessage = "El precio es requerido")]
         [Display(Name = "Precio")]
         [DataType(DataType.Currency)]
         //[Range(100,15000)]
@@ -45,7 +52,7 @@ namespace Gastos.Core.Dtos
 
         [Display(Name = "Fecha")]
         [DataType(DataType.Date)]
-        public DateTime FechaDeRegistro { get; set; }
+        public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
     }
 
     public class FechaDePagoDto
@@ -57,23 +64,6 @@ namespace Gastos.Core.Dtos
         public int NumeroDePago { get; set; }
 
         public bool EsActual { get; set; }
-    }
-
-    public class PayDto : PayDtoIn
-    {
-        public int Id { get; set; }
-    }
-
-    public class PayDtoIn
-    {
-        public decimal Amount { get; set; }
-
-
-        public string Name { get; set; }
-
-        public DateTime DateRegistration { get; set; } = DateTime.Now;
-
-        public bool IsActive { get; set; } = true;
     }
 
     public class TdcDto

@@ -19,6 +19,7 @@ namespace Gastos.Repository.Contexts
         public DbSet<DestinoEntity> Destino { get; set; }
         public DbSet<DetalleDeApartadoEntity> DetalleDeApartado { get; set; }
         public DbSet<GastoEntity> Gasto { get; set; }
+        public DbSet<PagoEntity> Pago { get; set; }
         public DbSet<PeriodoEntity> Periodo { get; set; }
         public DbSet<SubcategoriaEntity> Subcategoria { get; set; }
         public DbSet<TipoDeApartadoEntity> TipoDeApartado { get; set; }
@@ -27,15 +28,20 @@ namespace Gastos.Repository.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
+                //string conectionString;
+
+                //conectionString = _configuration.GetConnectionString("SqlServer");
+                //optionsBuilder.UseSqlServer(conectionString);
+
                 string db;
                 string conectionString;
 
-                db = _configuration.GetConnectionString("Db");
+                db = _configuration.GetSection("Db").Value.ToString();
                 conectionString = _configuration.GetConnectionString(db);
-                //db = "SqlServer";
-                //conectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=CodigosPostales; Persist Security Info=True;User ID=sa;Password=123456; TrustServerCertificate=True;";
-                db = "MySql";
-                conectionString = "Server=localhost; Port=3306; Database=gastos; Uid=root; Pwd=;";
+                ////db = "SqlServer";
+                ////conectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=CodigosPostales; Persist Security Info=True;User ID=sa;Password=123456; TrustServerCertificate=True;";
+                //db = "MySql";
+                //conectionString = "Server=localhost; Port=3306; Database=gastos; Uid=root; Pwd=123456;";
 
                 switch (db)
                 {

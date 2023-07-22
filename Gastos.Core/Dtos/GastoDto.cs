@@ -13,8 +13,11 @@ namespace Gastos.Core.Dtos
 
         [DataType(DataType.Currency)]
         public decimal Presupuesto { get; set; }
-        
+
+        [DataType(DataType.Currency)]
         public decimal Total { get; set; }
+
+        public DateTime FechaDeRegistro { get; set; }
     }    
 
     public class GastoDtoIn
@@ -73,6 +76,7 @@ namespace Gastos.Core.Dtos
 
         [Required]
         [Range(0, 13000)]
+        [DataType(DataType.Currency)]
         public decimal Cantidad { get; set; }
 
 

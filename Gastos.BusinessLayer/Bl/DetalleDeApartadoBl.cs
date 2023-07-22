@@ -13,9 +13,16 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public Task ActualizarAsync(DetalleDeApartadoDtoIn item, int id)
+        public async Task ActualizarAsync(DetalleDeApartadoDtoIn item, int id)
         {
-            throw new NotImplementedException();
+            DetalleDeApartadoEntity entity;
+
+            entity = await _repositorio.DetalleDeApartado.ObtenerAsync(id);
+            entity.ApartadoId = item.ApartadoId;
+            entity.Cantidad = item.Cantidad;
+            entity.Nota = item.Nota;
+
+            await _repositorio.DetalleDeApartado.ActualizarAsync(entity);
         }
 
         public async Task<IdDto> AgregarAsync(DetalleDeApartadoDtoIn item)
@@ -66,9 +73,15 @@ namespace Gastos.BusinessLayer.Bl
             throw new NotImplementedException();
         }
 
-        public Task<DetalleDeApartadoDto> ObtenerAsync(int id)
+        public async Task<DetalleDeApartadoDto> ObtenerAsync(int id)
         {
-            throw new NotImplementedException();
+            DetalleDeApartadoDto dto;
+            DetalleDeApartadoEntity entity;
+
+            entity = await _repositorio.DetalleDeApartado.ObtenerAsync(id);
+            dto = _mapper.Map<DetalleDeApartadoDto>(entity);
+
+            return dto;
         }
 
         public async Task<int> RetirarAsync(DetalleDeApartadoDtoIn item)
