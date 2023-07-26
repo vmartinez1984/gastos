@@ -49,3 +49,5 @@ C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Repository\obj\Debug
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Repository\obj\Debug\net6.0\Gastos.Repositories.pdb
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Repository\obj\Debug\net6.0\Gastos.Repositories.genruntimeconfig.cache
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Repository\obj\Debug\net6.0\ref\Gastos.Repositories.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Repository\bin\Debug\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Repository\bin\Debug\net6.0\Gastos.Backup.Core.pdb

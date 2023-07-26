@@ -1,0 +1,15 @@
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\bin\Debug\net6.0\Gastos.Backup.Console.exe
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\bin\Debug\net6.0\Gastos.Backup.Console.deps.json
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\bin\Debug\net6.0\Gastos.Backup.Console.runtimeconfig.json
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\bin\Debug\net6.0\Gastos.Backup.Console.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\bin\Debug\net6.0\Gastos.Backup.Console.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\refint\Gastos.Backup.Console.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\Gastos.Backup.Console.genruntimeconfig.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Console\obj\Debug\net6.0\ref\Gastos.Backup.Console.dll

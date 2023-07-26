@@ -1,0 +1,17 @@
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Backup.BusinessLayer.deps.json
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Backup.BusinessLayer.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Backup.BusinessLayer.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Backup.Core.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\bin\Debug\net6.0\Gastos.Core.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.csproj.CopyComplete
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\refint\Gastos.Backup.BusinessLayer.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\Gastos.Backup.BusinessLayer.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.BusinessLayer\obj\Debug\net6.0\ref\Gastos.Backup.BusinessLayer.dll

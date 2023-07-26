@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gastos.Backup.Core\Gastos.Backup.Core.csproj" />
     <ProjectReference Include="..\Gastos.Core\Gastos.Core.csproj" />
   </ItemGroup>
 

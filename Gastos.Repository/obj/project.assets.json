@@ -1199,6 +1199,19 @@
           }
         }
       },
+      "Gastos.Backup.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Gastos.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Gastos.Backup.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Gastos.Backup.Core.dll": {}
+        }
+      },
       "Gastos.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -3693,6 +3706,11 @@
         "version.txt"
       ]
     },
+    "Gastos.Backup.Core/1.0.0": {
+      "type": "project",
+      "path": "../Gastos.Backup.Core/Gastos.Backup.Core.csproj",
+      "msbuildProject": "../Gastos.Backup.Core/Gastos.Backup.Core.csproj"
+    },
     "Gastos.Core/1.0.0": {
       "type": "project",
       "path": "../Gastos.Core/Gastos.Core.csproj",
@@ -3701,6 +3719,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Gastos.Backup.Core >= 1.0.0",
       "Gastos.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.8",
@@ -3742,6 +3761,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj": {
+              "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj"
+            },
             "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj": {
               "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj"
             }

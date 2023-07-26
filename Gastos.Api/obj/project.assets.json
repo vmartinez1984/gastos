@@ -1212,6 +1212,19 @@
           }
         }
       },
+      "Gastos.Backup.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Gastos.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Gastos.Backup.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Gastos.Backup.Core.dll": {}
+        }
+      },
       "Gastos.BusinessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1246,6 +1259,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Gastos.Backup.Core": "1.0.0",
           "Gastos.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
@@ -3756,6 +3770,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Gastos.Backup.Core/1.0.0": {
+      "type": "project",
+      "path": "../Gastos.Backup.Core/Gastos.Backup.Core.csproj",
+      "msbuildProject": "../Gastos.Backup.Core/Gastos.Backup.Core.csproj"
     },
     "Gastos.BusinessLayer/1.0.0": {
       "type": "project",

@@ -1,0 +1,12 @@
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\bin\Debug\net6.0\Gastos.Bakup.deps.json
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\bin\Debug\net6.0\Gastos.Bakup.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\bin\Debug\net6.0\Gastos.Bakup.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\refint\Gastos.Bakup.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\Gastos.Bakup.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Bakup\obj\Debug\net6.0\ref\Gastos.Bakup.dll

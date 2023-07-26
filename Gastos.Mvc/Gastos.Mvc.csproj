@@ -8,10 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+    <PackageReference Include="VMtz.RequestInspector" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\api-museums\Vmartinez.RequestInspector\VMtz.RequestInspector.csproj" />
     <ProjectReference Include="..\Gastos.BusinessLayer\Gastos.BusinessLayer.csproj" />
     <ProjectReference Include="..\Gastos.Core\Gastos.Core.csproj" />
     <ProjectReference Include="..\Gastos.Repository\Gastos.Repositories.csproj" />

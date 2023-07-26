@@ -94,7 +94,11 @@ namespace Gastos.Api.Controllers
         /// <param name="apartado">Datos a actualizar</param>
         /// <returns></returns>        
         [HttpPut("{idGuid}")]
-        public async Task<IActionResult> put([MaxLength(36)][ApartadoIdGuidValidar] string idGuid, [FromBody] ApartadoDtoUpdate apartado)
+        public async Task<IActionResult> put(
+            [MaxLength(36)]
+            //[ApartadoIdGuidValidar]
+            string idGuid, 
+            [FromBody] ApartadoDtoUpdate apartado)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -111,8 +115,6 @@ namespace Gastos.Api.Controllers
             return Accepted(new { Mensaje = "Elemento actualizado" });
 
         }
-
-      
 
         /// <summary>
         /// Borrar apartado

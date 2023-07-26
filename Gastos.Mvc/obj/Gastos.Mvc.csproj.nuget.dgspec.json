@@ -4,14 +4,14 @@
     "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\Gastos.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\VMtz.RequestInspector.csproj": {
-      "version": "1.0.2",
+    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\VMtz.RequestInspector.csproj",
-        "projectName": "VMtz.RequestInspector",
-        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\VMtz.RequestInspector.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj",
+        "projectName": "Gastos.Backup.Core",
+        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\obj\\",
+        "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,7 +33,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj": {
+                "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -45,40 +49,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Http.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Microsoft.Extensions.Configuration.Abstractions": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -281,9 +251,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\VMtz.RequestInspector.csproj": {
-                "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\api-museums\\Vmartinez.RequestInspector\\VMtz.RequestInspector.csproj"
-              },
               "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.BusinessLayer\\Gastos.BusinessLayer.csproj": {
                 "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.BusinessLayer\\Gastos.BusinessLayer.csproj"
               },
@@ -314,6 +281,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.15, )"
+            },
+            "VMtz.RequestInspector": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             }
           },
           "imports": [
@@ -369,6 +340,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj": {
+                "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Backup.Core\\Gastos.Backup.Core.csproj"
+              },
               "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj": {
                 "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Core\\Gastos.Core.csproj"
               }

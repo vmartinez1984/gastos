@@ -854,4 +854,5 @@ C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\zh-Hans\Humanizer.resources.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\zh-Hant\Humanizer.resources.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\VMtz.RequestInspector.dll
-C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\VMtz.RequestInspector.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\bin\Debug\net6.0\Gastos.Backup.Core.pdb

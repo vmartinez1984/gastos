@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Gastos.Backup.Console/1.0.0": {
+        "runtime": {
+          "Gastos.Backup.Console.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Gastos.Backup.Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
