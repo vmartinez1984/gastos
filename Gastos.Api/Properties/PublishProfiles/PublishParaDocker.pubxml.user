@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Api\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2023-07-05T19:34:02.7735319Z;</History>
+    <_PublishTargetUrl>C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-08-12T00:29:19.6313551Z;True|2023-08-11T18:25:44.8951428-06:00;True|2023-08-10T16:12:06.1463977-06:00;True|2023-08-10T15:50:57.8355650-06:00;True|2023-07-05T13:34:02.7735319-06:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -1,8 +1,8 @@
 using Gastos.Repositories.Helpers;
 using Gastos.BusinessLayer.Helpers;
 using Gastos.Core.Mappers;
-using VMtz.RequestInspector;
-using Vmartinez.RequestInspector.Extensores;
+//using VMtz.RequestInspector;
+//using Vmartinez.RequestInspector.Extensores;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
@@ -14,7 +14,7 @@ builder.Services.AgregarRepository();
 builder.Services.AgregarBl();
 builder.Services.AgregarMappers();
 builder.Services.AddControllersWithViews();
-builder.Services.AddRequestInpector();
+//builder.Services.AddRequestInpector();
 //Lenguaje
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -38,7 +38,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseMiddleware<RequestInspectorMiddleware>();
+//app.UseMiddleware<RequestInspectorMiddleware>();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

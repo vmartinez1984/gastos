@@ -12,7 +12,8 @@
           "Gastos.Core": "1.0.0",
           "Gastos.Repositories": "1.0.0",
           "Microsoft.NET.Build.Containers": "7.0.304",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.15"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.15",
+          "VMtz.RequestInspector": "1.0.2"
         },
         "runtime": {
           "Gastos.Mvc.dll": {}
@@ -629,6 +630,17 @@
         }
       },
       "MessagePackAnalyzer/2.1.152": {},
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        }
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -2620,6 +2632,29 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "VMtz.RequestInspector/1.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/VMtz.RequestInspector.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "Gastos.Backup.Core/1.0.0": {
+        "dependencies": {
+          "Gastos.Core": "1.0.0"
+        },
+        "runtime": {
+          "Gastos.Backup.Core.dll": {}
+        }
+      },
       "Gastos.BusinessLayer/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
@@ -2642,6 +2677,7 @@
       },
       "Gastos.Repositories/1.0.0": {
         "dependencies": {
+          "Gastos.Backup.Core": "1.0.0",
           "Gastos.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
@@ -3049,6 +3085,20 @@
       "sha512": "sha512-uJhZlGMkXDaFYsH8V9S6o1EyvsUqB9mpU4DVBXNr0DXZVzZMhuLP1IkLj5xK3EKlaAcvkFkZv3eSvuz360wb3Q==",
       "path": "messagepackanalyzer/2.1.152",
       "hashPath": "messagepackanalyzer.2.1.152.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
       "type": "package",
@@ -4232,6 +4282,18 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "VMtz.RequestInspector/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OCQFVqPucpDM9QC6jB634YvRDANpeITjCVWfZ0nzJ+IAvuWovxLYAL4IqMbhqmR26o4WK8uxbdCSqXQJ5Opj0g==",
+      "path": "vmtz.requestinspector/1.0.2",
+      "hashPath": "vmtz.requestinspector.1.0.2.nupkg.sha512"
+    },
+    "Gastos.Backup.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Gastos.BusinessLayer/1.0.0": {
       "type": "project",

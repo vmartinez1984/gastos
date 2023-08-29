@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "avFm1DQAH9oG/rsqg686mxmL/bNVO0olnBO/pyiOIEE=",
+  "Hash": "tLQeevordkxlDxfBJPRTsAKWX66bAPLnmN20smIgrfE=",
   "Source": "Gastos.Mvc",
   "BasePath": "_content/Gastos.Mvc",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Gastos.Mvc\\wwwroot",
+      "Name": "Gastos.Mvc/wwwroot",
       "Source": "Gastos.Mvc",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Gastos.Mvc.styles.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/bundle/Gastos.Mvc.styles.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/bundle/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "Gastos.Mvc.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Gastos.Mvc.styles.css"
+      "OriginalItemSpec": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/bundle/Gastos.Mvc.styles.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Gastos.Mvc.bundle.scp.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/projectbundle/Gastos.Mvc.bundle.scp.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/projectbundle/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "Gastos.Mvc.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Gastos.Mvc.bundle.scp.css"
+      "OriginalItemSpec": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/obj/Debug/net6.0/scopedcss/projectbundle/Gastos.Mvc.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\css\\bootstrap.min.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/css/bootstrap.min.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "css/bootstrap.min.css",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot/css/bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\css\\style.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/css/style.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\style.css"
+      "OriginalItemSpec": "wwwroot/css/style.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\favicon.ico",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/favicon.ico",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\about.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/about.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/about.png",
       "AssetKind": "All",
@@ -116,13 +116,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\about.png"
+      "OriginalItemSpec": "wwwroot/img/about.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\hero-1.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/hero-1.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/hero-1.png",
       "AssetKind": "All",
@@ -133,13 +133,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\hero-1.png"
+      "OriginalItemSpec": "wwwroot/img/hero-1.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\hero-2.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/hero-2.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/hero-2.png",
       "AssetKind": "All",
@@ -150,13 +150,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\hero-2.png"
+      "OriginalItemSpec": "wwwroot/img/hero-2.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-1.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-1.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-1.png",
       "AssetKind": "All",
@@ -167,13 +167,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-1.png"
+      "OriginalItemSpec": "wwwroot/img/icon-1.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-10.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-10.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-10.png",
       "AssetKind": "All",
@@ -184,13 +184,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-10.png"
+      "OriginalItemSpec": "wwwroot/img/icon-10.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-2.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-2.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-2.png",
       "AssetKind": "All",
@@ -201,13 +201,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-2.png"
+      "OriginalItemSpec": "wwwroot/img/icon-2.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-3.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-3.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-3.png",
       "AssetKind": "All",
@@ -218,13 +218,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-3.png"
+      "OriginalItemSpec": "wwwroot/img/icon-3.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-4.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-4.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-4.png",
       "AssetKind": "All",
@@ -235,13 +235,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-4.png"
+      "OriginalItemSpec": "wwwroot/img/icon-4.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-5.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-5.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-5.png",
       "AssetKind": "All",
@@ -252,13 +252,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-5.png"
+      "OriginalItemSpec": "wwwroot/img/icon-5.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-6.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-6.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-6.png",
       "AssetKind": "All",
@@ -269,13 +269,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-6.png"
+      "OriginalItemSpec": "wwwroot/img/icon-6.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-7.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-7.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-7.png",
       "AssetKind": "All",
@@ -286,13 +286,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-7.png"
+      "OriginalItemSpec": "wwwroot/img/icon-7.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-8.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-8.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-8.png",
       "AssetKind": "All",
@@ -303,13 +303,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-8.png"
+      "OriginalItemSpec": "wwwroot/img/icon-8.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\icon-9.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/icon-9.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/icon-9.png",
       "AssetKind": "All",
@@ -320,13 +320,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\icon-9.png"
+      "OriginalItemSpec": "wwwroot/img/icon-9.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-1.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/payment-1.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/payment-1.png",
       "AssetKind": "All",
@@ -337,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\payment-1.png"
+      "OriginalItemSpec": "wwwroot/img/payment-1.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-2.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/payment-2.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/payment-2.png",
       "AssetKind": "All",
@@ -354,13 +354,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\payment-2.png"
+      "OriginalItemSpec": "wwwroot/img/payment-2.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-3.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/payment-3.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/payment-3.png",
       "AssetKind": "All",
@@ -371,13 +371,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\payment-3.png"
+      "OriginalItemSpec": "wwwroot/img/payment-3.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\img\\payment-4.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/img/payment-4.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "img/payment-4.png",
       "AssetKind": "All",
@@ -388,13 +388,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\payment-4.png"
+      "OriginalItemSpec": "wwwroot/img/payment-4.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\js\\main.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/js/main.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "js/main.js",
       "AssetKind": "All",
@@ -405,13 +405,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\main.js"
+      "OriginalItemSpec": "wwwroot/js/main.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\animate\\animate.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/animate/animate.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/animate/animate.css",
       "AssetKind": "All",
@@ -422,13 +422,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\animate\\animate.css"
+      "OriginalItemSpec": "wwwroot/lib/animate/animate.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\animate\\animate.min.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/animate/animate.min.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/animate/animate.min.css",
       "AssetKind": "All",
@@ -439,13 +439,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\animate\\animate.min.css"
+      "OriginalItemSpec": "wwwroot/lib/animate/animate.min.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\counterup\\counterup.min.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/counterup/counterup.min.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/counterup/counterup.min.js",
       "AssetKind": "All",
@@ -456,13 +456,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\counterup\\counterup.min.js"
+      "OriginalItemSpec": "wwwroot/lib/counterup/counterup.min.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\easing\\easing.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/easing/easing.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/easing/easing.js",
       "AssetKind": "All",
@@ -473,13 +473,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\easing\\easing.js"
+      "OriginalItemSpec": "wwwroot/lib/easing/easing.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\easing\\easing.min.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/easing/easing.min.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/easing/easing.min.js",
       "AssetKind": "All",
@@ -490,13 +490,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\easing\\easing.min.js"
+      "OriginalItemSpec": "wwwroot/lib/easing/easing.min.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/ajax-loader.gif",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/ajax-loader.gif",
       "AssetKind": "All",
@@ -507,13 +507,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/ajax-loader.gif"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.carousel.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.carousel.css",
       "AssetKind": "All",
@@ -524,13 +524,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.carousel.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.carousel.min.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.carousel.min.css",
       "AssetKind": "All",
@@ -541,13 +541,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.carousel.min.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.theme.default.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.default.css",
       "AssetKind": "All",
@@ -558,13 +558,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.theme.default.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.theme.default.min.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.default.min.css",
       "AssetKind": "All",
@@ -575,13 +575,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.theme.default.min.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.theme.green.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.green.css",
       "AssetKind": "All",
@@ -592,13 +592,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.theme.green.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.theme.green.min.css",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.green.min.css",
       "AssetKind": "All",
@@ -609,13 +609,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.theme.green.min.css"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/assets/owl.video.play.png",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/assets/owl.video.play.png",
       "AssetKind": "All",
@@ -626,13 +626,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/assets/owl.video.play.png"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/LICENSE",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/LICENSE",
       "AssetKind": "All",
@@ -643,13 +643,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\LICENSE"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/LICENSE"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/owl.carousel.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/owl.carousel.js",
       "AssetKind": "All",
@@ -660,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\owl.carousel.js"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/owl.carousel.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/owlcarousel/owl.carousel.min.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/owlcarousel/owl.carousel.min.js",
       "AssetKind": "All",
@@ -677,13 +677,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\owl.carousel.min.js"
+      "OriginalItemSpec": "wwwroot/lib/owlcarousel/owl.carousel.min.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\waypoints\\links.php",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/waypoints/links.php",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/waypoints/links.php",
       "AssetKind": "All",
@@ -694,13 +694,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\waypoints\\links.php"
+      "OriginalItemSpec": "wwwroot/lib/waypoints/links.php"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/waypoints/waypoints.min.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/waypoints/waypoints.min.js",
       "AssetKind": "All",
@@ -711,13 +711,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\waypoints\\waypoints.min.js"
+      "OriginalItemSpec": "wwwroot/lib/waypoints/waypoints.min.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\wow\\wow.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/wow/wow.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/wow/wow.js",
       "AssetKind": "All",
@@ -728,13 +728,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\wow\\wow.js"
+      "OriginalItemSpec": "wwwroot/lib/wow/wow.js"
     },
     {
-      "Identity": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\lib\\wow\\wow.min.js",
+      "Identity": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/lib/wow/wow.min.js",
       "SourceId": "Gastos.Mvc",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\wwwroot\\",
+      "ContentRoot": "/media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/wwwroot/",
       "BasePath": "_content/Gastos.Mvc",
       "RelativePath": "lib/wow/wow.min.js",
       "AssetKind": "All",
@@ -745,7 +745,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\wow\\wow.min.js"
+      "OriginalItemSpec": "wwwroot/lib/wow/wow.min.js"
     }
   ]
 }

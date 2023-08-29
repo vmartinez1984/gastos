@@ -71,7 +71,10 @@ namespace Gastos.Mvc.Controllers
             }
             catch
             {
-                return View();
+                ViewBag.Subcategorias = new SelectList(await _unitOfWork.Subcategoria.ObtenerAsync(), "Id", "Nombre");
+                ViewBag.Apartados = new SelectList(await _unitOfWork.Apartado.ObtenerAsync(), "Id", "Nombre");
+
+                return View(detalle);
             }
         }
 

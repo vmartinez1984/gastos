@@ -268,3 +268,5 @@ C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\Gastos.Api.pdb
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\Gastos.Api.genruntimeconfig.cache
 C:\Users\vmartinez\Source\Repos\vmartinez1984\gastos\Gastos.Api\obj\Release\net6.0\ref\Gastos.Api.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Release\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\bin\Release\net6.0\Gastos.Backup.Core.pdb

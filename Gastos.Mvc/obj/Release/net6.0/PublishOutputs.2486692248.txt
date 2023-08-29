@@ -87,6 +87,7 @@ C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\VMtz.RequestInspector.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\af\Humanizer.resources.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\ar\Humanizer.resources.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\az\Humanizer.resources.dll
@@ -239,9 +240,11 @@ C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Backup.Core.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.BusinessLayer.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Core.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Repositories.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.BusinessLayer.pdb
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Core.pdb
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Repositories.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Mvc\obj\Release\net6.0\PubTmp\Out\Gastos.Backup.Core.pdb

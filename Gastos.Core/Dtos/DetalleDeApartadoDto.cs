@@ -31,7 +31,7 @@ namespace Gastos.Core.Dtos
 
         [Required]
         [MaxLength(36)]
-        //[ApartadoIdGuidValidar("ApartadoId", nameof(DetalleDeApartadoDtoIn))]
+        [ApartadoIdGuidValidar("ApartadoId", nameof(DetalleDeApartadoDtoIn))]
         [Display(Name = "Apartado")]
         public string ApartadoIdGuid { get; set; }
 

@@ -31,7 +31,12 @@ builder.Services.AddSwaggerGen(options =>
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
-builder.Services.AddCors(options => options.AddPolicy("AllowWebApp", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddCors(options => options.AddPolicy("AllowWebApp", 
+    builder => builder.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    )
+);
 var app = builder.Build();
 
 app.UseSwagger();

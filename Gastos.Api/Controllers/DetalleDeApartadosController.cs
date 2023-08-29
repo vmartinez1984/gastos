@@ -47,5 +47,20 @@ namespace Gastos.Api.Controllers
             }
 
         }
+
+        /// <summary>
+        /// Actualiza el Detalle del apartado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="detalleDeApartado"></param>        
+        /// <response code="201">Perido registrado</response>        
+        [HttpPut("{id}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> Put(int id, [FromBody] DetalleDeApartadoDtoIn detalleDeApartado)
+        {
+            await _unitOfWork.DetalleDeApartado.ActualizarAsync(detalleDeApartado, id);
+
+            return Accepted();
+        }
     }
 }

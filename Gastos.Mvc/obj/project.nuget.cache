@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F4wBbJah15VcfiXX0J8iPkePAjYKJxdNgs8UG1m6bHK9H72OZlHHlwhTMbg1rbnfCDrHZZQSMHb4Yl/22Dt+Xw==",
+  "dgSpecHash": "fSILCXVZnNi0i5paWh2cwB+pbMlX5iiOCR+koB/0TQ+8Vloo1h0nvkCAuH5+EY/e7v1nwkks7dpTqz1IR9Y/hw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\gastos\\Gastos.Mvc\\Gastos.Mvc.csproj",
   "expectedPackageFiles": [
@@ -60,8 +60,6 @@
     "C:\\Users\\vmartinez\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
@@ -230,8 +228,7 @@
     "C:\\Users\\vmartinez\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\vmartinez\\.nuget\\packages\\vmtz.requestinspector\\1.0.2\\vmtz.requestinspector.1.0.2.nupkg.sha512"
+    "C:\\Users\\vmartinez\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

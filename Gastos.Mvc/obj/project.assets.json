@@ -694,39 +694,6 @@
       "MessagePackAnalyzer/2.1.152": {
         "type": "package"
       },
-      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.2.0",
-          "System.Text.Encodings.Web": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.2.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
         "type": "package",
         "compile": {
@@ -3954,26 +3921,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "VMtz.RequestInspector/1.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.EntityFrameworkCore": "6.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "lib/net6.0/VMtz.RequestInspector.dll": {
-            "related": ".runtimeconfig.json"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/VMtz.RequestInspector.dll": {
-            "related": ".runtimeconfig.json"
-          }
-        }
-      },
       "Gastos.Backup.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4879,32 +4826,6 @@
         "messagepackanalyzer.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
-      ]
-    },
-    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-      "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
-        "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-        "microsoft.aspnetcore.http.abstractions.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
-      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
@@ -11458,19 +11379,6 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "VMtz.RequestInspector/1.0.2": {
-      "sha512": "OCQFVqPucpDM9QC6jB634YvRDANpeITjCVWfZ0nzJ+IAvuWovxLYAL4IqMbhqmR26o4WK8uxbdCSqXQJ5Opj0g==",
-      "type": "package",
-      "path": "vmtz.requestinspector/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        "README.md",
-        "lib/net6.0/VMtz.RequestInspector.dll",
-        "lib/net6.0/VMtz.RequestInspector.runtimeconfig.json",
-        "vmtz.requestinspector.1.0.2.nupkg.sha512",
-        "vmtz.requestinspector.nuspec"
-      ]
-    },
     "Gastos.Backup.Core/1.0.0": {
       "type": "project",
       "path": "../Gastos.Backup.Core/Gastos.Backup.Core.csproj",
@@ -11498,8 +11406,7 @@
       "Gastos.Core >= 1.0.0",
       "Gastos.Repositories >= 1.0.0",
       "Microsoft.NET.Build.Containers >= 7.0.304",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.15",
-      "VMtz.RequestInspector >= 1.0.2"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.15"
     ]
   },
   "packageFolders": {
@@ -11567,10 +11474,6 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.15, )"
-          },
-          "VMtz.RequestInspector": {
-            "target": "Package",
-            "version": "[1.0.2, )"
           }
         },
         "imports": [

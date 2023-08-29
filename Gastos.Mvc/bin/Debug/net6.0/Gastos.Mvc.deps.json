@@ -11,9 +11,7 @@
           "Gastos.BusinessLayer": "1.0.0",
           "Gastos.Core": "1.0.0",
           "Gastos.Repositories": "1.0.0",
-          "Microsoft.NET.Build.Containers": "7.0.304",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.15",
-          "VMtz.RequestInspector": "1.0.2"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.15"
         },
         "runtime": {
           "Gastos.Mvc.dll": {}
@@ -630,17 +628,6 @@
         }
       },
       "MessagePackAnalyzer/2.1.152": {},
-      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.2.0",
-          "System.Text.Encodings.Web": "7.0.0"
-        }
-      },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "7.0.0"
-        }
-      },
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -1145,22 +1132,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "5.0.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "5.0.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "5.0.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "5.0.1.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1429,7 +1416,6 @@
           }
         }
       },
-      "Microsoft.NET.Build.Containers/7.0.304": {},
       "Microsoft.NET.StringTools/17.3.2": {
         "dependencies": {
           "System.Memory": "4.5.5",
@@ -2632,21 +2618,6 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "VMtz.RequestInspector/1.0.2": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.EntityFrameworkCore": "7.0.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "runtime": {
-          "lib/net6.0/VMtz.RequestInspector.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
-          }
-        }
-      },
       "Gastos.Backup.Core/1.0.0": {
         "dependencies": {
           "Gastos.Core": "1.0.0"
@@ -3086,20 +3057,6 @@
       "path": "messagepackanalyzer/2.1.152",
       "hashPath": "messagepackanalyzer.2.1.152.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
-      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
-      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
-      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3386,13 +3343,6 @@
       "sha512": "sha512-AAEHZvZyb597a+QJSmtxH3n2P1nIJGpZ4Q89GTenknRx6T6zyfzf592yW/jA5e8EHN4tNMjjXHQaYWEq5+L05w==",
       "path": "microsoft.identitymodel.tokens/6.21.0",
       "hashPath": "microsoft.identitymodel.tokens.6.21.0.nupkg.sha512"
-    },
-    "Microsoft.NET.Build.Containers/7.0.304": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-EK41tfcKMGatU6e1u+9igDq+hUrKLthhFn6dEF2QA7S8t2LKI/2e7rGcndEbplOY9eDqVLEF1XzqncrMuyW7RQ==",
-      "path": "microsoft.net.build.containers/7.0.304",
-      "hashPath": "microsoft.net.build.containers.7.0.304.nupkg.sha512"
     },
     "Microsoft.NET.StringTools/17.3.2": {
       "type": "package",
@@ -4282,13 +4232,6 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
-    },
-    "VMtz.RequestInspector/1.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OCQFVqPucpDM9QC6jB634YvRDANpeITjCVWfZ0nzJ+IAvuWovxLYAL4IqMbhqmR26o4WK8uxbdCSqXQJ5Opj0g==",
-      "path": "vmtz.requestinspector/1.0.2",
-      "hashPath": "vmtz.requestinspector.1.0.2.nupkg.sha512"
     },
     "Gastos.Backup.Core/1.0.0": {
       "type": "project",

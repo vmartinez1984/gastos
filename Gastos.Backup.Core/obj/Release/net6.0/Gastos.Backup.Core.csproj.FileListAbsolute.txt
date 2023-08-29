@@ -1,0 +1,15 @@
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\bin\Release\net6.0\Gastos.Backup.Core.deps.json
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\bin\Release\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\bin\Release\net6.0\Gastos.Backup.Core.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\bin\Release\net6.0\Gastos.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\bin\Release\net6.0\Gastos.Core.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.csproj.CopyComplete
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\refint\Gastos.Backup.Core.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\Gastos.Backup.Core.pdb
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Core\obj\Release\net6.0\ref\Gastos.Backup.Core.dll

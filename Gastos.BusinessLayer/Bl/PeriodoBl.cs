@@ -38,8 +38,31 @@ namespace Gastos.BusinessLayer.Bl
                 Id = entity.Id,
                 Guid = entity.Guid
             };
+            //Crear la lista de los gastos con respecto a las categorias y guardar
+            await AgregarGastos(entity);
 
             return idDto;
+        }
+
+        private async Task AgregarGastos(PeriodoEntity entity)
+        {
+            List<SubcategoriaEntity> subcategorias = await _repositorio.Subcategoria.ObtenerAsync();
+            foreach (var subcategoria in subcategorias)
+            {
+                await _repositorio.Gasto.AgregarAsync(
+                    new GastoEntity
+                    {
+                        EstaActivo = true,
+                        Cantidad = 0,
+                        FechaDeRegistro = DateTime.Now,
+                        Guid = Guid.NewGuid(),
+                        Nombre = string.Empty,
+                        PeriodoId = entity.Id,
+                        Subcategoria = subcategoria,
+                        SubcategoriaId = subcategoria.Id
+                    }
+                );
+            }
         }
 
         public async Task BorrarAsync(int id)

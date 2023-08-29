@@ -720,6 +720,14 @@
           }
         }
       },
+      "Gastos.Backup.Core/1.0.0": {
+        "dependencies": {
+          "Gastos.Core": "1.0.0"
+        },
+        "runtime": {
+          "Gastos.Backup.Core.dll": {}
+        }
+      },
       "Gastos.BusinessLayer/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
@@ -742,6 +750,7 @@
       },
       "Gastos.Repositories/1.0.0": {
         "dependencies": {
+          "Gastos.Backup.Core": "1.0.0",
           "Gastos.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
@@ -1261,6 +1270,11 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "Gastos.Backup.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Gastos.BusinessLayer/1.0.0": {
       "type": "project",
