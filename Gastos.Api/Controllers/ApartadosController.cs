@@ -1,6 +1,5 @@
 ﻿using Gastos.Core.Dtos;
 using Gastos.Core.Interfaces.IBusinessLayer;
-using Gastos.Core.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 

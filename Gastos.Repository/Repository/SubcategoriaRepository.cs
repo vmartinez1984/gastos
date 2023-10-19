@@ -46,7 +46,8 @@ namespace Gastos.Repositories.Repository
         {
             List<SubcategoriaEntity> entities = await _appDbContext.Subcategoria
                 .Include(x => x.Categoria)
-                .Where(x => x.EstaActivo).OrderBy(x => x.Nombre)
+                //.Where(x => x.EstaActivo)
+                .OrderBy(x => x.Nombre)
                 .ToListAsync();
 
             //foreach (var item in entities)
@@ -106,6 +107,14 @@ namespace Gastos.Repositories.Repository
                 .Include(x => x.Categoria)
                 .Where(x => x.CategoriaId == categoriaId && x.EstaActivo)
                 .ToListAsync();
+        }
+
+        public Task<List<SubcategoriaEntity>> ObtenerTodosPorVersionAsync(int versionId)
+        {
+            return _appDbContext.Subcategoria
+                 .Include(x => x.Categoria)
+                 //.Where(x => x.VersionDePresupuestoId == versionId)
+                 .ToListAsync();
         }
     }
 }

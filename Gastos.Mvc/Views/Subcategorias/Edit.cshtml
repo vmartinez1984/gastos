@@ -29,6 +29,17 @@
                 <label asp-for="Cantidad" class="control-label"></label>
                 <input asp-for="Cantidad" class="form-control" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>         
+            <div class="form-group">
+                <label asp-for="CantidadMeta" class="control-label"></label>
+                <input asp-for="CantidadMeta" class="form-control" />
+                <span asp-validation-for="CantidadMeta" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Nota" class="control-label"></label>
+                <input asp-for="Nota" class="form-control" maxlength="250" />
+                <span asp-validation-for="Nota" class="text-danger"></span>
             </div>
             <input asp-for="Guid" type="hidden" />
             <div class="form-group mt-3">

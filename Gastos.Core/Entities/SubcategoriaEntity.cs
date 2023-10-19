@@ -18,7 +18,15 @@ namespace Gastos.Core.Entities
 
         public bool EstaActivo { get; set; } = true;
 
+        public bool EsPrimario { get; set; } = true;
+
         public decimal Cantidad { get; set; }
+
         public Guid Guid { get; set; } = Guid.NewGuid();
+               
+        public decimal? CantidadMeta { get; set; }  
+
+        public string Nota { get; set; }
+                
     }
 }

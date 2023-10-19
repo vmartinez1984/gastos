@@ -253,7 +253,6 @@ C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/Gastos.Api.AssemblyInfoInputs.cache
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/Gastos.Api.AssemblyInfo.cs
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/Gastos.Api.csproj.CoreCompileInputs.cache
-C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/Gastos.Api.MvcApplicationPartsAssemblyInfo.cs
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/Gastos.Api.MvcApplicationPartsAssemblyInfo.cache
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/staticwebassets/msbuild.Gastos.Api.Microsoft.AspNetCore.StaticWebAssets.props
 C:/Users/vmartinez/Source/Repos/vmartinez1984/gastos/Gastos.Api/obj/Debug/net6.0/staticwebassets/msbuild.build.Gastos.Api.props
@@ -440,7 +439,6 @@ C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.AssemblyInfoInputs.cache
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.AssemblyInfo.cs
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.csproj.CoreCompileInputs.cache
-C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\Gastos.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\staticwebassets\msbuild.Gastos.Api.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Api\obj\Debug\net6.0\staticwebassets\msbuild.build.Gastos.Api.props

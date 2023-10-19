@@ -40,3 +40,8 @@ C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Repositories/
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Repositories/obj/Debug/net6.0/Gastos.Backup.Repositories.pdb
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Repositories/obj/Debug/net6.0/Gastos.Backup.Repositories.genruntimeconfig.cache
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Repositories/obj/Debug/net6.0/ref/Gastos.Backup.Repositories.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Repositories\obj\Debug\net6.0\Gastos.Backup.Repositories.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Repositories\obj\Debug\net6.0\Gastos.Backup.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Repositories\obj\Debug\net6.0\Gastos.Backup.Repositories.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Repositories\obj\Debug\net6.0\Gastos.Backup.Repositories.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Repositories\obj\Debug\net6.0\Gastos.Backup.Repositories.csproj.CoreCompileInputs.cache

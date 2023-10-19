@@ -12,6 +12,10 @@ namespace Gastos.Api.Controllers
     [Route("api/[controller]")]
     public class PeriodosController : ControllerBaseGastos
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bl"></param>
         public PeriodosController(IBl bl) : base(bl)
         {
         }
@@ -32,7 +36,11 @@ namespace Gastos.Api.Controllers
             return Ok(list.OrderByDescending(x => x.Id));
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="periodoId"></param>
+        /// <returns></returns>
         [HttpGet("{periodoId}/Gastos")]
         public async Task<IActionResult> ObtenerPorPeriodoConDetalleAsync(string periodoId)
         {

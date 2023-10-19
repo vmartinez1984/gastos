@@ -23,6 +23,8 @@ namespace Gastos.Repository.Contexts
         public DbSet<PeriodoEntity> Periodo { get; set; }
         public DbSet<SubcategoriaEntity> Subcategoria { get; set; }
         public DbSet<TipoDeApartadoEntity> TipoDeApartado { get; set; }
+        public DbSet<VersionDePresupuestoEntity> VersionDePresupuesto { get; set; }
+        public DbSet<PresupuestoEntity> Presupuesto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

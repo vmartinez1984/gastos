@@ -12,11 +12,33 @@ namespace Gastos.Mvc.Controllers
         }
 
         // GET: SubcategoriasController
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index([FromQuery] FiltroDeSubcategoriaDto filtroDeSubcategoria)
         {
             List<SubcategoriaDto> lista;
-
+            const int Entrada = 1;
             lista = await _unitOfWork.Subcategoria.ObtenerAsync();
+            lista.ForEach(x =>
+            {
+                if (x.Categoria.Id != Entrada)
+                    x.Cantidad = x.Cantidad * -1;
+            });
+            switch (filtroDeSubcategoria.EstaActivo)
+            {
+                case 1:
+                    lista = lista.Where(x => x.EstaActivo == true).ToList();
+                    break;
+                case 2:
+                    lista = lista.Where(x => x.EstaActivo == false).ToList();
+                    break;
+                default:
+                    break;
+            }
+            if (filtroDeSubcategoria.CategoriaId != 0)
+                lista = lista.Where(x => x.Categoria.Id == filtroDeSubcategoria.CategoriaId).ToList();
+            if (filtroDeSubcategoria.VersionDePresupuestoId != 0)
+                lista = lista.Where(x => x.VersionDePresupuestoId == filtroDeSubcategoria.VersionDePresupuestoId).ToList();
+            ViewBag.Categorias = new SelectList(await _unitOfWork.Categoria.ObtenerAsync(), "Id", "Nombre");
+            ViewBag.Versiones = new SelectList(await _unitOfWork.VersionDelPresupuesto.ObtenerTodosAsync(), "Id", "Nombre");
 
             return View(lista);
         }
@@ -73,14 +95,17 @@ namespace Gastos.Mvc.Controllers
                 Cantidad = subcategoria.Cantidad,
                 CategoriaId = subcategoria.Categoria.Id,
                 Guid = subcategoria.Guid,
-                Nombre = subcategoria.Nombre
+                Nombre = subcategoria.Nombre,
+                CantidadMeta = subcategoria.CantidadMeta,                
+                Nota = subcategoria.Nota,
+                EstaActivo = subcategoria.EstaActivo
             });
         }
 
         // POST: SubcategoriasController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, SubcategoriaDtoUpdate subcategoria)
+        public async Task<ActionResult> Edit(int id, SubcategoriaDtoIn subcategoria)
         {
             try
             {
@@ -100,9 +125,12 @@ namespace Gastos.Mvc.Controllers
                     return View(new SubcategoriaDtoIn
                     {
                         Cantidad = subcategoria.Cantidad,
-                        CategoriaId = subcategoria.CategoriaId,
-                        Guid = subcategoria1.Guid,                        
-                        Nombre = subcategoria.Nombre                        
+                        CategoriaId = subcategoria1.Categoria.Id,
+                        Guid = subcategoria.Guid,
+                        Nombre = subcategoria.Nombre,
+                        CantidadMeta = subcategoria.CantidadMeta,                        
+                        Nota = subcategoria.Nota,                        
+                        EstaActivo = subcategoria.EstaActivo
                     });
                 }
 

@@ -81,6 +81,14 @@
                 {
                     <a asp-action="Index" asp-controller="Subcategorias" class="nav-item nav-link">Subcategorias</a>
                 }
+                @if ("versiondepresupuestos" == controllerName.ToLower())
+                {
+                    <a asp-action="Index" asp-controller="VersionDePresupuestos" class="nav-item nav-link active">Versión</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-controller="VersionDePresupuestos" class="nav-item nav-link">Versión</a>
+                }
                 @if ("apartados" == controllerName.ToLower())
                 {
                     <a asp-action="Index" asp-controller="Apartados" class="nav-item nav-link active">Apartados</a>

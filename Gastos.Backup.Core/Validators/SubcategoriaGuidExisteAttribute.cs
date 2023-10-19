@@ -47,8 +47,7 @@ namespace Gastos.Core.Validators
         public string NombreDeLaClase { get; }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        {
-            bool existe;
+        {            
             Guid guid;
             SubcategoriaDto subcategoria;
 

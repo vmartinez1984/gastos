@@ -27,7 +27,7 @@ namespace Gastos.Mvc.Controllers
             {
                 Periodo = await _unitOfWork.Periodo.ObtenerAsync(periodoId.ToString()),
                 ListaDeGastos = await _unitOfWork.Gasto.ObtenerListaDeGastosYSubcategorias(periodoId.ToString())
-            };
+            };            
 
             return View(periodoConGastosModel);
         }

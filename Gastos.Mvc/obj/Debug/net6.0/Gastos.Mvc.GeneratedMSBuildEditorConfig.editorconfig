@@ -136,6 +136,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViY2F0ZWdvcmlhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/Views/Subcategorias/_FiltroDeSubcategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViY2F0ZWdvcmlhc1xfRmlsdHJvRGVTdWJjYXRlZ29yaWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/Views/VersionDePresupuestos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyc2lvbkRlUHJlc3VwdWVzdG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/Views/VersionDePresupuestos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyc2lvbkRlUHJlc3VwdWVzdG9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/Views/VersionDePresupuestos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyc2lvbkRlUHJlc3VwdWVzdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Mvc/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

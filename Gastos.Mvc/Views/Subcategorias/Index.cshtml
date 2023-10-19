@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Gastos.Core.Dtos.SubcategoriaDto>
+﻿@using Gastos.Core.Dtos
+@model IEnumerable<SubcategoriaDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -29,61 +30,7 @@
     </div>
 </div>
 <!-- Facts End -->
-
-<p>
-    <a asp-action="Create">Agregar nuevo</a>
-</p>
-
-<table id="tablaDeEntradas" class="table dt-responsive nowrap" width="100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </tfoot>
-    <tbody>
-        @foreach (var item in Model.Where(x=>x.Categoria.Id == 1))
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Categoria.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cantidad)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
-                    @Html.ActionLink("Borrar", "Delete", new {  id=item.Id })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@await Html.PartialAsync("_FiltroDeSubcategoria", new FiltroDeSubcategoriaDto())
 
 <table id="tabla" class="table dt-responsive nowrap" width="100%">
     <thead>
@@ -98,8 +45,11 @@
                 @Html.DisplayNameFor(model => model.Cantidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Total)
+                @Html.DisplayNameFor(model => model.CantidadMeta)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>            
             <th></th>
         </tr>
     </thead>
@@ -115,13 +65,16 @@
                 @Html.DisplayNameFor(model => model.Cantidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Total)
+                @Html.DisplayNameFor(model => model.CantidadMeta)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>           
             <th></th>
         </tr>
     </tfoot>
     <tbody>
-        @foreach (var item in Model.Where(x=>x.Categoria.Id != 1))
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -134,8 +87,12 @@
                     @Html.DisplayFor(modelItem => item.Cantidad)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.CantidadMeta)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Total)
                 </td>
+                
                 <td>
                     @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
                     @Html.ActionLink("Borrar", "Delete", new {  id=item.Id })
@@ -146,14 +103,14 @@
 </table>
 
 @section Scripts{
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>    
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>    
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    
+
     <script>
         $(document).ready(function () {
-            $('#tabla').DataTable({               
-                responsive:true,
+            $('#tabla').DataTable({
+                responsive: true,
                 "language": {
                     "lengthMenu": "Mostrando _MENU_ registros por página",
                     "zeroRecords": "Registro(s) no encontrado(s)",
@@ -207,7 +164,7 @@
                 },
             });
             $('#tablaDeEntradas').DataTable({
-                responsive: true,                
+                responsive: true,
                 "bLengthChange": false,
                 "bPaginate": false,
                 "bInfo": false,
@@ -239,7 +196,7 @@
 
                     // Update footer
                     console.log(pageTotal)
-                    $(api.column(2).footer()).html('$' + pageTotal);                    
+                    $(api.column(2).footer()).html('$' + pageTotal);
                 },
             });
         });

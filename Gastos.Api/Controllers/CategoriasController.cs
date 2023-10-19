@@ -4,10 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gastos.Api.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriasController : ControllerBaseGastos
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bl"></param>
         public CategoriasController(IBl bl) : base(bl)
         {
         }
@@ -24,6 +31,11 @@ namespace Gastos.Api.Controllers
             return Ok(await _unitOfWork.Categoria.ObtenerAsync());
         }
 
+        /// <summary>
+        /// Obtiene subcategoria por Id
+        /// </summary>
+        /// <param name="categoriaId"></param>
+        /// <returns></returns>
         [HttpGet("{categoriaId}/Subcategorias")]
         public async Task<IActionResult> ObtenerSubcategoriasPorCategoriaId(int categoriaId)
         {

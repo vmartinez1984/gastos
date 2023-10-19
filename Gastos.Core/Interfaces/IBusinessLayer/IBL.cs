@@ -26,6 +26,26 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
         ICompraBl Compra { get; }
 
         IPagoBl Pago { get; }
+
+        IVersionDelPresupuesto VersionDelPresupuesto { get; }
+
+        IPresupuestoBl Presupuesto { get; }
+    }
+
+    public interface IPresupuestoBl
+    {
+        Task ActualizarAsync(int presupuestoId, PresupuestoDtoIn presupuesto);
+        Task<int> AgregarAsync(PresupuestoDtoIn presupuesto);
+        Task<PresupuestoDto> ObtenerPorIdAsync(int presupuestoId);
+        Task<List<PresupuestoDto>> ObtenerTodosPorVersionId(int versionDelPresupuestoId);
+    }
+
+    public interface IVersionDelPresupuesto
+    {
+        Task ActualizarAsync(int versionDelPresupuestoId, VersionDelPresupuestoDtoIn versionDelPresupuesto);
+        Task<int> AgregarAsync(VersionDelPresupuestoDtoIn versionDelPresupuesto);
+        Task<VersionDelPresupuestoDto> ObtenerPorIdAsync(int versionDelPresupuestoId);
+        Task<List<VersionDelPresupuestoDto>> ObtenerTodosAsync();
     }
 
     public interface ICompraBl : IBaseBl<CompraDtoIn, CompraDto>
@@ -92,13 +112,15 @@ namespace Gastos.Core.Interfaces.IBusinessLayer
 
     public interface ISubcategoriaBl //: IBaseBl<SubcategoriaDtoIn, SubcategoriaDto>
     {
-        Task ActualizarAsync(SubcategoriaDtoUpdate subcategoria, string idGuid);
+        Task ActualizarAsync(SubcategoriaDtoIn subcategoria, string idGuid);
         Task<IdDto> AgregarAsync(SubcategoriaDtoIn subcategoria);
         Task BorrarAsync(string idGuid);
         bool Existe(Guid guid);
         Task<List<SubcategoriaDto>> ObtenerAsync();
         Task<SubcategoriaDto> ObtenerAsync(string idGuid);
         Task<List<SubcategoriaDto>> ObtenerPorCategoriaIdAsync(int categoriaId);
+
+        Task<List<SubcategoriaDto>> ObtenerTodosPorVersionAsync(int versionId);
     }
 
     public interface IDestinoBl

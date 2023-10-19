@@ -191,3 +191,9 @@ C:/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Api/obj/Debug
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Api/obj/Debug/net6.0/Gastos.Backup.Api.pdb
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Api/obj/Debug/net6.0/Gastos.Backup.Api.genruntimeconfig.cache
 /media/vmartinez/B47A7C2B7A7BE90E/Users/vmartinez/source/repos/vmartinez1984/gastos/Gastos.Backup.Api/obj/Debug/net6.0/ref/Gastos.Backup.Api.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.csproj.AssemblyReference.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.AssemblyInfoInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.AssemblyInfo.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\source\repos\vmartinez1984\gastos\Gastos.Backup.Api\obj\Debug\net6.0\Gastos.Backup.Api.MvcApplicationPartsAssemblyInfo.cache

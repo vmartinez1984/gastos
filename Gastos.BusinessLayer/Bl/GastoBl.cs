@@ -118,6 +118,7 @@ namespace Gastos.BusinessLayer.Bl
             subcategoriaEntities = await _repositorio.Subcategoria.ObtenerAsync();
             gastoEntities = await _repositorio.Gasto.ObtenerPorPeriodoIdAsync(periodoEntity.Id);
             gastoDtos = new List<GastoDto>();
+            subcategoriaEntities = subcategoriaEntities.Where(x=> x.EstaActivo).ToList();
             foreach (var subcategoria in subcategoriaEntities)
             {
                 GastoDto gastoDto;

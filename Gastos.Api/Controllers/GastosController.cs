@@ -5,9 +5,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Gastos.Api.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     public class GastosController : ControllerBaseGastos
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bl"></param>
         public GastosController(IBl bl) : base(bl)
         {
         }

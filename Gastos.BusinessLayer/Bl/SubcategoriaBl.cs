@@ -13,14 +13,12 @@ namespace Gastos.BusinessLayer.Bl
         {
         }
 
-        public async Task ActualizarAsync(SubcategoriaDtoUpdate item, string idGuid)
+        public async Task ActualizarAsync(SubcategoriaDtoIn item, string idGuid)
         {
             SubcategoriaEntity entity;
 
             entity = await _repositorio.Subcategoria.ObtenerAsync(idGuid);
-            entity.CategoriaId = item.CategoriaId;
-            entity.Cantidad = item.Cantidad;
-            entity.Nombre = item.Nombre;
+            entity = _mapper.Map(item, entity);
 
             await _repositorio.Subcategoria.ActualizarAsync(entity);
         }
@@ -65,6 +63,7 @@ namespace Gastos.BusinessLayer.Bl
 
             entity = await _repositorio.Subcategoria.ObtenerAsync(idGuid);
             item = _mapper.Map<SubcategoriaDto>(entity);
+            item.Total = await _repositorio.Apartado.ObtenerTotalPorSubcategoriaId(entity.Id);
 
             return item;
         }
@@ -77,6 +76,17 @@ namespace Gastos.BusinessLayer.Bl
             var list = _mapper.Map<List<SubcategoriaDto>>(entities);
 
             return list;
+        }
+
+        public async Task<List<SubcategoriaDto>> ObtenerTodosPorVersionAsync(int versionId)
+        {
+            List<SubcategoriaEntity> entities;
+            List<SubcategoriaDto> dtos;
+
+            entities = await _repositorio.Subcategoria.ObtenerTodosPorVersionAsync(versionId);
+            dtos = _mapper.Map<List<SubcategoriaDto>>(entities);
+
+            return dtos;
         }
     }
 }

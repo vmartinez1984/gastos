@@ -26,6 +26,25 @@ namespace Gastos.Core.Interfaces.IRepositories
         ICompraRepository Compra { get; }
 
         IPagoRepository Pago { get; }
+
+        IVersionDePresupuesto VersionDePresupuesto { get; }
+        IPresupuestoRepositorio Presupuesto { get; }
+    }
+
+    public interface IPresupuestoRepositorio
+    {
+        Task ActualizarAsync(PresupuestoEntity entity);
+        Task<int> AgregarAsync(PresupuestoEntity presupuesto);
+        Task<PresupuestoEntity> ObtenerPorIdAsync(int presupuestoId);
+        Task<List<PresupuestoEntity>> ObtenerTodosPorVersionId(int versionDelPresupuestoId);
+    }
+
+    public interface IVersionDePresupuesto
+    {
+        Task ActualizarAsync(VersionDePresupuestoEntity versionDelPresupuesto);
+        Task<int> AgregarAsync(VersionDePresupuestoEntity versionDePresupuesto);
+        Task<VersionDePresupuestoEntity> ObtenerPorIdAsync(int versionDelPresupuestoId);
+        Task<List<VersionDePresupuestoEntity>> ObtenerTodosAsync();
     }
 
     public interface ICompraRepository : IBaseRepositorio<CompraEntity>
@@ -79,6 +98,7 @@ namespace Gastos.Core.Interfaces.IRepositories
         Task ActualizarAsync(SubcategoriaEntity entity);
         Task<int> AgregarAsync(SubcategoriaEntity entity);
         bool Existe(Guid guid);
+        Task<List<SubcategoriaEntity>> ObtenerTodosPorVersionAsync(int versionId);
     }
 
     public interface IGastoRepository : IBaseRepositorio<GastoEntity>

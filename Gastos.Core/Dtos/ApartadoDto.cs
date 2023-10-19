@@ -75,6 +75,11 @@ namespace Gastos.Core.Dtos
 
         [Required]
         [DataType(DataType.Currency)]
+        [Display(Name = "Cantidad meta")]
+        public decimal CantidadMeta { get; set; }
+        
+        [Required]
+        [DataType(DataType.Currency)]
         [Display(Name = "Cantidad final")]
         public decimal CantidadFinal { get; set; }
 

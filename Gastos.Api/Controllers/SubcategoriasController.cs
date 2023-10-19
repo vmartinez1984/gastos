@@ -87,39 +87,44 @@ namespace Gastos.Api.Controllers
 
         }
 
+        ///// <summary>
+        ///// Actualiza subcategoria
+        ///// </summary>
+        ///// <param name="subcategoria"></param>
+        ///// <param name="idGuid"></param> 
+        ///// <response code="202">Actualización con exito</response>
+        //[HttpPut("{idGuid}")]
+        //[ProducesResponseType(StatusCodes.Status202Accepted)]
+        //[Produces("application/json")]
+        //public async Task<IActionResult> Put([FromBody] SubcategoriaDtoUpdate subcategoria, string idGuid)
+        //{
+        //    SubcategoriaDto subcategoriaDto;
+
+        //    subcategoriaDto = await _unitOfWork.Subcategoria.ObtenerAsync(idGuid);
+        //    if (subcategoriaDto == null)
+        //    {
+        //        return NotFound(new { Mensaje = "No se encontro la subcategoria" });
+        //    }
+        //    else
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            await _unitOfWork.Subcategoria.ActualizarAsync(subcategoria, idGuid);
+
+        //            return Accepted(new { Mensaje = "registro actualizado" });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest(ModelState);
+        //        }
+        //    }
+        //}
+
         /// <summary>
-        /// Actualiza subcategoria
+        /// 
         /// </summary>
-        /// <param name="subcategoria"></param>
-        /// <param name="idGuid"></param> 
-        /// <response code="202">Actualización con exito</response>
-        [HttpPut("{idGuid}")]
-        [ProducesResponseType(StatusCodes.Status202Accepted)]
-        [Produces("application/json")]
-        public async Task<IActionResult> Put([FromBody] SubcategoriaDtoUpdate subcategoria, string idGuid)
-        {
-            SubcategoriaDto subcategoriaDto;
-
-            subcategoriaDto = await _unitOfWork.Subcategoria.ObtenerAsync(idGuid);
-            if (subcategoriaDto == null)
-            {
-                return NotFound(new { Mensaje = "No se encontro la subcategoria" });
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    await _unitOfWork.Subcategoria.ActualizarAsync(subcategoria, idGuid);
-
-                    return Accepted(new { Mensaje = "registro actualizado" });
-                }
-                else
-                {
-                    return BadRequest(ModelState);
-                }
-            }
-        }
-
+        /// <param name="subcategoriaId"></param>
+        /// <returns></returns>
         [HttpGet("{subcategoriaId}/Apartados")]
         public async Task<IActionResult> ObtenerApartadosPorSubcategoriaId(int subcategoriaId)
         {

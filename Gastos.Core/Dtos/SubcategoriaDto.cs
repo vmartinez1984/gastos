@@ -19,6 +19,16 @@ namespace Gastos.Core.Dtos
         public decimal Total { get; set; }
 
         public Guid Guid { get; set; }
+               
+        public bool EstaActivo { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Display(Name = "Meta")]
+        public decimal CantidadMeta {  get; set; }
+
+        public string Nota { get; set; }
+
+        public int VersionDePresupuestoId { get; set; }
     }
 
     public class SubcategoriaDtoIn
@@ -37,8 +47,14 @@ namespace Gastos.Core.Dtos
         public decimal Cantidad { get; set; }
 
         [Required(ErrorMessage = "El Guid es requerido")]
-        [SubcategoriaGuidExiste]
-        public Guid Guid { get; set; }
+        //[SubcategoriaGuidExiste]
+        public Guid Guid { get; set; }       
+
+        public bool EstaActivo { get; set; } = true;
+
+        public decimal CantidadMeta { get; set; }
+
+        public string Nota { get; set; }
     }
 
     public class SubcategoriaDtoUpdate
@@ -54,5 +70,17 @@ namespace Gastos.Core.Dtos
         [Required]
         [Range(0, int.MaxValue)]
         public decimal Cantidad { get; set; }
+    }
+
+    public class FiltroDeSubcategoriaDto
+    {
+        [Display(Name = "¿Está activo?")]
+        public int EstaActivo { get; set; } = 1;
+
+        [Display(Name = "Categoria")]
+        public int CategoriaId { get; set; }
+
+        [Display(Name = "Version")]
+        public int VersionDePresupuestoId { get; set; } = 1;
     }
 }
